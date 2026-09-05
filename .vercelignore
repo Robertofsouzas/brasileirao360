@@ -1,0 +1,5 @@
+src/
+config/
+requirements.txt
+data_contract.md
+.env.example
