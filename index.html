@@ -19,7 +19,7 @@
   <meta name="twitter:image" content="https://brasileirao360.vercel.app/assets/img/hero_tactical_banner.jpg">
   
   <!-- CSS Stylesheet -->
-  <link rel="stylesheet" href="assets/css/style.css?v=3.7">
+  <link rel="stylesheet" href="assets/css/style.css?v=3.8">
   <link rel="icon" href="https://crests.football-data.org/764.svg" type="image/svg+xml">
 
   <!-- D3.js v7 CDN (Visualizações Estatísticas Avançadas) -->
@@ -27,6 +27,41 @@
 
   <!-- deck.gl v8.9 CDN (Visualização Espacial em OrthographicView) -->
   <script src="https://unpkg.com/deck.gl@8.9.36/dist.min.js"></script>
+
+  <!-- Google Analytics 4 (Carregamento Condicional sob Consentimento LGPD) -->
+  <script>
+    window.GA_MEASUREMENT_ID = 'G-7DPNXPDJR6';
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    window.gtag = gtag;
+
+    function initGA4() {
+      if (window._ga4Initialized) return;
+      window._ga4Initialized = true;
+
+      const gaScript = document.createElement('script');
+      gaScript.async = true;
+      gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=' + window.GA_MEASUREMENT_ID;
+      document.head.appendChild(gaScript);
+
+      gtag('js', new Date());
+      gtag('config', window.GA_MEASUREMENT_ID, {
+        'anonymize_ip': true,
+        'cookie_flags': 'SameSite=None;Secure'
+      });
+      console.log('📊 Google Analytics (GA4 - ' + window.GA_MEASUREMENT_ID + ') ativo sob consentimento.');
+    }
+    window.initGA4 = initGA4;
+
+    // Inicializa de imediato se já houver consentimento prévio do usuário
+    try {
+      if (localStorage.getItem('cookie_consent') === 'accepted') {
+        initGA4();
+      }
+    } catch (e) {
+      console.warn('Aviso localStorage:', e);
+    }
+  </script>
 </head>
 <body>
 
@@ -880,6 +915,72 @@
 
   <!-- Tooltip Global D3.js -->
   <div id="d3-tooltip" class="d3-tooltip-popup"></div>
+
+  <!-- Banner de Consentimento de Cookies (LGPD) -->
+  <aside id="cookie-banner" class="cookie-banner" aria-label="Consentimento de cookies" style="display: none;">
+    <div class="cookie-banner-content">
+      <div class="cookie-banner-text">
+        <span class="cookie-icon" aria-hidden="true">🍪</span>
+        <p>
+          Este site usa cookies de análise (Google Analytics) para entender como os visitantes usam a plataforma. Ao continuar navegando, você concorda com isso.
+        </p>
+      </div>
+      <div class="cookie-banner-actions">
+        <button type="button" id="btn-cookie-reject" class="btn-cookie-secondary">Recusar</button>
+        <button type="button" id="btn-cookie-accept" class="btn-cookie-primary">Aceitar</button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Script de Controle de Consentimento de Cookies -->
+  <script>
+    (function() {
+      try {
+        var consent = localStorage.getItem('cookie_consent');
+        var banner = document.getElementById('cookie-banner');
+        var btnAccept = document.getElementById('btn-cookie-accept');
+        var btnReject = document.getElementById('btn-cookie-reject');
+
+        if (!consent && banner) {
+          banner.style.display = 'block';
+          setTimeout(function() {
+            banner.classList.add('cookie-banner--visible');
+          }, 80);
+        }
+
+        function hideBanner() {
+          if (!banner) return;
+          banner.classList.remove('cookie-banner--visible');
+          setTimeout(function() {
+            banner.style.display = 'none';
+          }, 350);
+        }
+
+        if (btnAccept) {
+          btnAccept.addEventListener('click', function() {
+            try {
+              localStorage.setItem('cookie_consent', 'accepted');
+            } catch (e) {}
+            hideBanner();
+            if (typeof window.initGA4 === 'function') {
+              window.initGA4();
+            }
+          });
+        }
+
+        if (btnReject) {
+          btnReject.addEventListener('click', function() {
+            try {
+              localStorage.setItem('cookie_consent', 'rejected');
+            } catch (e) {}
+            hideBanner();
+          });
+        }
+      } catch (e) {
+        console.warn('Erro ao processar cookies de consentimento:', e);
+      }
+    })();
+  </script>
 
   <!-- Scripts -->
   <script src="assets/js/data.js?v=3.6"></script>
