@@ -1,0 +1,37 @@
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+env/
+
+# Data cache (raw & interim)
+data/bronze/
+data/silver/
+
+# IDE & Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS artifacts
+Thumbs.db
+.DS_Store
+desktop.ini
+
+# Notebooks
+.ipynb_checkpoints/
+
+# Power BI / BI exports
+*.pbix
+

@@ -1,0 +1,320 @@
+{
+  "José Manuel López": {
+    "api_id": 295513,
+    "official_name": "J. López",
+    "foto_url": "https://media.api-sports.io/football/players/295513.png",
+    "team": "Palmeiras"
+  },
+  "Gustavo Gómez": {
+    "api_id": 2502,
+    "official_name": "G. Gómez",
+    "foto_url": "https://media.api-sports.io/football/players/2502.png",
+    "team": "Palmeiras"
+  },
+  "Joaquín Piquerez": {
+    "api_id": 51466,
+    "official_name": "J. Piquerez",
+    "foto_url": "https://media.api-sports.io/football/players/51466.png",
+    "team": "Palmeiras"
+  },
+  "Pedro": {
+    "api_id": 10321,
+    "official_name": "Pedro",
+    "foto_url": "https://media.api-sports.io/football/players/10321.png",
+    "team": "Flamengo"
+  },
+  "Giorgian De Arrascaeta": {
+    "api_id": 2612,
+    "official_name": "G. de Arrascaeta",
+    "foto_url": "https://media.api-sports.io/football/players/2612.png",
+    "team": "Flamengo"
+  },
+  "Nicolás De La Cruz": {
+    "api_id": 5995,
+    "official_name": "N. de la Cruz",
+    "foto_url": "https://media.api-sports.io/football/players/5995.png",
+    "team": "Flamengo"
+  },
+  "Léo Ortiz": {
+    "api_id": 9458,
+    "official_name": "Léo Ortiz",
+    "foto_url": "https://media.api-sports.io/football/players/9458.png",
+    "team": "Flamengo"
+  },
+  "Agustín Rossi": {
+    "api_id": 11756,
+    "official_name": "A. Rossi",
+    "foto_url": "https://media.api-sports.io/football/players/11756.png",
+    "team": "Flamengo"
+  },
+  "Ayrton Lucas": {
+    "api_id": 1771,
+    "official_name": "Ayrton Lucas",
+    "foto_url": "https://media.api-sports.io/football/players/1771.png",
+    "team": "Flamengo"
+  },
+  "Gustavo Scarpa": {
+    "api_id": 9926,
+    "official_name": "Gustavo Scarpa",
+    "foto_url": "https://media.api-sports.io/football/players/9926.png",
+    "team": "Atlético-MG"
+  },
+  "Everson": {
+    "api_id": 9978,
+    "official_name": "Everson",
+    "foto_url": "https://media.api-sports.io/football/players/9978.png",
+    "team": "Atlético-MG"
+  },
+  "Jonathan Calleri": {
+    "api_id": 47368,
+    "official_name": "J. Calleri",
+    "foto_url": "https://media.api-sports.io/football/players/47368.png",
+    "team": "São Paulo"
+  },
+  "Lucas Moura": {
+    "api_id": 178,
+    "official_name": "Lucas Moura",
+    "foto_url": "https://media.api-sports.io/football/players/178.png",
+    "team": "São Paulo"
+  },
+  "Luciano": {
+    "api_id": 10323,
+    "official_name": "Luciano",
+    "foto_url": "https://media.api-sports.io/football/players/10323.png",
+    "team": "São Paulo"
+  },
+  "Rafael": {
+    "api_id": 10081,
+    "official_name": "Rafael",
+    "foto_url": "https://media.api-sports.io/football/players/10081.png",
+    "team": "São Paulo"
+  },
+  "Yuri Alberto": {
+    "api_id": 10007,
+    "official_name": "Yuri Alberto",
+    "foto_url": "https://media.api-sports.io/football/players/10007.png",
+    "team": "Corinthians"
+  },
+  "Memphis Depay": {
+    "api_id": 667,
+    "official_name": "M. Depay",
+    "foto_url": "https://media.api-sports.io/football/players/667.png",
+    "team": "Corinthians"
+  },
+  "Rodrigo Garro": {
+    "api_id": 5794,
+    "official_name": "R. Garro",
+    "foto_url": "https://media.api-sports.io/football/players/5794.png",
+    "team": "Corinthians"
+  },
+  "Hugo Souza": {
+    "api_id": 123759,
+    "official_name": "Hugo Souza",
+    "foto_url": "https://media.api-sports.io/football/players/123759.png",
+    "team": "Corinthians"
+  },
+  "Pablo Vegetti": {
+    "api_id": 454136,
+    "official_name": "Pablo",
+    "foto_url": "https://media.api-sports.io/football/players/454136.png",
+    "team": "Vasco da Gama"
+  },
+  "Lucas Piton": {
+    "api_id": 10234,
+    "official_name": "Lucas Piton",
+    "foto_url": "https://media.api-sports.io/football/players/10234.png",
+    "team": "Vasco da Gama"
+  },
+  "Léo Jardim": {
+    "api_id": 41169,
+    "official_name": "Léo Jardim",
+    "foto_url": "https://media.api-sports.io/football/players/41169.png",
+    "team": "Vasco da Gama"
+  },
+  "Matheus Pereira": {
+    "api_id": 25618,
+    "official_name": "Matheus Pereira",
+    "foto_url": "https://media.api-sports.io/football/players/25618.png",
+    "team": "Cruzeiro"
+  },
+  "Gabriel Veron": {
+    "api_id": 554485,
+    "official_name": "Rhuan Gabriel",
+    "foto_url": "https://media.api-sports.io/football/players/554485.png",
+    "team": "Cruzeiro"
+  },
+  "Kaio Jorge": {
+    "api_id": 10008,
+    "official_name": "Kaio Jorge",
+    "foto_url": "https://media.api-sports.io/football/players/10008.png",
+    "team": "Cruzeiro"
+  },
+  "Cássio": {
+    "api_id": 10229,
+    "official_name": "Cássio",
+    "foto_url": "https://media.api-sports.io/football/players/10229.png",
+    "team": "Cruzeiro"
+  },
+  "Germán Cano": {
+    "api_id": 13523,
+    "official_name": "G. Cano",
+    "foto_url": "https://media.api-sports.io/football/players/13523.png",
+    "team": "Fluminense"
+  },
+  "Paulo Henrique Ganso": {
+    "api_id": 10311,
+    "official_name": "PH Ganso",
+    "foto_url": "https://media.api-sports.io/football/players/10311.png",
+    "team": "Fluminense"
+  },
+  "Thiago Silva": {
+    "api_id": 259,
+    "official_name": "Thiago Silva",
+    "foto_url": "https://media.api-sports.io/football/players/259.png",
+    "team": "Fluminense"
+  },
+  "Fábio": {
+    "api_id": 10080,
+    "official_name": "Fábio",
+    "foto_url": "https://media.api-sports.io/football/players/10080.png",
+    "team": "Fluminense"
+  },
+  "Everton Ribeiro": {
+    "api_id": 10168,
+    "official_name": "Éverton Ribeiro",
+    "foto_url": "https://media.api-sports.io/football/players/10168.png",
+    "team": "Bahia"
+  },
+  "Jean Lucas": {
+    "api_id": 9994,
+    "official_name": "Jean Lucas",
+    "foto_url": "https://media.api-sports.io/football/players/9994.png",
+    "team": "Bahia"
+  },
+  "Marcos Felipe": {
+    "api_id": 350808,
+    "official_name": "Marcos Victor",
+    "foto_url": "https://media.api-sports.io/football/players/350808.png",
+    "team": "Bahia"
+  },
+  "Palmeiras:Raphael Veiga": {
+    "player_id": 9920,
+    "name": "Raphael Veiga",
+    "foto_url": "https://media.api-sports.io/football/players/9920.png",
+    "club": "Palmeiras"
+  },
+  "Palmeiras:José Manuel López": {
+    "player_id": 295513,
+    "name": "J. López",
+    "foto_url": "https://media.api-sports.io/football/players/295513.png",
+    "club": "Palmeiras"
+  },
+  "Palmeiras:Estêvão": {
+    "player_id": 425733,
+    "name": "Estêvão",
+    "foto_url": "https://media.api-sports.io/football/players/425733.png",
+    "club": "Palmeiras"
+  },
+  "Palmeiras:Gustavo Gómez": {
+    "player_id": 2502,
+    "name": "G. Gómez",
+    "foto_url": "https://media.api-sports.io/football/players/2502.png",
+    "club": "Palmeiras"
+  },
+  "Palmeiras:Weverton": {
+    "player_id": 2410,
+    "name": "Weverton",
+    "foto_url": "https://media.api-sports.io/football/players/2410.png",
+    "club": "Palmeiras"
+  },
+  "Palmeiras:Aníbal Moreno": {
+    "player_id": 6347,
+    "name": "A. Moreno",
+    "foto_url": "https://media.api-sports.io/football/players/6347.png",
+    "club": "Palmeiras"
+  },
+  "Palmeiras:Joaquín Piquerez": {
+    "player_id": 51466,
+    "name": "J. Piquerez",
+    "foto_url": "https://media.api-sports.io/football/players/51466.png",
+    "club": "Palmeiras"
+  },
+  "Flamengo:Pedro": {
+    "player_id": 10321,
+    "name": "Pedro",
+    "foto_url": "https://media.api-sports.io/football/players/10321.png",
+    "club": "Flamengo"
+  },
+  "Flamengo:Giorgian De Arrascaeta": {
+    "player_id": 2612,
+    "name": "G. de Arrascaeta",
+    "foto_url": "https://media.api-sports.io/football/players/2612.png",
+    "club": "Flamengo"
+  },
+  "Flamengo:Gerson": {
+    "player_id": 30408,
+    "name": "Gerson",
+    "foto_url": "https://media.api-sports.io/football/players/30408.png",
+    "club": "Flamengo"
+  },
+  "São Paulo:Luciano": {
+    "player_id": 197383,
+    "name": "Luciano Juba",
+    "foto_url": "https://media.api-sports.io/football/players/197383.png",
+    "club": "São Paulo"
+  },
+  "São Paulo:Alisson": {
+    "player_id": 415116,
+    "name": "Alisson Santana",
+    "foto_url": "https://media.api-sports.io/football/players/415116.png",
+    "club": "São Paulo"
+  },
+  "São Paulo:Rafael": {
+    "player_id": 464021,
+    "name": "Rafael Coutinho",
+    "foto_url": "https://media.api-sports.io/football/players/464021.png",
+    "club": "São Paulo"
+  },
+  "Corinthians:Yuri Alberto": {
+    "player_id": 10007,
+    "name": "Yuri Alberto",
+    "foto_url": "https://media.api-sports.io/football/players/10007.png",
+    "club": "Corinthians"
+  },
+  "Corinthians:Memphis Depay": {
+    "player_id": 667,
+    "name": "M. Depay",
+    "foto_url": "https://media.api-sports.io/football/players/667.png",
+    "club": "Corinthians"
+  },
+  "Corinthians:Rodrigo Garro": {
+    "player_id": 5794,
+    "name": "R. Garro",
+    "foto_url": "https://media.api-sports.io/football/players/5794.png",
+    "club": "Corinthians"
+  },
+  "Corinthians:Hugo Souza": {
+    "player_id": 123759,
+    "name": "Hugo Souza",
+    "foto_url": "https://media.api-sports.io/football/players/123759.png",
+    "club": "Corinthians"
+  },
+  "Vasco da Gama:Pablo Vegetti": {
+    "player_id": 5804,
+    "name": "P. Vegetti",
+    "foto_url": "https://media.api-sports.io/football/players/5804.png",
+    "club": "Vasco da Gama"
+  },
+  "Vasco da Gama:Dimitri Payet": {
+    "player_id": 1912,
+    "name": "D. Payet",
+    "foto_url": "https://media.api-sports.io/football/players/1912.png",
+    "club": "Vasco da Gama"
+  },
+  "Cuiabá:Walter": {
+    "player_id": 10226,
+    "name": "Walter",
+    "foto_url": "https://media.api-sports.io/football/players/10226.png",
+    "club": "Cuiabá"
+  }
+}

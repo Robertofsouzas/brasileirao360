@@ -1,0 +1,23 @@
+# Database
+supabase>=2.0.0
+psycopg2-binary>=2.9.0
+
+# HTTP / APIs
+requests>=2.31.0
+
+# Data processing
+pandas>=2.1.0
+numpy>=1.25.0
+
+# Statistical models
+scipy>=1.11.0
+
+# Visualization (Python-side for generating assets)
+matplotlib>=3.8.0
+mplsoccer>=1.2.0
+
+# Config
+python-dotenv>=1.0.0
+
+# Dev
+pytest>=7.4.0

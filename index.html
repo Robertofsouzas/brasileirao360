@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Analytics Brasileirão Série A — Estatísticas, Probabilidades e Projeções</title>
+  <meta name="description" content="Estatísticas, probabilidades de vitória, projeções de final de temporada e análise detalhada por time e jogador do Campeonato Brasileiro Série A.">
+  
+  <!-- CSS Stylesheet -->
+  <link rel="stylesheet" href="assets/css/style.css?v=3.7">
+  <link rel="icon" href="https://crests.football-data.org/764.svg" type="image/svg+xml">
+
+  <!-- D3.js v7 CDN (Visualizações Estatísticas Avançadas) -->
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+
+  <!-- deck.gl v8.9 CDN (Visualização Espacial em OrthographicView) -->
+  <script src="https://unpkg.com/deck.gl@8.9.36/dist.min.js"></script>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="container navbar-content">
+      <a href="#" class="brand">
+        <div class="brand-icon">⚽</div>
+        <div class="brand-text">
+          <h1>Analytics Brasileirão</h1>
+          <span>Estatísticas & Previsões</span>
+        </div>
+      </a>
+
+      <nav class="nav-links">
+        <button class="nav-btn active" data-target="sec-classificacao">Classificação</button>
+        <button class="nav-btn" data-target="sec-drilldown">Times & Jogadores</button>
+        <button class="nav-btn" data-target="sec-simulador">Simulador de Jogos</button>
+        <button class="nav-btn" data-target="sec-shotmap">Mapa de Finalizações</button>
+        <button class="nav-btn" data-target="sec-montecarlo">Projeções do Campeonato</button>
+      </nav>
+
+      <div class="navbar-right-group">
+        <div class="badge-updated" title="Data e hora da última atualização dos dados">
+          <span class="updated-icon">🕒</span>
+          <div class="updated-info">
+            <span class="updated-label">Última Atualização</span>
+            <span class="updated-date" id="nav-updated-date">31/08/2026 às 15:20</span>
+          </div>
+        </div>
+        <div class="badge-live">
+          <span class="pulse-dot"></span>
+          <span>SÉRIE A 2026</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Banner -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-banner">
+        <div class="hero-content-col">
+          <h2 class="hero-title">
+            Inteligência Tática & <span class="gradient-text">Modelos Preditivos</span> do Brasileirão
+          </h2>
+          <p class="hero-desc">
+            Probabilidades, projeções e estatísticas do Brasileirão explicadas de forma simples — descubra as chances de título, rebaixamento e o que esperar das próximas rodadas.
+          </p>
+          <div class="kpi-row">
+            <div class="kpi-card">
+              <div class="kpi-label">Líder Atual</div>
+              <div class="kpi-value" id="kpi-leader">Palmeiras</div>
+              <div class="kpi-sub" id="kpi-leader-pts">52 pts</div>
+            </div>
+            <div class="kpi-card">
+              <div class="kpi-label">Progresso</div>
+              <div class="kpi-value" id="kpi-matches">246 / 380</div>
+              <div class="kpi-sub" id="kpi-round">Rodada 25</div>
+            </div>
+            <div class="kpi-card">
+              <div class="kpi-label">Média de Gols</div>
+              <div class="kpi-value" id="kpi-avg-goals">2.34 / jogo</div>
+              <div class="kpi-sub">Total Série A</div>
+            </div>
+            <div class="kpi-card">
+              <div class="kpi-label">Simulações</div>
+              <div class="kpi-value">10.000</div>
+              <div class="kpi-sub">Cenários Testados</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Identidade Visual: Futebol + Dados -->
+        <div class="hero-visual">
+          <div class="hero-image-wrapper">
+            <img src="assets/img/hero_tactical_banner.jpg" alt="Campo tático com camada de dados e inteligência preditiva do Brasileirão" class="hero-tactical-img">
+            <div class="hero-image-overlay"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção 1: Classificação Oficial da Série A -->
+  <section id="sec-classificacao" class="section">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <h3 class="section-title">Classificação Oficial</h3>
+          <p class="section-subtitle">Tabela atualizada do Brasileirão. Clique em um time para ver mais detalhes.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="standings-table-container">
+          <table class="standings-table">
+            <thead>
+              <tr>
+                <th style="width: 50px;">Pos</th>
+                <th class="text-left">Clube</th>
+                <th>PTS</th>
+                <th>J</th>
+                <th>V</th>
+                <th>E</th>
+                <th>D</th>
+                <th>GP</th>
+                <th>GC</th>
+                <th>SG</th>
+                <th>Aprov %</th>
+              </tr>
+            </thead>
+            <tbody id="standings-tbody">
+              <!-- Renderizado via JS -->
+            </tbody>
+          </table>
+        </div>
+
+        <div class="table-legend">
+          <div class="legend-item"><span class="legend-color" style="background: #00E59B;"></span> G4 (Fase de Grupos Libertadores)</div>
+          <div class="legend-item"><span class="legend-color" style="background: #0088FF;"></span> G6 (Pré-Libertadores)</div>
+          <div class="legend-item"><span class="legend-color" style="background: #FFB800;"></span> Sul-Americana</div>
+          <div class="legend-item"><span class="legend-color" style="background: #FF3B30;"></span> Z4 (Rebaixamento)</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       Seção 2: DEEP DIVE — ANÁLISE TÁTICA POR CLUBE & JOGADOR (DRILL-DOWN)
+       ======================================================================== -->
+  <section id="sec-drilldown" class="section">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <h3 class="section-title">Times & Jogadores em Detalhe</h3>
+          <p class="section-subtitle">Veja o desempenho de cada time e jogador da temporada, com estatísticas e mapas de finalização.</p>
+        </div>
+      </div>
+
+      <!-- Barra de Filtros -->
+      <div class="filter-bar">
+        <div class="filter-group">
+          <label for="filter-club-select" class="filter-label">
+            <span class="filter-label-icon">🛡️</span>
+            <span>Clube</span>
+          </label>
+          <div class="select-wrapper">
+            <select id="filter-club-select" class="select-control" aria-label="Selecionar Clube"></select>
+          </div>
+        </div>
+        <div class="filter-divider"></div>
+        <div class="filter-group">
+          <label for="filter-player-select" class="filter-label">
+            <span class="filter-label-icon">👤</span>
+            <span>Jogador</span>
+          </label>
+          <div class="select-wrapper">
+            <select id="filter-player-select" class="select-control" aria-label="Selecionar Jogador"></select>
+          </div>
+        </div>
+      </div>
+
+      <div class="drilldown-layout">
+        
+        <!-- Coluna Esquerda: Perfil do Clube & Elenco -->
+        <div class="card">
+          <div class="club-profile-header">
+            <img id="detail-club-crest" src="" alt="" class="club-profile-crest">
+            <div class="club-profile-info">
+              <h3 id="detail-club-name">Palmeiras</h3>
+              <div class="club-profile-meta">
+                <span id="detail-club-stadium">🏟️ Allianz Parque</span>
+                <span id="detail-club-coach">👔 Abel Ferreira</span>
+                <span id="detail-club-pos" style="color: var(--accent-green); font-weight: 700;">1º Lugar</span>
+              </div>
+            </div>
+          </div>
+
+          <div style="margin-bottom: 8px; font-size: 0.8rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">
+            Métricas Táticas Médias da Temporada
+          </div>
+
+          <div class="tactical-metrics-grid">
+            <div class="tactical-metric-card">
+              <div class="tactical-metric-val" id="metric-possession">56.5%</div>
+              <div class="tactical-metric-lbl">Posse Média</div>
+            </div>
+            <div class="tactical-metric-card">
+              <div class="tactical-metric-val" id="metric-xg-pro">1.84</div>
+              <div class="tactical-metric-lbl">xG Pró / Jogo</div>
+            </div>
+            <div class="tactical-metric-card">
+              <div class="tactical-metric-val" id="metric-xg-against" style="color: var(--accent-cyan);">0.78</div>
+              <div class="tactical-metric-lbl">xG Concedido</div>
+            </div>
+            <div class="tactical-metric-card">
+              <div class="tactical-metric-val" id="metric-shots-game">15.8</div>
+              <div class="tactical-metric-lbl">Finalizações / J</div>
+            </div>
+            <div class="tactical-metric-card">
+              <div class="tactical-metric-val" id="metric-shots-target">6.1</div>
+              <div class="tactical-metric-lbl">Chutes no Alvo</div>
+            </div>
+            <div class="tactical-metric-card">
+              <div class="tactical-metric-val" id="metric-conversion" style="color: var(--accent-gold);">14.2%</div>
+              <div class="tactical-metric-lbl">Taxa de Conversão</div>
+            </div>
+          </div>
+
+          <div style="margin-bottom: 8px; font-size: 0.8rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">
+            Últimas Partidas
+          </div>
+          <div class="recent-matches-row" id="club-recent-matches">
+            <!-- Renderizado via JS -->
+          </div>
+
+          <div style="margin: 20px 0 8px; font-size: 0.8rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">
+            Elenco Principal & Desempenho (Clique em um atleta para analisar)
+          </div>
+          <div class="standings-table-container">
+            <table class="squad-table">
+              <thead>
+                <tr>
+                  <th class="text-left">Atleta</th>
+                  <th>Pos</th>
+                  <th>Nº</th>
+                  <th>Jogos</th>
+                  <th>Gols</th>
+                  <th>Assist</th>
+                  <th>Chutes</th>
+                  <th>xG Total</th>
+                  <th>xG/Chute</th>
+                </tr>
+              </thead>
+              <tbody id="squad-tbody">
+                <!-- Renderizado via JS -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Coluna Direita: Perfil do Jogador & Shot Map Individual -->
+        <div class="card">
+          <div class="player-highlight-card">
+            <div class="player-header">
+              <div class="player-avatar-container">
+                <img id="player-card-photo" src="" alt="" class="player-photo" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 120 120\'><rect width=\'120\' height=\'120\' rx=\'60\' fill=\'%23182234\'/><circle cx=\'60\' cy=\'46\' r=\'22\' fill=\'%2364748b\'/><path d=\'M24 104c0-20 16-32 36-32s36 12 36 32z\' fill=\'%2364748b\'/></svg>'">
+              </div>
+              <div class="player-header-info">
+                <span id="player-card-pos" class="player-position-badge">Meia</span>
+                <h3 id="player-card-name" class="player-name-large">Raphael Veiga</h3>
+                <span id="player-card-team" style="font-size: 0.85rem; color: var(--text-secondary);">Palmeiras · Brasil</span>
+              </div>
+              <div id="player-card-number" style="font-family: var(--font-display); font-size: 2.2rem; font-weight: 900; color: rgba(255,255,255,0.15);">
+                #23
+              </div>
+            </div>
+
+            <div class="player-kpis">
+              <div class="player-kpi-item">
+                <div class="player-kpi-val" id="player-kpi-goals">11</div>
+                <div class="player-kpi-lbl">Gols Marcados</div>
+              </div>
+              <div class="player-kpi-item">
+                <div class="player-kpi-val" id="player-kpi-assists" style="color: var(--accent-gold);">7</div>
+                <div class="player-kpi-lbl">Assistências</div>
+              </div>
+              <div class="player-kpi-item">
+                <div class="player-kpi-val" id="player-kpi-xg" style="color: var(--accent-green);">8.42</div>
+                <div class="player-kpi-lbl">xG Acumulado</div>
+              </div>
+              <div class="player-kpi-item">
+                <div class="player-kpi-val" id="player-kpi-rate" style="color: var(--accent-purple);">0.145</div>
+                <div class="player-kpi-lbl">xG / Chute</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Controles de Modo do Campo D3 -->
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
+            <div style="font-size: 0.85rem; font-weight: 700; color: var(--text-primary);">
+              Campo Tático do Atleta
+            </div>
+            <div class="d3-button-group" id="pitch-mode-buttons">
+              <button class="d3-metric-btn active" data-pitch-mode="heatmap">🔥 Mapa de Calor</button>
+              <button class="d3-metric-btn" data-pitch-mode="shots">🎯 Shot Map</button>
+              <button class="d3-metric-btn" data-pitch-mode="hybrid">⚡ Híbrido</button>
+              <button class="d3-metric-btn" data-pitch-mode="zones">📐 Zonas xG</button>
+            </div>
+          </div>
+
+          <!-- Container do Campo D3.js -->
+          <div class="pitch-container" id="d3-player-pitch-container" style="min-height: 250px; position: relative;">
+            <!-- Renderizado via D3.js (Heatmap / Shot Map / Setores) -->
+          </div>
+
+          <div id="pitch-legend-bar" style="display: flex; justify-content: space-between; font-size: 0.75rem; color: var(--text-muted); margin-top: 12px; flex-wrap: wrap; gap: 6px;">
+            <span><strong style="color: #00E59B;">●</strong> Gol</span>
+            <span><strong style="color: #0088FF;">●</strong> Defendido</span>
+            <span><strong style="color: #FFB800;">●</strong> Bloqueado</span>
+            <span><strong style="color: #FF3B30;">●</strong> Para Fora</span>
+            <span>Raio = Volume de xG</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ====================================================================
+           NÍVEL DE DETALHE APROFUNDADO DO ATLETA (DOSSIÊ TÁTICO D3.JS)
+           Aberto/Atualizado ao clicar em qualquer atleta do elenco
+           ==================================================================== -->
+      <div id="player-deep-dive-panel" class="card" style="margin-top: 24px; border: 1px solid rgba(0, 229, 155, 0.35); background: linear-gradient(180deg, rgba(17, 22, 34, 0.95) 0%, rgba(10, 13, 20, 0.98) 100%);">
+        <!-- Accordion wrapper: colapsado por padrão -->
+        <div id="player-deep-dive-content">
+        <div class="section-header" style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; border-bottom: 1px solid var(--border-subtle); padding-bottom: 14px;">
+          <div>
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span class="badge" style="background: rgba(0,229,155,0.15); color: var(--accent-green); font-size: 0.7rem; font-weight: 800;">DEEP DIVE ANALYTICS</span>
+              <span id="dossier-player-tag" style="font-size: 0.8rem; color: var(--text-muted); font-weight: 600;">Série A 2026</span>
+            </div>
+            <h3 class="section-title" style="font-size: 1.35rem; margin-top: 4px;">
+              Dossiê Tático & Métricas Avançadas: <span id="dossier-player-name" class="gradient-text">Raphael Veiga</span>
+            </h3>
+            <p class="section-subtitle" id="dossier-player-subtitle">
+              Diagnóstico multidimensional com Radar de Atributos D3, eficiência de finalização e momentos decisivos
+            </p>
+          </div>
+          <button id="player-close-btn" type="button" onclick="window.closePlayerDeepDive(event)" style="background: rgba(255,255,255,0.08); border: 1px solid var(--border-subtle); color: var(--text-primary); border-radius: 8px; padding: 6px 14px; cursor: pointer; font-size: 0.8rem; display: flex; align-items: center; gap: 6px; transition: all 0.2s ease; z-index: 10; flex-shrink: 0;">
+            <span>Fechar</span> ✕
+          </button>
+        </div>
+
+        <!-- Grid de 2 Gráficos Analíticos com D3.js (Radar + Donut de Eficiência) -->
+        <div class="d3-layout-grid" style="grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 20px;">
+          
+          <!-- Gráfico 1: Radar Tático de Atributos (Hexágono) -->
+          <div class="d3-chart-card" style="padding: 16px; min-height: 320px;">
+            <div class="d3-chart-header" style="margin-bottom: 8px;">
+              <div>
+                <h4 class="d3-chart-title" style="font-size: 0.95rem;">Radar Tático de Atributos</h4>
+                <p class="d3-chart-subtitle">Perfil do jogador vs. média da Série A na posição</p>
+              </div>
+            </div>
+            <div id="d3-player-radar" class="d3-chart-container" style="min-height: 250px;"></div>
+            <div style="display: flex; justify-content: center; gap: 16px; font-size: 0.725rem; margin-top: 6px;">
+              <span style="color: var(--accent-green); font-weight: 700;">● Atleta</span>
+              <span style="color: #64748B; font-weight: 600;">● Média da Posição</span>
+            </div>
+          </div>
+
+          <!-- Gráfico 2: Donut + KPI Cards de Eficiência de Finalização (substituiu o strip-plot) -->
+          <div class="d3-chart-card" style="padding: 16px; min-height: 320px;">
+            <div class="d3-chart-header" style="margin-bottom: 8px;">
+              <div>
+                <h4 class="d3-chart-title" style="font-size: 0.95rem;">Eficiência de Finalização</h4>
+                <p class="d3-chart-subtitle">Comparação visual: quantos chutes viraram gol</p>
+              </div>
+            </div>
+            <div id="d3-player-shot-dist" class="d3-chart-container" style="min-height: 250px; display: flex; flex-direction: column; align-items: center; justify-content: center;"></div>
+          </div>
+
+        </div>
+
+        <!-- Gráfico 3: Timeline de Minutagem (barra simples) - LARGURA TOTAL -->
+        <div class="d3-layout-grid" style="grid-template-columns: 1fr; gap: 18px; margin-bottom: 20px;">
+          <div class="d3-chart-card" style="padding: 16px; min-height: 280px;">
+            <div class="d3-chart-header" style="margin-bottom: 8px;">
+              <div>
+                <h4 class="d3-chart-title" style="font-size: 0.95rem;">Quando ele mais marca gols</h4>
+                <p class="d3-chart-subtitle">Volume de chutes e gols em cada período de 15 minutos da partida</p>
+              </div>
+            </div>
+            <div id="d3-player-timeline" class="d3-chart-container" style="min-height: 220px;"></div>
+            <div style="display: flex; justify-content: center; gap: 14px; font-size: 0.725rem; margin-top: 6px;">
+              <span style="color: #00E59B; font-weight: 700;">■ Gols</span>
+              <span style="color: #0088FF; font-weight: 600;">■ Finalizações</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cards de Insights Táticos do Atleta -->
+        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px;">
+          <div class="kpi-card" style="background: rgba(255,255,255,0.02); padding: 14px;">
+            <div class="kpi-label">Eficiência de Finalização</div>
+            <div class="kpi-value" id="dossier-diff-xg" style="color: var(--accent-green); font-size: 1.15rem;">+2.58 xG</div>
+            <div class="kpi-sub" id="dossier-diff-status">Overperforming (Alta Letalidade)</div>
+          </div>
+          <div class="kpi-card" style="background: rgba(255,255,255,0.02); padding: 14px;">
+            <div class="kpi-label">Pé Preferencial</div>
+            <div class="kpi-value" id="dossier-foot" style="font-size: 1.15rem;">Canhoto (68%)</div>
+            <div class="kpi-sub" id="dossier-foot-sub">Dominância Técnica</div>
+          </div>
+          <div class="kpi-card" style="background: rgba(255,255,255,0.02); padding: 14px;">
+            <div class="kpi-label">Precisão no Alvo</div>
+            <div class="kpi-value" id="dossier-accuracy" style="color: var(--accent-cyan); font-size: 1.15rem;">58.3%</div>
+            <div class="kpi-sub">Chutes na Direção do Gol</div>
+          </div>
+          <div class="kpi-card" style="background: rgba(255,255,255,0.02); padding: 14px;">
+            <div class="kpi-label">Percentil Série A</div>
+            <div class="kpi-value" id="dossier-percentile" style="color: var(--accent-gold); font-size: 1.15rem;">Top 94%</div>
+            <div class="kpi-sub">Entre Meias / Atacantes</div>
+          </div>
+        </div><!-- fim #player-deep-dive-content -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção 3: Simulador Poisson (Próxima Rodada) & Shot Map deck.gl -->
+  <section id="sec-simulador" class="section">
+    <div class="container">
+      <div class="dashboard-grid">
+        
+        <!-- Simulador Poisson Baseado na Próxima Rodada Real -->
+        <div class="card">
+          <div class="section-header" style="margin-bottom: 14px;">
+            <div>
+              <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 4px;">
+                <span class="badge" style="background: rgba(0,229,155,0.15); color: var(--accent-green); font-size: 0.7rem; font-weight: 800;">PRÓXIMA RODADA</span>
+                <span id="sim-round-tag" style="font-size: 0.75rem; color: var(--text-muted); font-weight: 700;">Rodada 25 · Série A 2026</span>
+              </div>
+              <h3 class="section-title">Simulador de Confrontos</h3>
+              <p class="section-subtitle">Previsão de placares e probabilidades calculadas jogo a jogo</p>
+            </div>
+          </div>
+
+          <!-- Explicação Acessível do Modelo Poisson -->
+          <div class="model-explainer-box">
+            <span class="explainer-icon">💡</span>
+            <p><strong>Como funciona:</strong> usamos um modelo estatístico chamado Distribuição de Poisson, que calcula a probabilidade de cada placar a partir do ataque e da defesa de cada time — quanto mais gols um time costuma fazer (ou sofrer), mais peso isso tem na conta.</p>
+          </div>
+
+          <!-- Seletor de Jogos da Próxima Rodada Oficial -->
+          <div style="margin-bottom: 16px;">
+            <div style="font-size: 0.75rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; margin-bottom: 8px; display: flex; justify-content: space-between;">
+              <span>Confrontos da Rodada (Selecione para Simular)</span>
+              <span id="sim-fixtures-count" style="color: var(--accent-green);">10 jogos</span>
+            </div>
+            <div class="fixtures-scroll-container" id="next-round-fixtures-list">
+              <!-- Renderizado via JS com os 10 confrontos reais da rodada -->
+            </div>
+          </div>
+
+          <div class="simulator-box">
+            <!-- Banner do Confronto Selecionado -->
+            <div class="match-showcase-banner" id="match-showcase-banner">
+              <div class="showcase-team home">
+                <img id="sim-home-crest" src="" alt="" class="showcase-crest">
+                <div class="showcase-team-name" id="sim-home-name">Palmeiras</div>
+                <span class="showcase-team-role">MANDANTE</span>
+              </div>
+              <div class="showcase-vs-box">
+                <span class="showcase-vs-badge">VS</span>
+                <span class="showcase-match-date" id="sim-match-date">30/08/2026</span>
+              </div>
+              <div class="showcase-team away">
+                <img id="sim-away-crest" src="" alt="" class="showcase-crest">
+                <div class="showcase-team-name" id="sim-away-name">Flamengo</div>
+                <span class="showcase-team-role">VISITANTE</span>
+              </div>
+            </div>
+
+            <!-- Barras de Probabilidades 1X2 -->
+            <div class="prob-bars-container">
+              <div>
+                <div class="prob-metric">
+                  <span id="p-home-name">Vitória Mandante</span>
+                  <span id="p-home-val" style="color: var(--accent-green);">--%</span>
+                </div>
+                <div class="prob-bar-bg">
+                  <div id="bar-home-fill" class="prob-bar-fill bar-home" style="width: 0%;"></div>
+                </div>
+              </div>
+
+              <div>
+                <div class="prob-metric">
+                  <span>Empate</span>
+                  <span id="p-draw-val" style="color: var(--accent-gold);">--%</span>
+                </div>
+                <div class="prob-bar-bg">
+                  <div id="bar-draw-fill" class="prob-bar-fill bar-draw" style="width: 0%;"></div>
+                </div>
+              </div>
+
+              <div>
+                <div class="prob-metric">
+                  <span id="p-away-name">Vitória Visitante</span>
+                  <span id="p-away-val" style="color: var(--accent-purple);">--%</span>
+                </div>
+                <div class="prob-bar-bg">
+                  <div id="bar-away-fill" class="prob-bar-fill bar-away" style="width: 0%;"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Top Placares Mais Prováveis -->
+            <div>
+              <div style="font-size: 0.8rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; margin-bottom: 8px;">
+                Top 5 Placares Mais Prováveis (Modelo Calibrado)
+              </div>
+              <div class="scores-grid" id="top-scores-container">
+                <!-- Renderizado via JS -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Painel Conectado ao Confronto: Toggle Shot Map vs Benchmark de Mercado -->
+        <div class="card" id="sec-shotmap">
+          <!-- Cabeçalho com Toggle de Abas -->
+          <div class="sim-card-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 10px;">
+            <div>
+              <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 4px;">
+                <span class="badge" id="sim-view-badge" style="background: rgba(0,136,255,0.15); color: var(--accent-cyan); font-size: 0.7rem; font-weight: 800;">MAPA DE FINALIZAÇÕES</span>
+                <span id="deck-shotmap-tag" style="font-size: 0.75rem; color: var(--text-muted); font-weight: 700;">Onde o time chuta a gol</span>
+              </div>
+              <h3 class="section-title" id="sim-view-title">Mapa de Finalizações do Confronto</h3>
+              <p class="section-subtitle" id="sim-view-subtitle">Localização e perigo dos chutes de cada equipe</p>
+            </div>
+
+            <!-- Toggle de Visualização (Abas) -->
+            <div class="sim-view-toggle">
+              <button type="button" class="sim-toggle-btn active" id="btn-toggle-shotmap" data-view="shotmap">
+                <span>🎯 Shot Map</span>
+              </button>
+              <button type="button" class="sim-toggle-btn" id="btn-toggle-benchmark" data-view="benchmark">
+                <span>📊 Benchmark de Mercado</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- ABA 1: Shot Map do Confronto (deck.gl OrthographicView) -->
+          <div id="view-sim-shotmap" class="sim-view-content active">
+            <div class="d3-button-group" id="deck-shot-filter-buttons" style="margin-bottom: 12px;">
+              <button class="d3-metric-btn active" data-deck-filter="BOTH" id="deck-filter-both">Ambos os Times</button>
+              <button class="d3-metric-btn" data-deck-filter="HOME" id="deck-filter-home">Mandante</button>
+              <button class="d3-metric-btn" data-deck-filter="AWAY" id="deck-filter-away">Visitante</button>
+            </div>
+
+            <!-- Container do Canvas deck.gl -->
+            <div class="deck-pitch-wrapper" id="deck-pitch-wrapper" style="position: relative; width: 100%; height: 310px; border-radius: 12px; overflow: hidden; background: radial-gradient(ellipse at center, #153322 0%, #0d1e14 100%);">
+              <canvas id="deck-shotmap-canvas" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: auto;"></canvas>
+            </div>
+
+            <!-- Legenda de Desfechos & Estatísticas -->
+            <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.75rem; color: var(--text-muted); margin-top: 12px; flex-wrap: wrap; gap: 8px;">
+              <div style="display: flex; gap: 12px;">
+                <span><strong style="color: #00E59B;">●</strong> Gol</span>
+                <span><strong style="color: #0088FF;">●</strong> Defendido</span>
+                <span><strong style="color: #FFB800;">●</strong> Bloqueado</span>
+                <span><strong style="color: #FF3B30;">●</strong> Para Fora</span>
+              </div>
+              <div id="deck-shots-count-badge" style="font-family: var(--font-mono); color: var(--text-secondary); font-weight: 600;">
+                0 finalizações plotadas
+              </div>
+            </div>
+          </div>
+
+          <!-- ABA 2: Benchmark de Odds de Mercado (Poisson vs Mercado) -->
+          <div id="view-sim-benchmark" class="sim-view-content" style="display: none;">
+            <!-- Metadados da Cotação Pré-Jogo -->
+            <div class="benchmark-info-bar">
+              <div style="display: flex; align-items: center; gap: 8px;">
+                <span class="benchmark-source-badge" id="bm-source-name">Betano</span>
+                <span class="benchmark-timestamp" id="bm-capture-time">Cotação pré-jogo mais recente</span>
+              </div>
+              <div class="benchmark-raw-odds">
+                <span class="raw-odd-pill">1: <strong id="bm-raw-odd-home">--</strong></span>
+                <span class="raw-odd-pill">X: <strong id="bm-raw-odd-draw">--</strong></span>
+                <span class="raw-odd-pill">2: <strong id="bm-raw-odd-away">--</strong></span>
+              </div>
+            </div>
+
+            <!-- Grid de Comparação 1X2 (Meu Modelo vs Mercado) -->
+            <div class="benchmark-comparison-card">
+              
+              <!-- Resultado 1: Vitória Mandante -->
+              <div class="benchmark-outcome-row">
+                <div class="benchmark-row-header">
+                  <span class="benchmark-outcome-name" id="bm-label-home">Vitória Mandante</span>
+                  <span class="benchmark-diff-badge" id="bm-diff-home">--</span>
+                </div>
+                <div class="benchmark-bars-pair">
+                  <div class="benchmark-bar-line">
+                    <span class="benchmark-bar-label">Meu Modelo</span>
+                    <div class="benchmark-bar-track">
+                      <div class="benchmark-bar-fill bar-model-home" id="bm-bar-model-home" style="width: 0%;"></div>
+                    </div>
+                    <span class="benchmark-bar-pct" id="bm-val-model-home">--%</span>
+                  </div>
+                  <div class="benchmark-bar-line">
+                    <span class="benchmark-bar-label">Mercado</span>
+                    <div class="benchmark-bar-track">
+                      <div class="benchmark-bar-fill bar-market" id="bm-bar-market-home" style="width: 0%;"></div>
+                    </div>
+                    <span class="benchmark-bar-pct" id="bm-val-market-home">--%</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Resultado 2: Empate -->
+              <div class="benchmark-outcome-row">
+                <div class="benchmark-row-header">
+                  <span class="benchmark-outcome-name">Empate</span>
+                  <span class="benchmark-diff-badge" id="bm-diff-draw">--</span>
+                </div>
+                <div class="benchmark-bars-pair">
+                  <div class="benchmark-bar-line">
+                    <span class="benchmark-bar-label">Meu Modelo</span>
+                    <div class="benchmark-bar-track">
+                      <div class="benchmark-bar-fill bar-model-draw" id="bm-bar-model-draw" style="width: 0%;"></div>
+                    </div>
+                    <span class="benchmark-bar-pct" id="bm-val-model-draw">--%</span>
+                  </div>
+                  <div class="benchmark-bar-line">
+                    <span class="benchmark-bar-label">Mercado</span>
+                    <div class="benchmark-bar-track">
+                      <div class="benchmark-bar-fill bar-market" id="bm-bar-market-draw" style="width: 0%;"></div>
+                    </div>
+                    <span class="benchmark-bar-pct" id="bm-val-market-draw">--%</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Resultado 3: Vitória Visitante -->
+              <div class="benchmark-outcome-row">
+                <div class="benchmark-row-header">
+                  <span class="benchmark-outcome-name" id="bm-label-away">Vitória Visitante</span>
+                  <span class="benchmark-diff-badge" id="bm-diff-away">--</span>
+                </div>
+                <div class="benchmark-bars-pair">
+                  <div class="benchmark-bar-line">
+                    <span class="benchmark-bar-label">Meu Modelo</span>
+                    <div class="benchmark-bar-track">
+                      <div class="benchmark-bar-fill bar-model-away" id="bm-bar-model-away" style="width: 0%;"></div>
+                    </div>
+                    <span class="benchmark-bar-pct" id="bm-val-model-away">--%</span>
+                  </div>
+                  <div class="benchmark-bar-line">
+                    <span class="benchmark-bar-label">Mercado</span>
+                    <div class="benchmark-bar-track">
+                      <div class="benchmark-bar-fill bar-market" id="bm-bar-market-away" style="width: 0%;"></div>
+                    </div>
+                    <span class="benchmark-bar-pct" id="bm-val-market-away">--%</span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Rodapé Explicativo -->
+            <div class="benchmark-footer-note">
+              <span>💡 <strong>Comparação direta:</strong> As porcentagens de mercado mostram a chance estimada pelas casas de apostas (já sem a margem da casa), comparadas lado a lado com as previsões do nosso modelo.</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção 4: Projeções Monte Carlo (10.000 Iterações) -->
+  <section id="sec-montecarlo" class="section">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <h3 class="section-title">Projeções de Final de Temporada</h3>
+          <p class="section-subtitle">Previsões calculadas a partir de 10.000 simulações das partidas restantes</p>
+        </div>
+      </div>
+
+      <!-- Explicação Acessível do Modelo Monte Carlo -->
+      <div class="model-explainer-box monte-carlo">
+        <span class="explainer-icon">🎲</span>
+        <p><strong>Como funciona:</strong> simulamos os jogos que faltam na temporada 10.000 vezes seguidas — a cada simulação, um resultado diferente é possível. Juntando todas as simulações, conseguimos estimar a chance real de cada time terminar campeão, classificado ou rebaixado.</p>
+      </div>
+
+      <div class="card">
+        <div class="standings-table-container">
+          <table class="mc-table">
+            <thead>
+              <tr>
+                <th class="text-left" data-mc-sort="clube" style="cursor: pointer;" title="Clique para ordenar por Clube">Clube <span class="mc-sort-icon" style="font-size: 0.75rem; opacity: 0.6;"></span></th>
+                <th data-mc-sort="pontos_atuais" style="cursor: pointer;" title="Clique para ordenar por Pontos Atuais (Posição Real)">Pts Atuais <span class="mc-sort-icon" style="font-size: 0.75rem; opacity: 0.6;"></span></th>
+                <th data-mc-sort="pontos_projetados" style="cursor: pointer;" title="Clique para ordenar por Pontos Projetados">Pts Projetados <span class="mc-sort-icon" style="font-size: 0.75rem; opacity: 0.6;"></span></th>
+                <th data-mc-sort="prob_campeao_pct" style="cursor: pointer; color: var(--accent-gold);" title="Clique para ordenar por Probabilidade de Título">Título (%) <span class="mc-sort-icon" style="font-size: 0.75rem;">▼</span></th>
+                <th data-mc-sort="prob_libertadores_g4_pct" style="cursor: pointer;" title="Clique para ordenar por G4">G4 Lib. (%) <span class="mc-sort-icon" style="font-size: 0.75rem; opacity: 0.6;"></span></th>
+                <th data-mc-sort="prob_sulamericana_pct" style="cursor: pointer;" title="Clique para ordenar por Sul-Americana">Sul-Americana (%) <span class="mc-sort-icon" style="font-size: 0.75rem; opacity: 0.6;"></span></th>
+                <th data-mc-sort="prob_rebaixamento_z4_pct" style="cursor: pointer;" title="Clique para ordenar por Rebaixamento">Rebaixamento (%) <span class="mc-sort-icon" style="font-size: 0.75rem; opacity: 0.6;"></span></th>
+              </tr>
+            </thead>
+            <tbody id="mc-tbody">
+              <!-- Renderizado via JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Painel Drill-Down Accordion por Clube (Monte Carlo) -->
+      <div id="mc-deep-dive-panel" class="card mc-drilldown-panel" style="margin-top: 24px; border: 1px solid rgba(0, 180, 216, 0.35); background: linear-gradient(180deg, rgba(17, 24, 39, 0.96) 0%, rgba(10, 14, 23, 0.98) 100%);">
+        <div id="mc-deep-dive-content">
+          <!-- Cabeçalho do Clube e Resumo Estatístico -->
+          <div class="mc-panel-header" style="display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--border-subtle); padding-bottom: 16px; margin-bottom: 20px;">
+            <div style="display: flex; align-items: center; gap: 14px;">
+              <img id="mc-club-crest" src="" alt="" style="width: 46px; height: 46px; object-fit: contain; filter: drop-shadow(0 2px 8px rgba(0,0,0,0.5));">
+              <div>
+                <div style="display: flex; align-items: center; gap: 10px;">
+                  <h3 id="mc-club-name" style="font-size: 1.4rem; font-weight: 800; color: var(--text-primary); margin: 0;">Clube</h3>
+                  <span id="mc-club-badge" class="badge" style="background: rgba(0, 180, 216, 0.15); color: var(--accent-cyan); border: 1px solid rgba(0, 180, 216, 0.3); font-size: 0.72rem; padding: 3px 8px; border-radius: 6px; font-weight: 700;">PROJEÇÃO DETALHADA</span>
+                </div>
+                <p style="font-size: 0.825rem; color: var(--text-secondary); margin: 4px 0 0 0;">
+                  Resultado consolidado a partir de 10.000 simulações das rodadas restantes
+                </p>
+              </div>
+            </div>
+            <button id="mc-close-btn" type="button" onclick="window.closeMonteCarloDeepDive(event)" style="background: rgba(255,255,255,0.08); border: 1px solid var(--border-subtle); color: var(--text-primary); border-radius: 8px; padding: 6px 14px; cursor: pointer; font-size: 0.8rem; display: flex; align-items: center; gap: 6px; transition: all 0.2s ease; z-index: 10;">
+              <span>Fechar</span> ✕
+            </button>
+          </div>
+
+          <!-- Cards de Síntese em Linguagem Direta -->
+          <div class="mc-summary-grid">
+            <div class="mc-summary-card">
+              <div class="mc-summary-label">Posição mais provável</div>
+              <div class="mc-summary-val" id="mc-sum-pos" style="color: var(--accent-cyan);">--</div>
+              <div class="mc-summary-sub" id="mc-sum-pos-sub">--% das simulações</div>
+            </div>
+            <div class="mc-summary-card">
+              <div class="mc-summary-label">Pontuação final esperada</div>
+              <div class="mc-summary-val" id="mc-sum-pts" style="color: var(--accent-green);">-- pts</div>
+              <div class="mc-summary-sub" id="mc-sum-pts-sub">Faixa mais frequente: --</div>
+            </div>
+            <div class="mc-summary-card">
+              <div class="mc-summary-label">Objetivo mais provável</div>
+              <div class="mc-summary-val" id="mc-sum-dest" style="color: var(--accent-gold); font-size: 1.25rem;">--</div>
+              <div class="mc-summary-sub" id="mc-sum-dest-sub">Probabilidade: --%</div>
+            </div>
+            <div class="mc-summary-card">
+              <div class="mc-summary-label">Grau de certeza da projeção</div>
+              <div class="mc-summary-val" id="mc-sum-uncertainty" style="color: #60A5FA; font-size: 1.25rem;">--</div>
+              <div class="mc-summary-sub" id="mc-sum-uncertainty-sub">Variação: -- a -- pts</div>
+            </div>
+          </div>
+
+          <!-- Grid com Gráfico Principal e Gráfico Secundário -->
+          <div class="mc-charts-grid">
+            <!-- 1. Gráfico Principal: Histograma de Posição Final -->
+            <div class="mc-chart-box">
+              <div class="mc-chart-box-header">
+                <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--text-primary); margin: 0 0 4px 0;">
+                  📊 Histograma de Posição Final (1º ao 20º lugar)
+                </h4>
+                <p style="font-size: 0.775rem; color: var(--text-secondary); margin: 0;">
+                  Em quantas das 10.000 simulações o clube terminou em cada posição
+                </p>
+              </div>
+
+              <!-- Legenda de Zonas com as mesmas cores da tabela -->
+              <div class="mc-zone-legend" style="display: flex; flex-wrap: wrap; gap: 12px; margin: 10px 0 12px 0; font-size: 0.725rem;">
+                <div style="display: flex; align-items: center; gap: 5px;">
+                  <span style="width: 10px; height: 10px; border-radius: 2px; background: #00E59B;"></span>
+                  <span style="color: var(--text-secondary);">G4 Libertadores (1º-4º)</span>
+                </div>
+                <div style="display: flex; align-items: center; gap: 5px;">
+                  <span style="width: 10px; height: 10px; border-radius: 2px; background: #00C48C;"></span>
+                  <span style="color: var(--text-secondary);">Pré-Libertadores (5º-6º)</span>
+                </div>
+                <div style="display: flex; align-items: center; gap: 5px;">
+                  <span style="width: 10px; height: 10px; border-radius: 2px; background: #FFB800;"></span>
+                  <span style="color: var(--text-secondary);">Sul-Americana (7º-12º)</span>
+                </div>
+                <div style="display: flex; align-items: center; gap: 5px;">
+                  <span style="width: 10px; height: 10px; border-radius: 2px; background: #64748b;"></span>
+                  <span style="color: var(--text-secondary);">Zona Neutra (13º-16º)</span>
+                </div>
+                <div style="display: flex; align-items: center; gap: 5px;">
+                  <span style="width: 10px; height: 10px; border-radius: 2px; background: #EF4444;"></span>
+                  <span style="color: var(--text-secondary);">Rebaixamento (17º-20º)</span>
+                </div>
+              </div>
+
+              <!-- Container SVG D3 -->
+              <div id="d3-mc-position-chart" style="width: 100%; min-height: 250px; position: relative;"></div>
+            </div>
+
+            <!-- 2. Gráfico Secundário: Histograma de Pontos Projetados (Incerteza) -->
+            <div class="mc-chart-box">
+              <div class="mc-chart-box-header">
+                <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--text-primary); margin: 0 0 4px 0;">
+                  📈 Distribuição de Pontos Finais
+                </h4>
+                <p style="font-size: 0.775rem; color: var(--text-secondary); margin: 0;">
+                  Grau de incerteza da projeção (distribuição estreita = maior confiança)
+                </p>
+              </div>
+
+              <div id="d3-mc-points-chart" style="width: 100%; min-height: 250px; position: relative; margin-top: 14px;"></div>
+            </div>
+          </div>
+
+          <!-- 3. Card Interpretativo IA (Gemini) -->
+          <div class="mc-ai-card">
+            <div class="mc-ai-header">
+              <div class="mc-ai-badge">
+                <svg class="mc-ai-sparkle" width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2L14.2 8.3L20.5 10.5L14.2 12.7L12 19L9.8 12.7L3.5 10.5L9.8 8.3L12 2Z"/>
+                </svg>
+                <span>Análise Interpretativa · Gemini AI</span>
+              </div>
+              <span class="mc-ai-disclaimer">Síntese estatística baseada exclusivamente nas 10.000 simulações de Monte Carlo</span>
+            </div>
+            <p id="mc-ai-text" class="mc-ai-body">
+              Carregando interpretação dos dados...
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <div>
+        <p><strong>Analytics Brasileirão Série A</strong></p>
+        <p style="font-size: 0.75rem; margin-top: 4px; color: var(--text-muted);">Probabilidades, projeções e estatísticas do futebol brasileiro</p>
+      </div>
+      <div class="rfstechs-wrapper">
+        <span>Feita por</span>
+        <span class="rfstechs-badge">RFSTechs</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Tooltip Global D3.js -->
+  <div id="d3-tooltip" class="d3-tooltip-popup"></div>
+
+  <!-- Scripts -->
+  <script src="assets/js/data.js?v=3.6"></script>
+  <script src="assets/js/d3_charts.js?v=3.6"></script>
+  <script src="assets/js/app.js?v=3.6"></script>
+</body>
+</html>
