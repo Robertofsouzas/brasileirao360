@@ -1,12 +1,16 @@
 # Brasileirão 360 ⚽📊
 ### Inteligência Tática, Engenharia de Dados & Modelos Preditivos do Brasileirão Série A
 
+[![Acesse o Site](https://img.shields.io/badge/🌐_Acesse_o_Site-brasileirao360.vercel.app-00E59B?style=for-the-badge&logo=vercel&logoColor=white)](https://brasileirao360.vercel.app/)
+[![Status](https://img.shields.io/badge/Status-Online_em_Produção-22C55E?style=for-the-badge)](https://brasileirao360.vercel.app/)
 [![Python](https://img.shields.io/badge/Python-3.10+-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
 [![D3.js](https://img.shields.io/badge/D3.js-v7-F9A03C?style=for-the-badge&logo=d3.js&logoColor=white)](https://d3js.org/)
 [![deck.gl](https://img.shields.io/badge/deck.gl-v8.9-12B47D?style=for-the-badge)](https://deck.gl/)
 [![PostgreSQL / Supabase](https://img.shields.io/badge/Supabase-PostgreSQL-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white)](https://supabase.com/)
 [![Monte Carlo](https://img.shields.io/badge/Monte_Carlo-10.000_Simulações-8B5CF6?style=for-the-badge)](#-modelos-matemáticos--estatísticos)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge)](LICENSE)
+
+> 🚀 **Aplicação web no ar:** [**https://brasileirao360.vercel.app/**](https://brasileirao360.vercel.app/)
 
 ---
 
@@ -209,12 +213,18 @@ Instale as dependências necessárias:
 pip install -r requirements.txt
 ```
 
-### 3. Visualizar o Dashboard Web
-Para abrir a aplicação imediatamente no navegador:
-```bash
-python -m http.server 8080
-```
-Acesse no seu navegador: **[http://localhost:8080](http://localhost:8080)**
+### 3. Acessar o Dashboard Web
+
+- **🌐 Online (Produção Vercel):**  
+  Acesse diretamente pelo navegador sem instalar nada:  
+  👉 **[https://brasileirao360.vercel.app/](https://brasileirao360.vercel.app/)**
+
+- **💻 Localmente (Desenvolvimento):**  
+  Para rodar um servidor web local na sua máquina:
+  ```bash
+  python -m http.server 8080
+  ```
+  Acesse no seu navegador: **[http://localhost:8080](http://localhost:8080)**
 
 ### 4. (Opcional) Reprocessar o Pipeline de Dados
 Para atualizar as partidas, recalibrar o modelo de Poisson e rodar novamente as 10.000 simulações de Monte Carlo:
