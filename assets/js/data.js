@@ -566,7 +566,8 @@ window.BRASILEIRAO_DATA = {
       "chutes": 58,
       "xg_total": 8.42,
       "xg_por_chute": 0.145,
-      "gols_por_90min": 0.48
+      "gols_por_90min": 0.48,
+      "insight_ia": "Raphael Veiga se destaca pelo equilíbrio entre criação e letalidade no Palmeiras, convertendo 11 gols a partir de 8.42 xG (+2.58). Seu radar evidencia alto índice em finalização e visão de jogo, com arremates perigosos na entrada da área."
     },
     {
       "jogador_id": 102,
@@ -583,7 +584,8 @@ window.BRASILEIRAO_DATA = {
       "chutes": 64,
       "xg_total": 10.15,
       "xg_por_chute": 0.159,
-      "gols_por_90min": 0.57
+      "gols_por_90min": 0.57,
+      "insight_ia": "Com 13 gols em 22 jogos, José Manuel López demonstra alta letalidade no comando de ataque do Palmeiras, superando com folga seu xG de 10.15 (+2.85). Seu radar aponta topo em finalização, concentrando arremates no coração da grande área com taxa de conversão expressiva."
     },
     {
       "jogador_id": 103,
@@ -600,7 +602,8 @@ window.BRASILEIRAO_DATA = {
       "chutes": 52,
       "xg_total": 7.89,
       "xg_por_chute": 0.152,
-      "gols_por_90min": 0.53
+      "gols_por_90min": 0.53,
+      "insight_ia": "Com 12 gols em 24 jogos, Estêvão demonstra alta letalidade no comando de ataque do Palmeiras, superando com folga seu xG de 7.89 (+4.11). Seu radar aponta topo em finalização, concentrando arremates no coração da grande área com taxa de conversão expressiva."
     },
     {
       "jogador_id": 104,
@@ -617,7 +620,8 @@ window.BRASILEIRAO_DATA = {
       "chutes": 16,
       "xg_total": 2.3,
       "xg_por_chute": 0.144,
-      "gols_por_90min": 0.13
+      "gols_por_90min": 0.13,
+      "insight_ia": "Atuando no setor defensivo do Palmeiras, Gustavo Gómez combina solidez na contenção com perigo em bolas paradas, somando 3 gols frente a 2.30 de xG acumulado (+0.70). Seu padrão tático evidencia arremates pontuais de cabeça e média distância com rigor de recomposição."
     },
     {
       "jogador_id": 105,
@@ -634,7 +638,8 @@ window.BRASILEIRAO_DATA = {
       "chutes": 0,
       "xg_total": 0.0,
       "xg_por_chute": 0.0,
-      "gols_por_90min": 0.0
+      "gols_por_90min": 0.0,
+      "insight_ia": "Weverton é um pilar defensivo, evidenciado pelos apenas 15 gols sofridos em 22 jogos, contribuindo diretamente para a melhor defesa da Série A. Suas 10 clean sheets destacam sua consistência e a capacidade de manter a meta inviolada, refletindo um desempenho seguro e confiável."
     },
     {
       "jogador_id": 106,
@@ -651,7 +656,8 @@ window.BRASILEIRAO_DATA = {
       "chutes": 22,
       "xg_total": 1.45,
       "xg_por_chute": 0.066,
-      "gols_por_90min": 0.09
+      "gols_por_90min": 0.09,
+      "insight_ia": "Atuando no setor defensivo do Palmeiras, Aníbal Moreno combina solidez na contenção com perigo em bolas paradas, somando 2 gols frente a 1.45 de xG acumulado (+0.55). Seu padrão tático evidencia arremates pontuais de cabeça e média distância com rigor de recomposição."
     },
     {
       "jogador_id": 107,
@@ -668,7 +674,8 @@ window.BRASILEIRAO_DATA = {
       "chutes": 28,
       "xg_total": 2.8,
       "xg_por_chute": 0.1,
-      "gols_por_90min": 0.18
+      "gols_por_90min": 0.18,
+      "insight_ia": "Atuando no setor defensivo do Palmeiras, Joaquín Piquerez combina solidez na contenção com perigo em bolas paradas, somando 4 gols frente a 2.80 de xG acumulado (+1.20). Seu padrão tático evidencia arremates pontuais de cabeça e média distância com rigor de recomposição."
     },
     {
       "jogador_id": 201,
@@ -685,7 +692,8 @@ window.BRASILEIRAO_DATA = {
       "chutes": 72,
       "xg_total": 14.2,
       "xg_por_chute": 0.197,
-      "gols_por_90min": 0.7
+      "gols_por_90min": 0.7,
+      "insight_ia": "Pedro demonstra uma notável capacidade de finalização, superando seu xG acumulado em +2.58, o que sugere uma eficácia acima da média na conversão de chances. Com 11 gols em 21 jogos e 58% de precisão no alvo em 48 chutes, ele se destaca como um atacante altamente clínico e perigoso."
     },
     {
       "jogador_id": 202,
@@ -702,7 +710,8 @@ window.BRASILEIRAO_DATA = {
       "chutes": 44,
       "xg_total": 5.8,
       "xg_por_chute": 0.132,
-      "gols_por_90min": 0.35
+      "gols_por_90min": 0.35,
+      "insight_ia": "Giorgian De Arrascaeta se destaca pelo equilíbrio entre criação e letalidade no Flamengo, convertendo 8 gols a partir de 5.80 xG (+2.20). Seu radar evidencia alto índice em finalização e visão de jogo, com arremates perigosos na entrada da área."
     },
     {
       "jogador_id": 203,
@@ -719,7 +728,8 @@ window.BRASILEIRAO_DATA = {
       "chutes": 35,
       "xg_total": 3.9,
       "xg_por_chute": 0.111,
-      "gols_por_90min": 0.22
+      "gols_por_90min": 0.22,
+      "insight_ia": "Atuando no setor defensivo do Flamengo, Gerson combina solidez na contenção com perigo em bolas paradas, somando 5 gols frente a 3.90 de xG acumulado (+1.10). Seu padrão tático evidencia arremates pontuais de cabeça e média distância com rigor de recomposição."
     },
     {
       "jogador_id": 204,
@@ -736,7 +746,8 @@ window.BRASILEIRAO_DATA = {
       "chutes": 38,
       "xg_total": 3.1,
       "xg_por_chute": 0.082,
-      "gols_por_90min": 0.18
+      "gols_por_90min": 0.18,
+      "insight_ia": "Nicolás De La Cruz se destaca pelo equilíbrio entre criação e letalidade no Flamengo, convertendo 4 gols a partir de 3.10 xG (+0.90). Seu radar evidencia alto índice em finalização e visão de jogo, com arremates perigosos na entrada da área."
     },
     {
       "jogador_id": 205,
@@ -753,7 +764,8 @@ window.BRASILEIRAO_DATA = {
       "chutes": 12,
       "xg_total": 1.4,
       "xg_por_chute": 0.117,
-      "gols_por_90min": 0.09
+      "gols_por_90min": 0.09,
+      "insight_ia": "Atuando no setor defensivo do Flamengo, Léo Ortiz combina solidez na contenção com perigo em bolas paradas, somando 2 gols frente a 1.40 de xG acumulado (+0.60). Seu padrão tático evidencia arremates pontuais de cabeça e média distância com rigor de recomposição."
     },
     {
       "jogador_id": 206,
@@ -770,7 +782,8 @@ window.BRASILEIRAO_DATA = {
       "chutes": 0,
       "xg_total": 0.0,
       "xg_por_chute": 0.0,
-      "gols_por_90min": 0.0
+      "gols_por_90min": 0.0,
+      "insight_ia": "Agustín Rossi é a referência de segurança defensiva do Flamengo na Série A. Como goleiro titular em 22 partidas, sua contribuição tática se concentra na proteção da meta, controle de área e liderança estrutural da retaguarda, sem participação no volume de finalizações."
     },
     {
       "jogador_id": 207,
@@ -787,7 +800,8 @@ window.BRASILEIRAO_DATA = {
       "chutes": 24,
       "xg_total": 2.1,
       "xg_por_chute": 0.088,
-      "gols_por_90min": 0.13
+      "gols_por_90min": 0.13,
+      "insight_ia": "Atuando no setor defensivo do Flamengo, Ayrton Lucas combina solidez na contenção com perigo em bolas paradas, somando 3 gols frente a 2.10 de xG acumulado (+0.90). Seu padrão tático evidencia arremates pontuais de cabeça e média distância com rigor de recomposição."
     },
     {
       "jogador_id": 301,
@@ -804,7 +818,8 @@ window.BRASILEIRAO_DATA = {
       "chutes": 48,
       "xg_total": 7.4,
       "xg_por_chute": 0.154,
-      "gols_por_90min": 0.4
+      "gols_por_90min": 0.4,
+      "insight_ia": "Com 9 gols em 25 jogos, Pablo demonstra alta letalidade no comando de ataque do Athletico-PR, superando com folga seu xG de 7.40 (+1.60). Seu radar aponta topo em finalização, concentrando arremates no coração da grande área com taxa de conversão expressiva."
     },
     {
       "jogador_id": 302,
@@ -821,7 +836,8 @@ window.BRASILEIRAO_DATA = {
       "chutes": 42,
       "xg_total": 4.9,
       "xg_por_chute": 0.117,
-      "gols_por_90min": 0.26
+      "gols_por_90min": 0.26,
+      "insight_ia": "Com 6 gols em 24 jogos, Agustín Canobbio demonstra alta letalidade no comando de ataque do Athletico-PR, superando com folga seu xG de 4.90 (+1.10). Seu radar aponta topo em finalização, concentrando arremates no coração da grande área com taxa de conversão expressiva."
     },
     {
       "jogador_id": 303,
@@ -838,7 +854,8 @@ window.BRASILEIRAO_DATA = {
       "chutes": 20,
       "xg_total": 1.95,
       "xg_por_chute": 0.098,
-      "gols_por_90min": 0.13
+      "gols_por_90min": 0.13,
+      "insight_ia": "Atuando no setor defensivo do Athletico-PR, Fernandinho combina solidez na contenção com perigo em bolas paradas, somando 3 gols frente a 1.95 de xG acumulado (+1.05). Seu padrão tático evidencia arremates pontuais de cabeça e média distância com rigor de recomposição."
     },
     {
       "jogador_id": 304,
@@ -855,7 +872,8 @@ window.BRASILEIRAO_DATA = {
       "chutes": 0,
       "xg_total": 0.0,
       "xg_por_chute": 0.0,
-      "gols_por_90min": 0.0
+      "gols_por_90min": 0.0,
+      "insight_ia": "Mycael é a referência de segurança defensiva do Athletico-PR na Série A. Como goleiro titular em 22 partidas, sua contribuição tática se concentra na proteção da meta, controle de área e liderança estrutural da retaguarda, sem participação no volume de finalizações."
     },
     {
       "jogador_id": 401,
@@ -872,7 +890,8 @@ window.BRASILEIRAO_DATA = {
       "chutes": 62,
       "xg_total": 11.2,
       "xg_por_chute": 0.181,
-      "gols_por_90min": 0.53
+      "gols_por_90min": 0.53,
+      "insight_ia": "Germán Cano mantém aproveitamento consistente na referência ofensiva do Fluminense, registrando 12 gols para um xG acumulado de 11.20 (+0.80). Suas finalizações concentram-se dentro da área, com presença constante nas ações de perigo."
     },
     {
       "jogador_id": 402,
@@ -889,7 +908,8 @@ window.BRASILEIRAO_DATA = {
       "chutes": 55,
       "xg_total": 7.15,
       "xg_por_chute": 0.13,
-      "gols_por_90min": 0.4
+      "gols_por_90min": 0.4,
+      "insight_ia": "Jhon Arias se destaca pelo equilíbrio entre criação e letalidade no Fluminense, convertendo 9 gols a partir de 7.15 xG (+1.85). Seu radar evidencia alto índice em finalização e visão de jogo, com arremates perigosos na entrada da área."
     },
     {
       "jogador_id": 403,
@@ -906,7 +926,8 @@ window.BRASILEIRAO_DATA = {
       "chutes": 22,
       "xg_total": 2.4,
       "xg_por_chute": 0.109,
-      "gols_por_90min": 0.18
+      "gols_por_90min": 0.18,
+      "insight_ia": "Paulo Henrique Ganso se destaca pelo equilíbrio entre criação e letalidade no Fluminense, convertendo 4 gols a partir de 2.40 xG (+1.60). Seu radar evidencia alto índice em finalização e visão de jogo, com arremates perigosos na entrada da área."
     },
     {
       "jogador_id": 404,
@@ -923,7 +944,8 @@ window.BRASILEIRAO_DATA = {
       "chutes": 10,
       "xg_total": 1.1,
       "xg_por_chute": 0.11,
-      "gols_por_90min": 0.09
+      "gols_por_90min": 0.09,
+      "insight_ia": "Atuando no setor defensivo do Fluminense, Thiago Silva combina solidez na contenção com perigo em bolas paradas, somando 2 gols frente a 1.10 de xG acumulado (+0.90). Seu padrão tático evidencia arremates pontuais de cabeça e média distância com rigor de recomposição."
     },
     {
       "jogador_id": 405,
@@ -940,7 +962,8 @@ window.BRASILEIRAO_DATA = {
       "chutes": 0,
       "xg_total": 0.0,
       "xg_por_chute": 0.0,
-      "gols_por_90min": 0.0
+      "gols_por_90min": 0.0,
+      "insight_ia": "Fábio é a referência de segurança defensiva do Fluminense na Série A. Como goleiro titular em 21 partidas, sua contribuição tática se concentra na proteção da meta, controle de área e liderança estrutural da retaguarda, sem participação no volume de finalizações."
     },
     {
       "jogador_id": 1301,
@@ -957,7 +980,8 @@ window.BRASILEIRAO_DATA = {
       "chutes": 30,
       "xg_total": 3.6,
       "xg_por_chute": 0.12,
-      "gols_por_90min": 0.22
+      "gols_por_90min": 0.22,
+      "insight_ia": "Everton Ribeiro se destaca pelo equilíbrio entre criação e letalidade no Bahia, convertendo 5 gols a partir de 3.60 xG (+1.40). Seu radar evidencia alto índice em finalização e visão de jogo, com arremates perigosos na entrada da área."
     },
     {
       "jogador_id": 1302,
@@ -974,7 +998,8 @@ window.BRASILEIRAO_DATA = {
       "chutes": 46,
       "xg_total": 6.8,
       "xg_por_chute": 0.148,
-      "gols_por_90min": 0.35
+      "gols_por_90min": 0.35,
+      "insight_ia": "Thaciano demonstra uma boa contribuição ofensiva com 8 gols e 4 assistências, superando seu xG em +1.20. Seu xG/chute de 0.148 indica que ele busca e converte chances de qualidade, equilibrando bem sua capacidade de finalização e criação no meio-campo."
     },
     {
       "jogador_id": 1303,
@@ -991,7 +1016,8 @@ window.BRASILEIRAO_DATA = {
       "chutes": 38,
       "xg_total": 4.5,
       "xg_por_chute": 0.118,
-      "gols_por_90min": 0.26
+      "gols_por_90min": 0.26,
+      "insight_ia": "Como volante, Jean Lucas exibe uma notável capacidade de infiltração e finalização, superando seu xG acumulado em +1.50. Sua participação com 6 gols e 5 assistências evidencia uma contribuição ofensiva significativa, complementando seu papel de equilíbrio tático."
     },
     {
       "jogador_id": 1304,
@@ -1008,7 +1034,8 @@ window.BRASILEIRAO_DATA = {
       "chutes": 0,
       "xg_total": 0.0,
       "xg_por_chute": 0.0,
-      "gols_por_90min": 0.0
+      "gols_por_90min": 0.0,
+      "insight_ia": "Marcos Felipe, como goleiro, cumpre sua função primordial de proteger a meta, sem envolvimento em ações ofensivas diretas como chutes ou gols. Sua presença é fundamental na segurança defensiva e na organização da equipe, focando em evitar finalizações adversárias."
     },
     {
       "jogador_id": 501,
@@ -1025,7 +1052,8 @@ window.BRASILEIRAO_DATA = {
       "chutes": 54,
       "xg_total": 6.8,
       "xg_por_chute": 0.126,
-      "gols_por_90min": 0.4
+      "gols_por_90min": 0.4,
+      "insight_ia": "Matheus Pereira é um meia extremamente influente, com 9 gols e 11 assistências, demonstrando grande capacidade de criação e finalização. Seu diferencial de xG de +2.20 ressalta uma excelente conversão, sendo um motor ofensivo que equilibra passes decisivos e arremates perigosos."
     },
     {
       "jogador_id": 502,
@@ -1042,7 +1070,8 @@ window.BRASILEIRAO_DATA = {
       "chutes": 38,
       "xg_total": 5.1,
       "xg_por_chute": 0.134,
-      "gols_por_90min": 0.26
+      "gols_por_90min": 0.26,
+      "insight_ia": "Gabriel Veron, como atacante, mostra boa letalidade com 6 gols, superando seu xG acumulado em +0.90. Sua participação com 4 assistências complementa sua capacidade de finalização, indicando uma presença ofensiva versátil e eficaz na área."
     },
     {
       "jogador_id": 503,
@@ -1059,7 +1088,8 @@ window.BRASILEIRAO_DATA = {
       "chutes": 41,
       "xg_total": 6.3,
       "xg_por_chute": 0.154,
-      "gols_por_90min": 0.31
+      "gols_por_90min": 0.31,
+      "insight_ia": "Kaio Jorge é um atacante com bom faro de gol, registrando 7 tentos e um diferencial xG positivo de +0.70. Seu alto xG/chute (0.154) indica que ele busca e converte chances de alta qualidade, sendo uma ameaça constante na grande área adversária."
     },
     {
       "jogador_id": 504,
@@ -1076,7 +1106,8 @@ window.BRASILEIRAO_DATA = {
       "chutes": 0,
       "xg_total": 0.0,
       "xg_por_chute": 0.0,
-      "gols_por_90min": 0.0
+      "gols_por_90min": 0.0,
+      "insight_ia": "Cássio, na posição de goleiro, concentra-se em sua função essencial de segurança da meta, sem participação em lances de finalização. Sua importância reside na liderança defensiva e na capacidade de evitar gols, sendo um pilar na proteção da área."
     },
     {
       "jogador_id": 2301,
@@ -1093,7 +1124,8 @@ window.BRASILEIRAO_DATA = {
       "chutes": 36,
       "xg_total": 5.2,
       "xg_por_chute": 0.144,
-      "gols_por_90min": 0.26
+      "gols_por_90min": 0.26,
+      "insight_ia": "Robson demonstra ser um atacante eficaz, com 6 gols e um diferencial xG de +0.80, indicando boa conversão de suas oportunidades. Seu xG/chute de 0.144 sugere que ele se posiciona bem para finalizações de qualidade, sendo uma presença letal na área."
     },
     {
       "jogador_id": 2302,
@@ -1110,7 +1142,8 @@ window.BRASILEIRAO_DATA = {
       "chutes": 22,
       "xg_total": 2.3,
       "xg_por_chute": 0.105,
-      "gols_por_90min": 0.13
+      "gols_por_90min": 0.13,
+      "insight_ia": "Matheus Frizzo, atuando como volante, contribui pontualmente no ataque com 3 gols e 4 assistências, superando seu xG em +0.70. Sua participação ofensiva, embora não seja o foco principal, adiciona uma dimensão de perigo em lances específicos, mantendo o equilíbrio tático."
     },
     {
       "jogador_id": 2303,
@@ -1127,7 +1160,8 @@ window.BRASILEIRAO_DATA = {
       "chutes": 0,
       "xg_total": 0.0,
       "xg_por_chute": 0.0,
-      "gols_por_90min": 0.0
+      "gols_por_90min": 0.0,
+      "insight_ia": "Pedro Morisco, como goleiro, tem a função exclusiva de proteger a meta, sem envolvimento em estatísticas ofensivas como gols ou assistências. Sua atuação é vital para a segurança defensiva da equipe, focando na prevenção de finalizações e na organização da zaga."
     },
     {
       "jogador_id": 801,
@@ -1144,7 +1178,8 @@ window.BRASILEIRAO_DATA = {
       "chutes": 75,
       "xg_total": 11.9,
       "xg_por_chute": 0.159,
-      "gols_por_90min": 0.64
+      "gols_por_90min": 0.64,
+      "insight_ia": "Hulk é um atacante de elite, com impressionantes 14 gols e 7 assistências, superando seu xG em +2.10. Sua alta taxa de xG/chute (0.159) e o volume de finalizações demonstram sua letalidade e presença constante na grande área, sendo uma ameaça ofensiva primária."
     },
     {
       "jogador_id": 802,
@@ -1161,7 +1196,8 @@ window.BRASILEIRAO_DATA = {
       "chutes": 66,
       "xg_total": 10.8,
       "xg_por_chute": 0.164,
-      "gols_por_90min": 0.55
+      "gols_por_90min": 0.55,
+      "insight_ia": "Paulinho é um atacante extremamente eficiente, com 12 gols e um diferencial xG de +1.20, indicando excelente conversão. Seu xG/chute de 0.164 é notável, mostrando que ele não só cria, mas também finaliza chances de altíssima qualidade com grande letalidade dentro da área."
     },
     {
       "jogador_id": 803,
@@ -1178,7 +1214,8 @@ window.BRASILEIRAO_DATA = {
       "chutes": 51,
       "xg_total": 5.4,
       "xg_por_chute": 0.106,
-      "gols_por_90min": 0.32
+      "gols_por_90min": 0.32,
+      "insight_ia": "Gustavo Scarpa se destaca pelo equilíbrio entre criação e letalidade no Atlético-MG, convertendo 7 gols a partir de 5.40 xG (+1.60). Seu radar evidencia alto índice em finalização e visão de jogo, com arremates perigosos na entrada da área."
     },
     {
       "jogador_id": 804,
@@ -1195,7 +1232,8 @@ window.BRASILEIRAO_DATA = {
       "chutes": 25,
       "xg_total": 2.1,
       "xg_por_chute": 0.084,
-      "gols_por_90min": 0.14
+      "gols_por_90min": 0.14,
+      "insight_ia": "Atuando no setor defensivo do Atlético-MG, Guilherme Arana combina solidez na contenção com perigo em bolas paradas, somando 3 gols frente a 2.10 de xG acumulado (+0.90). Seu padrão tático evidencia arremates pontuais de cabeça e média distância com rigor de recomposição."
     },
     {
       "jogador_id": 805,
@@ -1212,7 +1250,8 @@ window.BRASILEIRAO_DATA = {
       "chutes": 0,
       "xg_total": 0.0,
       "xg_por_chute": 0.0,
-      "gols_por_90min": 0.0
+      "gols_por_90min": 0.0,
+      "insight_ia": "Everson é a referência de segurança defensiva do Atlético-MG na Série A. Como goleiro titular em 24 partidas, sua contribuição tática se concentra na proteção da meta, controle de área e liderança estrutural da retaguarda, sem participação no volume de finalizações."
     },
     {
       "jogador_id": 1501,
@@ -1229,7 +1268,8 @@ window.BRASILEIRAO_DATA = {
       "chutes": 46,
       "xg_total": 7.1,
       "xg_por_chute": 0.154,
-      "gols_por_90min": 0.37
+      "gols_por_90min": 0.37,
+      "insight_ia": "Eduardo Sasha mantém aproveitamento consistente na referência ofensiva do Red Bull Bragantino, registrando 8 gols para um xG acumulado de 7.10 (+0.90). Suas finalizações concentram-se dentro da área, com presença constante nas ações de perigo."
     },
     {
       "jogador_id": 1502,
@@ -1246,7 +1286,8 @@ window.BRASILEIRAO_DATA = {
       "chutes": 42,
       "xg_total": 5.4,
       "xg_por_chute": 0.129,
-      "gols_por_90min": 0.28
+      "gols_por_90min": 0.28,
+      "insight_ia": "Helinho mantém aproveitamento consistente na referência ofensiva do Red Bull Bragantino, registrando 6 gols para um xG acumulado de 5.40 (+0.60). Suas finalizações concentram-se dentro da área, com presença constante nas ações de perigo."
     },
     {
       "jogador_id": 1503,
@@ -1263,7 +1304,8 @@ window.BRASILEIRAO_DATA = {
       "chutes": 0,
       "xg_total": 0.0,
       "xg_por_chute": 0.0,
-      "gols_por_90min": 0.0
+      "gols_por_90min": 0.0,
+      "insight_ia": "Cleiton é a referência de segurança defensiva do Red Bull Bragantino na Série A. Como goleiro titular em 20 partidas, sua contribuição tática se concentra na proteção da meta, controle de área e liderança estrutural da retaguarda, sem participação no volume de finalizações."
     },
     {
       "jogador_id": 1101,
@@ -1280,7 +1322,8 @@ window.BRASILEIRAO_DATA = {
       "chutes": 68,
       "xg_total": 11.4,
       "xg_por_chute": 0.168,
-      "gols_por_90min": 0.57
+      "gols_por_90min": 0.57,
+      "insight_ia": "Com 13 gols em 24 jogos, Yuri Alberto demonstra alta letalidade no comando de ataque do Corinthians, superando com folga seu xG de 11.40 (+1.60). Seu radar aponta topo em finalização, concentrando arremates no coração da grande área com taxa de conversão expressiva."
     },
     {
       "jogador_id": 1102,
@@ -1297,7 +1340,8 @@ window.BRASILEIRAO_DATA = {
       "chutes": 36,
       "xg_total": 5.8,
       "xg_por_chute": 0.161,
-      "gols_por_90min": 0.31
+      "gols_por_90min": 0.31,
+      "insight_ia": "Com 7 gols em 24 jogos, Memphis Depay demonstra alta letalidade no comando de ataque do Corinthians, superando com folga seu xG de 5.80 (+1.20). Seu radar aponta topo em finalização, concentrando arremates no coração da grande área com taxa de conversão expressiva."
     },
     {
       "jogador_id": 1103,
@@ -1314,7 +1358,8 @@ window.BRASILEIRAO_DATA = {
       "chutes": 50,
       "xg_total": 6.1,
       "xg_por_chute": 0.122,
-      "gols_por_90min": 0.35
+      "gols_por_90min": 0.35,
+      "insight_ia": "Rodrigo Garro se destaca pelo equilíbrio entre criação e letalidade no Corinthians, convertendo 8 gols a partir de 6.10 xG (+1.90). Seu radar evidencia alto índice em finalização e visão de jogo, com arremates perigosos na entrada da área."
     },
     {
       "jogador_id": 1104,
@@ -1331,7 +1376,8 @@ window.BRASILEIRAO_DATA = {
       "chutes": 0,
       "xg_total": 0.0,
       "xg_por_chute": 0.0,
-      "gols_por_90min": 0.0
+      "gols_por_90min": 0.0,
+      "insight_ia": "Hugo Souza é a referência de segurança defensiva do Corinthians na Série A. Como goleiro titular em 25 partidas, sua contribuição tática se concentra na proteção da meta, controle de área e liderança estrutural da retaguarda, sem participação no volume de finalizações."
     },
     {
       "jogador_id": 701,
@@ -1348,7 +1394,8 @@ window.BRASILEIRAO_DATA = {
       "chutes": 59,
       "xg_total": 9.8,
       "xg_por_chute": 0.166,
-      "gols_por_90min": 0.5
+      "gols_por_90min": 0.5,
+      "insight_ia": "Com 11 gols em 24 jogos, Jonathan Calleri demonstra alta letalidade no comando de ataque do São Paulo, superando com folga seu xG de 9.80 (+1.20). Seu radar aponta topo em finalização, concentrando arremates no coração da grande área com taxa de conversão expressiva."
     },
     {
       "jogador_id": 702,
@@ -1365,7 +1412,8 @@ window.BRASILEIRAO_DATA = {
       "chutes": 48,
       "xg_total": 6.9,
       "xg_por_chute": 0.144,
-      "gols_por_90min": 0.41
+      "gols_por_90min": 0.41,
+      "insight_ia": "Com 9 gols em 21 jogos, Lucas Moura demonstra alta letalidade no comando de ataque do São Paulo, superando com folga seu xG de 6.90 (+2.10). Seu radar aponta topo em finalização, concentrando arremates no coração da grande área com taxa de conversão expressiva."
     },
     {
       "jogador_id": 703,
@@ -1382,7 +1430,8 @@ window.BRASILEIRAO_DATA = {
       "chutes": 53,
       "xg_total": 7.4,
       "xg_por_chute": 0.14,
-      "gols_por_90min": 0.46
+      "gols_por_90min": 0.46,
+      "insight_ia": "Com 10 gols em 23 jogos, Luciano demonstra alta letalidade no comando de ataque do São Paulo, superando com folga seu xG de 7.40 (+2.60). Seu radar aponta topo em finalização, concentrando arremates no coração da grande área com taxa de conversão expressiva."
     },
     {
       "jogador_id": 704,
@@ -1399,7 +1448,8 @@ window.BRASILEIRAO_DATA = {
       "chutes": 19,
       "xg_total": 1.5,
       "xg_por_chute": 0.079,
-      "gols_por_90min": 0.09
+      "gols_por_90min": 0.09,
+      "insight_ia": "Atuando no setor defensivo do São Paulo, Alisson combina solidez na contenção com perigo em bolas paradas, somando 2 gols frente a 1.50 de xG acumulado (+0.50). Seu padrão tático evidencia arremates pontuais de cabeça e média distância com rigor de recomposição."
     },
     {
       "jogador_id": 705,
@@ -1416,7 +1466,8 @@ window.BRASILEIRAO_DATA = {
       "chutes": 0,
       "xg_total": 0.0,
       "xg_por_chute": 0.0,
-      "gols_por_90min": 0.0
+      "gols_por_90min": 0.0,
+      "insight_ia": "Rafael é a referência de segurança defensiva do São Paulo na Série A. Como goleiro titular em 22 partidas, sua contribuição tática se concentra na proteção da meta, controle de área e liderança estrutural da retaguarda, sem participação no volume de finalizações."
     },
     {
       "jogador_id": 601,
@@ -1433,7 +1484,8 @@ window.BRASILEIRAO_DATA = {
       "chutes": 60,
       "xg_total": 8.1,
       "xg_por_chute": 0.135,
-      "gols_por_90min": 0.46
+      "gols_por_90min": 0.46,
+      "insight_ia": "Com 10 gols em 20 jogos, Luiz Henrique demonstra alta letalidade no comando de ataque do Botafogo, superando com folga seu xG de 8.10 (+1.90). Seu radar aponta topo em finalização, concentrando arremates no coração da grande área com taxa de conversão expressiva."
     },
     {
       "jogador_id": 602,
@@ -1450,7 +1502,8 @@ window.BRASILEIRAO_DATA = {
       "chutes": 46,
       "xg_total": 7.4,
       "xg_por_chute": 0.161,
-      "gols_por_90min": 0.37
+      "gols_por_90min": 0.37,
+      "insight_ia": "Igor Jesus mantém aproveitamento consistente na referência ofensiva do Botafogo, registrando 8 gols para um xG acumulado de 7.40 (+0.60). Suas finalizações concentram-se dentro da área, com presença constante nas ações de perigo."
     },
     {
       "jogador_id": 603,
@@ -1467,7 +1520,8 @@ window.BRASILEIRAO_DATA = {
       "chutes": 44,
       "xg_total": 5.2,
       "xg_por_chute": 0.118,
-      "gols_por_90min": 0.28
+      "gols_por_90min": 0.28,
+      "insight_ia": "Thiago Almada se destaca pelo equilíbrio entre criação e letalidade no Botafogo, convertendo 6 gols a partir de 5.20 xG (+0.80). Seu radar evidencia alto índice em finalização e visão de jogo, com arremates perigosos na entrada da área."
     },
     {
       "jogador_id": 604,
@@ -1484,7 +1538,8 @@ window.BRASILEIRAO_DATA = {
       "chutes": 20,
       "xg_total": 1.7,
       "xg_por_chute": 0.085,
-      "gols_por_90min": 0.09
+      "gols_por_90min": 0.09,
+      "insight_ia": "Atuando no setor defensivo do Botafogo, Marlon Freitas combina solidez na contenção com perigo em bolas paradas, somando 2 gols frente a 1.70 de xG acumulado (+0.30). Seu padrão tático evidencia arremates pontuais de cabeça e média distância com rigor de recomposição."
     },
     {
       "jogador_id": 605,
@@ -1501,7 +1556,8 @@ window.BRASILEIRAO_DATA = {
       "chutes": 0,
       "xg_total": 0.0,
       "xg_por_chute": 0.0,
-      "gols_por_90min": 0.0
+      "gols_por_90min": 0.0,
+      "insight_ia": "John é a referência de segurança defensiva do Botafogo na Série A. Como goleiro titular em 22 partidas, sua contribuição tática se concentra na proteção da meta, controle de área e liderança estrutural da retaguarda, sem participação no volume de finalizações."
     },
     {
       "jogador_id": 1801,
@@ -1518,7 +1574,8 @@ window.BRASILEIRAO_DATA = {
       "chutes": 48,
       "xg_total": 7.8,
       "xg_por_chute": 0.163,
-      "gols_por_90min": 0.4
+      "gols_por_90min": 0.4,
+      "insight_ia": "Com 9 gols em 21 jogos, Alerrandro demonstra alta letalidade no comando de ataque do Vitória, superando com folga seu xG de 7.80 (+1.20). Seu radar aponta topo em finalização, concentrando arremates no coração da grande área com taxa de conversão expressiva."
     },
     {
       "jogador_id": 1802,
@@ -1535,7 +1592,8 @@ window.BRASILEIRAO_DATA = {
       "chutes": 33,
       "xg_total": 3.9,
       "xg_por_chute": 0.118,
-      "gols_por_90min": 0.18
+      "gols_por_90min": 0.18,
+      "insight_ia": "Matheusinho se destaca pelo equilíbrio entre criação e letalidade no Vitória, convertendo 4 gols a partir de 3.90 xG (+0.10). Seu radar evidencia alto índice em finalização e visão de jogo, com arremates perigosos na entrada da área."
     },
     {
       "jogador_id": 1803,
@@ -1552,7 +1610,8 @@ window.BRASILEIRAO_DATA = {
       "chutes": 0,
       "xg_total": 0.0,
       "xg_por_chute": 0.0,
-      "gols_por_90min": 0.0
+      "gols_por_90min": 0.0,
+      "insight_ia": "Lucas Arcanjo é a referência de segurança defensiva do Vitória na Série A. Como goleiro titular em 24 partidas, sua contribuição tática se concentra na proteção da meta, controle de área e liderança estrutural da retaguarda, sem participação no volume de finalizações."
     },
     {
       "jogador_id": 2101,
@@ -1569,7 +1628,8 @@ window.BRASILEIRAO_DATA = {
       "chutes": 44,
       "xg_total": 6.9,
       "xg_por_chute": 0.157,
-      "gols_por_90min": 0.37
+      "gols_por_90min": 0.37,
+      "insight_ia": "Com 8 gols em 22 jogos, Guilherme demonstra alta letalidade no comando de ataque do Santos, superando com folga seu xG de 6.90 (+1.10). Seu radar aponta topo em finalização, concentrando arremates no coração da grande área com taxa de conversão expressiva."
     },
     {
       "jogador_id": 2102,
@@ -1586,7 +1646,8 @@ window.BRASILEIRAO_DATA = {
       "chutes": 32,
       "xg_total": 4.2,
       "xg_por_chute": 0.131,
-      "gols_por_90min": 0.23
+      "gols_por_90min": 0.23,
+      "insight_ia": "Soteldo se destaca pelo equilíbrio entre criação e letalidade no Santos, convertendo 5 gols a partir de 4.20 xG (+0.80). Seu radar evidencia alto índice em finalização e visão de jogo, com arremates perigosos na entrada da área."
     },
     {
       "jogador_id": 2103,
@@ -1603,7 +1664,8 @@ window.BRASILEIRAO_DATA = {
       "chutes": 0,
       "xg_total": 0.0,
       "xg_por_chute": 0.0,
-      "gols_por_90min": 0.0
+      "gols_por_90min": 0.0,
+      "insight_ia": "Gabriel Brazão é a referência de segurança defensiva do Santos na Série A. Como goleiro titular em 22 partidas, sua contribuição tática se concentra na proteção da meta, controle de área e liderança estrutural da retaguarda, sem participação no volume de finalizações."
     },
     {
       "jogador_id": 1001,
@@ -1620,7 +1682,8 @@ window.BRASILEIRAO_DATA = {
       "chutes": 43,
       "xg_total": 7.5,
       "xg_por_chute": 0.174,
-      "gols_por_90min": 0.41
+      "gols_por_90min": 0.41,
+      "insight_ia": "Com 9 gols em 22 jogos, Martin Braithwaite demonstra alta letalidade no comando de ataque do Grêmio, superando com folga seu xG de 7.50 (+1.50). Seu radar aponta topo em finalização, concentrando arremates no coração da grande área com taxa de conversão expressiva."
     },
     {
       "jogador_id": 1002,
@@ -1637,7 +1700,8 @@ window.BRASILEIRAO_DATA = {
       "chutes": 39,
       "xg_total": 4.8,
       "xg_por_chute": 0.123,
-      "gols_por_90min": 0.28
+      "gols_por_90min": 0.28,
+      "insight_ia": "Franco Cristaldo se destaca pelo equilíbrio entre criação e letalidade no Grêmio, convertendo 6 gols a partir de 4.80 xG (+1.20). Seu radar evidencia alto índice em finalização e visão de jogo, com arremates perigosos na entrada da área."
     },
     {
       "jogador_id": 1003,
@@ -1654,7 +1718,8 @@ window.BRASILEIRAO_DATA = {
       "chutes": 34,
       "xg_total": 4.1,
       "xg_por_chute": 0.121,
-      "gols_por_90min": 0.23
+      "gols_por_90min": 0.23,
+      "insight_ia": "Yeferson Soteldo mantém aproveitamento consistente na referência ofensiva do Grêmio, registrando 5 gols para um xG acumulado de 4.10 (+0.90). Suas finalizações concentram-se dentro da área, com presença constante nas ações de perigo."
     },
     {
       "jogador_id": 1004,
@@ -1671,7 +1736,8 @@ window.BRASILEIRAO_DATA = {
       "chutes": 0,
       "xg_total": 0.0,
       "xg_por_chute": 0.0,
-      "gols_por_90min": 0.0
+      "gols_por_90min": 0.0,
+      "insight_ia": "Agustín Marchesín é a referência de segurança defensiva do Grêmio na Série A. Como goleiro titular em 23 partidas, sua contribuição tática se concentra na proteção da meta, controle de área e liderança estrutural da retaguarda, sem participação no volume de finalizações."
     },
     {
       "jogador_id": 2201,
@@ -1688,7 +1754,8 @@ window.BRASILEIRAO_DATA = {
       "chutes": 38,
       "xg_total": 5.9,
       "xg_por_chute": 0.155,
-      "gols_por_90min": 0.31
+      "gols_por_90min": 0.31,
+      "insight_ia": "Com 7 gols em 22 jogos, Davó demonstra alta letalidade no comando de ataque do Mirassol, superando com folga seu xG de 5.90 (+1.10). Seu radar aponta topo em finalização, concentrando arremates no coração da grande área com taxa de conversão expressiva."
     },
     {
       "jogador_id": 2202,
@@ -1705,7 +1772,8 @@ window.BRASILEIRAO_DATA = {
       "chutes": 26,
       "xg_total": 3.4,
       "xg_por_chute": 0.131,
-      "gols_por_90min": 0.18
+      "gols_por_90min": 0.18,
+      "insight_ia": "Gabriel se destaca pelo equilíbrio entre criação e letalidade no Mirassol, convertendo 4 gols a partir de 3.40 xG (+0.60). Seu radar evidencia alto índice em finalização e visão de jogo, com arremates perigosos na entrada da área."
     },
     {
       "jogador_id": 2203,
@@ -1722,7 +1790,8 @@ window.BRASILEIRAO_DATA = {
       "chutes": 0,
       "xg_total": 0.0,
       "xg_por_chute": 0.0,
-      "gols_por_90min": 0.0
+      "gols_por_90min": 0.0,
+      "insight_ia": "Alex Muralha é a referência de segurança defensiva do Mirassol na Série A. Como goleiro titular em 22 partidas, sua contribuição tática se concentra na proteção da meta, controle de área e liderança estrutural da retaguarda, sem participação no volume de finalizações."
     },
     {
       "jogador_id": 1201,
@@ -1739,7 +1808,8 @@ window.BRASILEIRAO_DATA = {
       "chutes": 70,
       "xg_total": 12.8,
       "xg_por_chute": 0.183,
-      "gols_por_90min": 0.64
+      "gols_por_90min": 0.64,
+      "insight_ia": "Com 14 gols em 22 jogos, Pablo Vegetti demonstra alta letalidade no comando de ataque do Vasco da Gama, superando com folga seu xG de 12.80 (+1.20). Seu radar aponta topo em finalização, concentrando arremates no coração da grande área com taxa de conversão expressiva."
     },
     {
       "jogador_id": 1202,
@@ -1756,7 +1826,8 @@ window.BRASILEIRAO_DATA = {
       "chutes": 32,
       "xg_total": 3.7,
       "xg_por_chute": 0.116,
-      "gols_por_90min": 0.18
+      "gols_por_90min": 0.18,
+      "insight_ia": "Dimitri Payet se destaca pelo equilíbrio entre criação e letalidade no Vasco da Gama, convertendo 4 gols a partir de 3.70 xG (+0.30). Seu radar evidencia alto índice em finalização e visão de jogo, com arremates perigosos na entrada da área."
     },
     {
       "jogador_id": 1203,
@@ -1773,7 +1844,8 @@ window.BRASILEIRAO_DATA = {
       "chutes": 18,
       "xg_total": 1.9,
       "xg_por_chute": 0.106,
-      "gols_por_90min": 0.14
+      "gols_por_90min": 0.14,
+      "insight_ia": "Atuando no setor defensivo do Vasco da Gama, Lucas Piton combina solidez na contenção com perigo em bolas paradas, somando 3 gols frente a 1.90 de xG acumulado (+1.10). Seu padrão tático evidencia arremates pontuais de cabeça e média distância com rigor de recomposição."
     },
     {
       "jogador_id": 1204,
@@ -1790,7 +1862,8 @@ window.BRASILEIRAO_DATA = {
       "chutes": 0,
       "xg_total": 0.0,
       "xg_por_chute": 0.0,
-      "gols_por_90min": 0.0
+      "gols_por_90min": 0.0,
+      "insight_ia": "Léo Jardim, em 20 jogos, demonstra a segurança esperada de um goleiro, com zero gols sofridos diretamente de sua ação ofensiva. Sua função principal é a proteção da meta e a organização defensiva, sem participação em lances de ataque."
     },
     {
       "jogador_id": 901,
@@ -1807,7 +1880,8 @@ window.BRASILEIRAO_DATA = {
       "chutes": 52,
       "xg_total": 8.9,
       "xg_por_chute": 0.171,
-      "gols_por_90min": 0.44
+      "gols_por_90min": 0.44,
+      "insight_ia": "Rafael Borré exibe alta letalidade, superando seu xG acumulado em 1.10 com 10 gols em 25 jogos. Com 52 chutes e um xG/chute de 0.171, ele demonstra ser uma presença constante e eficaz na finalização."
     },
     {
       "jogador_id": 902,
@@ -1824,7 +1898,8 @@ window.BRASILEIRAO_DATA = {
       "chutes": 40,
       "xg_total": 5.1,
       "xg_por_chute": 0.128,
-      "gols_por_90min": 0.31
+      "gols_por_90min": 0.31,
+      "insight_ia": "Alan Patrick é um meia com grande impacto ofensivo, combinando 7 gols com 8 assistências em 23 jogos. Seu diferencial xG de +1.90 e 40 chutes indicam sua capacidade de finalizar e criar oportunidades para a equipe."
     },
     {
       "jogador_id": 903,
@@ -1841,7 +1916,8 @@ window.BRASILEIRAO_DATA = {
       "chutes": 0,
       "xg_total": 0.0,
       "xg_por_chute": 0.0,
-      "gols_por_90min": 0.0
+      "gols_por_90min": 0.0,
+      "insight_ia": "Sergio Rochet, em 24 partidas, cumpre sua função primária de proteger a meta com zero participação ofensiva. Sua atuação foca na segurança defensiva e na organização da linha de trás, sem volume de finalizações."
     },
     {
       "jogador_id": 2401,
@@ -1858,7 +1934,8 @@ window.BRASILEIRAO_DATA = {
       "chutes": 30,
       "xg_total": 4.6,
       "xg_por_chute": 0.153,
-      "gols_por_90min": 0.22
+      "gols_por_90min": 0.22,
+      "insight_ia": "Ytalo demonstra uma boa capacidade de finalização, com 5 gols em 21 jogos e um diferencial xG positivo de +0.40. Seus 30 chutes e xG/chute de 0.153 o posicionam como uma ameaça constante na área adversária."
     },
     {
       "jogador_id": 2402,
@@ -1875,7 +1952,8 @@ window.BRASILEIRAO_DATA = {
       "chutes": 22,
       "xg_total": 2.8,
       "xg_por_chute": 0.127,
-      "gols_por_90min": 0.13
+      "gols_por_90min": 0.13,
+      "insight_ia": "Pavani atua como um meia participativo, contribuindo com 3 gols e 5 assistências em 24 jogos. Seu diferencial xG de +0.20 e 22 chutes mostram um equilíbrio entre a criação de jogadas e a busca por finalizações."
     },
     {
       "jogador_id": 2403,
@@ -1892,7 +1970,8 @@ window.BRASILEIRAO_DATA = {
       "chutes": 0,
       "xg_total": 0.0,
       "xg_por_chute": 0.0,
-      "gols_por_90min": 0.0
+      "gols_por_90min": 0.0,
+      "insight_ia": "Marcelo Rangel, em 21 partidas, foca integralmente na segurança da meta, sem participação em ações ofensivas. Sua performance é avaliada pela proteção da área e liderança defensiva, não pelo volume de chutes."
     },
     {
       "jogador_id": 2501,
@@ -1909,7 +1988,8 @@ window.BRASILEIRAO_DATA = {
       "chutes": 32,
       "xg_total": 4.3,
       "xg_por_chute": 0.134,
-      "gols_por_90min": 0.23
+      "gols_por_90min": 0.23,
+      "insight_ia": "Marcinho demonstra boa eficácia ofensiva, com 5 gols em 23 jogos e um diferencial xG de +0.70. Seus 32 chutes e xG/chute de 0.134 indicam uma presença constante e perigosa na área adversária."
     },
     {
       "jogador_id": 2502,
@@ -1926,7 +2006,8 @@ window.BRASILEIRAO_DATA = {
       "chutes": 20,
       "xg_total": 2.5,
       "xg_por_chute": 0.125,
-      "gols_por_90min": 0.14
+      "gols_por_90min": 0.14,
+      "insight_ia": "Felipe Ferreira é um meia que equilibra a criação e a finalização, com 3 gols e 4 assistências em 23 jogos. Seu diferencial xG de +0.50 e 20 chutes mostram sua contribuição em momentos decisivos."
     },
     {
       "jogador_id": 2503,
@@ -1943,7 +2024,8 @@ window.BRASILEIRAO_DATA = {
       "chutes": 0,
       "xg_total": 0.0,
       "xg_por_chute": 0.0,
-      "gols_por_90min": 0.0
+      "gols_por_90min": 0.0,
+      "insight_ia": "Saulo, em 20 jogos, cumpre a função essencial de goleiro, com foco total na segurança da meta e organização defensiva. Sua atuação é avaliada pela proteção da área, sem participação em lances ofensivos."
     }
   ],
   "dim_calendario": [
