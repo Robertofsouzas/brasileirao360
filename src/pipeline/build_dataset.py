@@ -158,11 +158,12 @@ def run_pipeline():
         ga = score.get("away")
 
         resultado = None
-        # Se o placar final já está registrado (FINISHED ou IN_PLAY finalizado na API)
-        is_match_completed = (gh is not None and ga is not None) and (status in ["FINISHED", "IN_PLAY"])
+        # Se o placar final já está registrado, marcar como FINISHED
+        # independente do status original da API (que pode atrasar a atualização)
+        is_match_completed = (gh is not None and ga is not None)
 
         if is_match_completed:
-            status = "FINISHED" # normaliza status para finalizado
+            status = "FINISHED"
             if gh > ga:
                 resultado = "MANDANTE"
             elif gh < ga:
@@ -177,6 +178,10 @@ def run_pipeline():
                 "gols_visitante": ga
             })
         else:
+            # Normaliza status para o frontend: TIMED → SCHEDULED
+            if status not in ["POSTPONED", "CANCELLED", "SUSPENDED"]:
+                status = "SCHEDULED"
+
             scheduled_matches_for_sim.append({
                 "mandante": home_name,
                 "visitante": away_name,

@@ -16,9 +16,9 @@ FOOTBALL_DATA_API_KEY = os.getenv("FOOTBALL_DATA_API_KEY", "")
 API_FOOTBALL_KEY = os.getenv("API_FOOTBALL_KEY", "")
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "")
 
-# Supabase
-SUPABASE_URL = os.getenv("SUPABASE_URL", "https://dsxwsdzoxbkhigjcwgwv.supabase.co")
-SUPABASE_ANON_KEY = os.getenv("SUPABASE_ANON_KEY", "sb_publishable_ef8wnc8Kr6FfqACIZYghIQ_TIJhY1q-")
+# Supabase (usa 'or' ao invés do default do getenv para tratar strings vazias vindas do CI)
+SUPABASE_URL = os.getenv("SUPABASE_URL") or "https://dsxwsdzoxbkhigjcwgwv.supabase.co"
+SUPABASE_ANON_KEY = os.getenv("SUPABASE_ANON_KEY") or "sb_publishable_ef8wnc8Kr6FfqACIZYghIQ_TIJhY1q-"
 
 # Diretórios de Dados
 DATA_DIR = BASE_DIR / "data"

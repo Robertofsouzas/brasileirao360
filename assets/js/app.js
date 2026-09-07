@@ -650,10 +650,24 @@ function initPoissonSimulator(data) {
   const container = document.getElementById("next-round-fixtures-list");
   if (!container) return;
 
-  const scheduled = (data.fato_partidas_todas || []).filter(p => p.status !== "FINISHED");
-  const finished = (data.fato_partidas_todas || []).filter(p => p.status === "FINISHED");
-  const maxFinished = finished.length > 0 ? Math.max(...finished.map(p => p.rodada)) : 24;
-  const nextRoundNum = maxFinished + 1; // Rodada 25 (10 confrontos oficiais da próxima rodada)
+  // Filtra partidas: apenas TIMED/SCHEDULED são "agendadas reais" (ignora POSTPONED)
+  const allMatches = data.fato_partidas_todas || [];
+  const scheduled = allMatches.filter(p => p.status === "TIMED" || p.status === "SCHEDULED");
+  const finished  = allMatches.filter(p => p.status === "FINISHED");
+
+  // Detecta a próxima rodada: menor rodada agendada que tenha ≥2 jogos programados
+  // (ignora rodadas com apenas jogos adiados ou isolados)
+  const rodadaCounts = {};
+  scheduled.forEach(p => { rodadaCounts[p.rodada] = (rodadaCounts[p.rodada] || 0) + 1; });
+  const candidatas = Object.entries(rodadaCounts)
+    .filter(([, count]) => count >= 2)
+    .map(([r]) => Number(r))
+    .sort((a, b) => a - b);
+
+  const nextRoundNum = candidatas.length > 0
+    ? candidatas[0]
+    : (finished.length > 0 ? Math.max(...finished.map(p => p.rodada)) + 1 : 26);
+
   const nextRoundMatches = scheduled.filter(p => p.rodada === nextRoundNum);
 
   const roundTag = document.getElementById("sim-round-tag");
