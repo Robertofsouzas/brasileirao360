@@ -3,6 +3,7 @@
 
 [![Acesse o Site](https://img.shields.io/badge/🌐_Acesse_o_Site-brasileirao360.vercel.app-00E59B?style=for-the-badge&logo=vercel&logoColor=white)](https://brasileirao360.vercel.app/)
 [![Status](https://img.shields.io/badge/Status-Online_em_Produção-22C55E?style=for-the-badge)](https://brasileirao360.vercel.app/)
+[![Data Pipeline](https://github.com/Robertofsouzas/brasileirao360/actions/workflows/weekly-update.yml/badge.svg)](https://github.com/Robertofsouzas/brasileirao360/actions/workflows/weekly-update.yml)
 [![Python](https://img.shields.io/badge/Python-3.10+-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
 [![D3.js](https://img.shields.io/badge/D3.js-v7-F9A03C?style=for-the-badge&logo=d3.js&logoColor=white)](https://d3js.org/)
 [![deck.gl](https://img.shields.io/badge/deck.gl-v8.9-12B47D?style=for-the-badge)](https://deck.gl/)
@@ -101,6 +102,8 @@ O **Brasileirão 360** é uma plataforma analítica end-to-end desenvolvida para
 | **NumPy & Pandas** | Manipulação de DataFrames, transformações matriciais e cálculos vetorizados |
 | **Requests** | Extração de dados via APIs REST com retry e controle de rate-limit |
 | **Supabase (PostgreSQL)** | Armazenamento relacional e dimensional com Star Schema |
+| **GitHub Actions** | Orquestração CI/CD, execução agendada (cron) do pipeline ETL e commit automatizado |
+| **Vercel** | Hospedagem estática com Continuous Deployment (redeploy automático a cada push na `main`) |
 | **APIs de Dados Esportivos** | football-data.org (tabela/jogos), API-Football v3 (eventos e chutes) e The Odds API (cotações de mercado) |
 
 ---
@@ -138,6 +141,9 @@ Isso garante que $\sum P_{\text{desmargiada}} = 100.0\%$, permitindo a comparaç
 
 ```text
 brasileirao360/
+├── .github/
+│   └── workflows/
+│       └── weekly-update.yml     # Workflow de atualização periódica via GitHub Actions
 ├── index.html                    # Dashboard Web Interativo Principal
 ├── data_contract.md              # Contrato de Dados (Fonte Única da Verdade)
 ├── README.md                     # Documentação Técnica e do Negócio
@@ -245,6 +251,62 @@ python assets/js/export_data_js.py
 ```bash
 python src/database/supabase_sync.py
 ```
+
+---
+
+## 🔄 Automação & Atualização Contínua (GitHub Actions)
+
+O projeto conta com uma esteira de **CI/CD e engenharia de dados 100% automatizada** através do GitHub Actions ([`.github/workflows/weekly-update.yml`](.github/workflows/weekly-update.yml)). Isso elimina a necessidade de rodar pipelines manuais locais para manter o site e as probabilidades atualizados.
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                       FLUXO DA ATUALIZAÇÃO AUTOMÁTICA                       │
+├─────────────────────────────────────────────────────────────────────────────┤
+│  [Agendamento Cron ou Disparo Manual]                                       │
+│         │                                                                   │
+│         ▼                                                                   │
+│  [GitHub Actions Runner (Ubuntu)]                                           │
+│         │                                                                   │
+│         ├─► 1. Ingestão de Dados (football-data.org & API-Football)         │
+│         ├─► 2. Pipeline Medalhão (Bronze ➔ Silver ➔ Gold)                   │
+│         ├─► 3. Calibração do Modelo de Poisson & 10.000 Monte Carlo         │
+│         ├─► 4. Coleta & Desmargem de Odds de Mercado                        │
+│         ├─► 5. Geração de Diagnósticos Narrativos via Google Gemini AI      │
+│         ├─► 6. Exportação do Dataset Consolidado (assets/js/data.js)        │
+│         ├─► 7. Sincronização Dimensional com Supabase (PostgreSQL)          │
+│         │                                                                   │
+│         ▼                                                                   │
+│  [Commit & Push Automático no GitHub (branch main)]                         │
+│         │                                                                   │
+│         ▼                                                                   │
+│  [Vercel Deploy Automático] ──► 🌐 Dashboard Online Atualizado              │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+### ⏱️ Gatilhos de Execução
+
+- **Agendamento Semanal (Cron):** Executa automaticamente **2 vezes por semana** às **06:00 UTC (03:00 Horário de Brasília)**:
+  - **Segundas-feiras:** Consolida todos os jogos e desfechos do fim de semana.
+  - **Sextas-feiras:** Consolida as rodadas e partidas de meio de semana.
+- **Disparo Manual (`workflow_dispatch`):** Pode ser acionado a qualquer momento diretamente pela interface do GitHub:
+  1. Vá até a aba **Actions** no repositório.
+  2. Selecione o workflow **"📊 Atualização Semanal de Dados"**.
+  3. Clique em **"Run workflow"** e confirme na branch `main`.
+
+### 🔑 Configuração de Segredos (GitHub Secrets)
+
+Para que o workflow execute com sucesso todas as etapas, os seguintes secrets devem ser cadastrados em **Settings → Secrets and variables → Actions**:
+
+| Secret | Descrição | Obrigatório? |
+|---|---|:---:|
+| `FOOTBALL_DATA_API_KEY` | Chave da API football-data.org (tabela, partidas e placares) | ✅ **Sim** |
+| `API_FOOTBALL_KEY` | Chave da API-Football v3 (estatísticas, chutes e elenco) | ✅ **Sim** |
+| `GEMINI_API_KEY` | Chave da API Google Gemini para relatórios narrativos por IA | ⚡ *Recomendado* |
+| `THE_ODDS_API_KEY` | Chave da The Odds API para cotações de casas de apostas | 🔸 *Opcional* |
+| `SUPABASE_URL` | Endpoint da instância Supabase PostgreSQL | 🔸 *Opcional* |
+| `SUPABASE_ANON_KEY` | Chave anônima/pública do Supabase | 🔸 *Opcional* |
+
+> 💡 **Deploy Contínuo sem Downtime:** Sempre que o pipeline detecta mudanças nos dados, ele realiza um commit assinado pelo bot do GitHub Actions. Esse push na branch `main` dispara instantaneamente uma nova compilação e publicação no **Vercel**, mantendo o usuário final sempre com dados frescos e sem interrupção de serviço.
 
 ---
 
