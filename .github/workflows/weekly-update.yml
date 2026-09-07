@@ -1,0 +1,111 @@
+# ============================================================================
+# GitHub Actions — Atualização semanal do pipeline de dados
+# Roda o pipeline Python (Bronze → Silver → Gold), gera data.js e faz
+# commit + push automático para disparar redeploy no Vercel.
+#
+# Agendamento: Segunda e Sexta às 06:00 UTC (03:00 horário de Brasília)
+# Segunda cobre os jogos do fim de semana; Sexta cobre jogos de meio de semana.
+# ============================================================================
+
+name: "📊 Atualização Semanal de Dados"
+
+on:
+  # Agendamento via cron (Segunda e Sexta, 06:00 UTC / 03:00 BRT)
+  schedule:
+    - cron: "0 6 * * 1,5"
+
+  # Permite execução manual via botão "Run workflow" no GitHub
+  workflow_dispatch:
+
+# Permissão de escrita necessária para o commit automático via GITHUB_TOKEN
+permissions:
+  contents: write
+
+jobs:
+  update-data:
+    name: "Pipeline de Dados (Bronze → Silver → Gold)"
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    env:
+      # Chaves de API injetadas via GitHub Secrets
+      FOOTBALL_DATA_API_KEY: ${{ secrets.FOOTBALL_DATA_API_KEY }}
+      API_FOOTBALL_KEY: ${{ secrets.API_FOOTBALL_KEY }}
+      GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+      THE_ODDS_API_KEY: ${{ secrets.THE_ODDS_API_KEY }}
+      SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+      SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+
+    steps:
+      # ── 1. Checkout do repositório ────────────────────────────────
+      - name: "📥 Checkout do repositório"
+        uses: actions/checkout@v4
+
+      # ── 2. Configuração do Python ─────────────────────────────────
+      - name: "🐍 Configurar Python 3.11"
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      # ── 3. Instalar dependências ──────────────────────────────────
+      - name: "📦 Instalar dependências"
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      # ── 4. Pipeline principal (Bronze → Silver → Gold) ────────────
+      # Ingesta dados da football-data.org, constrói dim/fato,
+      # calibra modelo Poisson e roda 10.000 simulações de Monte Carlo.
+      # Gera dataset_gold.json E assets/js/data.js internamente.
+      - name: "⚙️ Executar pipeline de dados (build_dataset)"
+        run: python src/pipeline/build_dataset.py
+
+      # ── 5. Odds de mercado (enriquecimento opcional) ──────────────
+      # Busca cotações pré-jogo via The Odds API (ou fallback Betano)
+      # e vincula no Star Schema. Roda mesmo sem chave configurada.
+      - name: "📈 Atualizar odds de mercado"
+        run: python src/pipeline/fetch_market_odds.py
+
+      # ── 6. Insights Gemini (Monte Carlo) ──────────────────────────
+      # Gera cards interpretativos por clube usando a API Gemini.
+      # Continua sem falhar se a chave Gemini não estiver configurada.
+      - name: "🤖 Gerar insights interpretativos (Gemini - Clubes)"
+        run: python src/pipeline/generate_gemini_insights.py
+        continue-on-error: true
+
+      # ── 7. Insights Gemini (Dossiê do Jogador) ────────────────────
+      - name: "🤖 Gerar insights interpretativos (Gemini - Jogadores)"
+        run: python src/pipeline/generate_player_gemini_insights.py
+        continue-on-error: true
+
+      # ── 8. Exportar data.js final ─────────────────────────────────
+      # Regenera data.js a partir do dataset_gold.json consolidado,
+      # garantindo que todas as enriquecimentos (odds, insights) estejam
+      # refletidos no arquivo consumido pelo frontend.
+      - name: "📄 Exportar data.js para o frontend"
+        run: python assets/js/export_data_js.py
+
+      # ── 9. Sincronizar com Supabase (opcional) ────────────────────
+      - name: "☁️ Sincronizar dados com Supabase"
+        run: python src/database/supabase_sync.py
+        continue-on-error: true
+
+      # ── 10. Commit e push automático ──────────────────────────────
+      # Commita apenas se houver diferenças reais nos arquivos de saída.
+      # O push na main dispara automaticamente o redeploy no Vercel.
+      - name: "🚀 Commit e push dos dados atualizados"
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git add assets/js/data.js data/gold/dataset_gold.json
+
+          if git diff --staged --quiet; then
+            echo "✅ Sem alterações nos dados — nenhum commit necessário."
+          else
+            TIMESTAMP=$(TZ="America/Sao_Paulo" date +'%d/%m/%Y às %H:%M')
+            git commit -m "chore(data): atualização automática de dados — ${TIMESTAMP}"
+            git push
+            echo "🚀 Dados atualizados e push realizado com sucesso!"
+          fi
