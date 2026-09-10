@@ -264,6 +264,7 @@ function renderMonteCarloTable(projections) {
     tr.innerHTML = `
       <td class="text-left">
         <div class="team-cell">
+          <span class="clickable-expand-icon" title="Clique para ver projeção detalhada">▶</span>
           <span style="color: var(--text-muted); font-size: 0.8rem; font-family: var(--font-mono); width: 22px;">#${idx + 1}</span>
           <img src="${crestUrl}" alt="${p.clube}" class="team-crest" onerror="this.src='https://crests.football-data.org/764.svg'">
           <span class="team-name">${p.clube}</span>
@@ -464,6 +465,7 @@ function updateClubProfile(clubName, data) {
         <div class="squad-player-cell">
           <img src="${player.foto_url || DEFAULT_PLAYER_AVATAR}" alt="${player.nome}" class="squad-player-avatar" onerror="this.onerror=null; this.src=DEFAULT_PLAYER_AVATAR;">
           <span>${player.nome}</span>
+          <span class="clickable-expand-icon" title="Clique para abrir o dossiê tático">▶</span>
         </div>
       </td>
       <td><span class="player-position-badge" style="font-size: 0.65rem; padding: 2px 6px;">${player.posicao}</span></td>

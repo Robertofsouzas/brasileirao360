@@ -749,6 +749,7 @@ body {
 .squad-table tr {
   border-bottom: 1px solid rgba(255, 255, 255, 0.04);
   transition: var(--transition-smooth);
+  position: relative;
 }
 
 .squad-table tbody tr:hover {
@@ -756,10 +757,21 @@ body {
   cursor: pointer;
 }
 
+.squad-table tbody tr:hover .clickable-expand-icon {
+  opacity: 1;
+  transform: translateX(0);
+}
+
 .squad-table tbody tr.squad-row-active {
   background: rgba(0, 229, 155, 0.16) !important;
   border-left: 3px solid var(--accent-green) !important;
   box-shadow: inset 0 0 12px rgba(0, 229, 155, 0.15);
+}
+
+.squad-table tbody tr.squad-row-active .clickable-expand-icon {
+  opacity: 1;
+  transform: translateX(0) rotate(90deg);
+  color: var(--accent-green);
 }
 
 .squad-table td {
@@ -841,6 +853,100 @@ body {
   object-fit: cover;
   background: var(--bg-surface-elevated);
   border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* ==========================================================================
+   Clickable Affordance Indicators (UX Signal)
+   ========================================================================== */
+
+/* Expand icon that appears on row hover */
+.clickable-expand-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: translateX(-6px);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+/* Interactive hint badge (pulsing on first load) */
+.interactive-hint {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(0, 229, 155, 0.08);
+  border: 1px solid rgba(0, 229, 155, 0.25);
+  color: var(--accent-green);
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  animation: hintPulse 2.5s ease-in-out 3;
+  cursor: default;
+  user-select: none;
+  white-space: nowrap;
+}
+
+.interactive-hint .hint-icon {
+  font-size: 0.85rem;
+  line-height: 1;
+}
+
+@keyframes hintPulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(0, 229, 155, 0);
+    border-color: rgba(0, 229, 155, 0.25);
+  }
+  50% {
+    box-shadow: 0 0 12px 3px rgba(0, 229, 155, 0.2);
+    border-color: rgba(0, 229, 155, 0.55);
+  }
+}
+
+@keyframes hintPulseCyan {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(0, 180, 216, 0);
+    border-color: rgba(0, 180, 216, 0.25);
+  }
+  50% {
+    box-shadow: 0 0 12px 3px rgba(0, 180, 216, 0.2);
+    border-color: rgba(0, 180, 216, 0.55);
+  }
+}
+
+/* MC Table Interactive Row Affordance */
+.mc-table tbody tr {
+  transition: all 0.2s ease;
+  position: relative;
+  cursor: pointer;
+}
+
+.mc-table tbody tr:hover {
+  background: rgba(0, 180, 216, 0.08);
+}
+
+.mc-table tbody tr:hover .clickable-expand-icon {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.mc-table tbody tr.mc-row-active {
+  background: rgba(0, 180, 216, 0.14) !important;
+  border-left: 3px solid var(--accent-cyan) !important;
+  box-shadow: inset 0 0 12px rgba(0, 180, 216, 0.12);
+}
+
+.mc-table tbody tr.mc-row-active .clickable-expand-icon {
+  opacity: 1;
+  transform: translateX(0) rotate(90deg);
+  color: var(--accent-cyan);
 }
 
 .player-kpis {

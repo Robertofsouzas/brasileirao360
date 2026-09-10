@@ -19,7 +19,7 @@
   <meta name="twitter:image" content="https://brasileirao360.vercel.app/assets/img/hero_tactical_banner.jpg">
   
   <!-- CSS Stylesheet -->
-  <link rel="stylesheet" href="assets/css/style.css?v=3.8">
+  <link rel="stylesheet" href="assets/css/style.css?v=3.9">
   <link rel="icon" href="https://crests.football-data.org/764.svg" type="image/svg+xml">
 
   <!-- D3.js v7 CDN (Visualizações Estatísticas Avançadas) -->
@@ -199,6 +199,10 @@
         <div>
           <h3 class="section-title">Times & Jogadores em Detalhe</h3>
           <p class="section-subtitle">Veja o desempenho de cada time e jogador da temporada, com estatísticas e mapas de finalização.</p>
+          <div class="interactive-hint" style="margin-top: 8px;">
+            <span class="hint-icon">👆</span>
+            <span>Clique em um jogador do elenco para abrir o dossiê tático completo</span>
+          </div>
         </div>
       </div>
 
@@ -279,8 +283,12 @@
             <!-- Renderizado via JS -->
           </div>
 
-          <div style="margin: 20px 0 8px; font-size: 0.8rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">
-            Elenco Principal & Desempenho (Clique em um atleta para analisar)
+          <div style="margin: 20px 0 8px; font-size: 0.8rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 6px;">
+            <span>Elenco Principal & Desempenho</span>
+            <span class="interactive-hint" style="animation-iteration-count: 2; text-transform: none;">
+              <span class="hint-icon">🔍</span>
+              <span>Clique no atleta → Dossiê Tático</span>
+            </span>
           </div>
           <div class="standings-table-container">
             <table class="squad-table">
@@ -746,6 +754,10 @@
         <div>
           <h3 class="section-title">Projeções de Final de Temporada</h3>
           <p class="section-subtitle">Previsões calculadas a partir de 10.000 simulações das partidas restantes</p>
+          <div class="interactive-hint" style="margin-top: 8px; background: rgba(0, 180, 216, 0.08); border-color: rgba(0, 180, 216, 0.25); color: var(--accent-cyan); animation-name: hintPulseCyan;">
+            <span class="hint-icon">👆</span>
+            <span>Clique em um time para ver histogramas de posição e pontos projetados</span>
+          </div>
         </div>
       </div>
 
@@ -985,6 +997,6 @@
   <!-- Scripts -->
   <script src="assets/js/data.js?v=3.6"></script>
   <script src="assets/js/d3_charts.js?v=3.6"></script>
-  <script src="assets/js/app.js?v=3.6"></script>
+  <script src="assets/js/app.js?v=3.7"></script>
 </body>
 </html>
