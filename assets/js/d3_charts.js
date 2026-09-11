@@ -357,13 +357,71 @@ function renderD3PlayerRadar(player, data) {
   const assistsPerGame = player.jogos > 0 ? player.assistencias / player.jogos : 0;
   const xgDiff = player.gols - player.xg_total;
 
+  // --- Benchmarks dinâmicos baseados na posição real do atleta ---
+  const posPlayers = (data.dim_jogadores || []).filter(p =>
+    p.posicao === player.posicao && p.jogos >= 5
+  );
+
+  // Helpers: percentil e média
+  function _radarPercentile(arr, pct) {
+    if (arr.length === 0) return 0;
+    const sorted = arr.slice().sort((a, b) => a - b);
+    const idx = Math.min(Math.floor(sorted.length * pct), sorted.length - 1);
+    return sorted[idx];
+  }
+  function _radarMean(arr) {
+    if (arr.length === 0) return 0;
+    return arr.reduce((a, b) => a + b, 0) / arr.length;
+  }
+
+  // Métricas raw de cada jogador da posição
+  const posGoalsPerShot = posPlayers.map(p => p.chutes > 0 ? p.gols / p.chutes : 0);
+  const posXgTotal = posPlayers.map(p => p.xg_total || 0);
+  const posAssistsPerGame = posPlayers.map(p => p.jogos > 0 ? (p.assistencias || 0) / p.jogos : 0);
+  const posXgPerShot = posPlayers.map(p => p.xg_por_chute || 0);
+  const posXgDiff = posPlayers.map(p => (p.gols || 0) - (p.xg_total || 0));
+  const posParticipation = posPlayers.map(p => (p.gols || 0) + (p.assistencias || 0));
+
+  // Cap no máximo da posição + margem de 15% (evita saturação mesmo para top players)
+  function _radarMax(arr) { return arr.length > 0 ? Math.max(...arr) : 0; }
+  const capFin = Math.max(_radarMax(posGoalsPerShot) * 1.15, 0.15);
+  const capVol = Math.max(_radarMax(posXgTotal) * 1.15, 8);
+  const capCri = Math.max(_radarMax(posAssistsPerGame) * 1.15, 0.15);
+  const capQua = Math.max(_radarMax(posXgPerShot) * 1.15, 0.15);
+  const capLet = Math.max(_radarMax(posXgDiff) - Math.min(...posXgDiff, 0), 3) * 1.15;
+  const capPar = Math.max(_radarMax(posParticipation) * 1.15, 10);
+
   const axes = [
-    { name: "Finalização", val: Math.min(100, (goalsPerShot / 0.25) * 100), benchmark: 55 },
-    { name: "Volume xG", val: Math.min(100, (player.xg_total / 12.0) * 100), benchmark: 50 },
-    { name: "Criação (xA)", val: Math.min(100, (assistsPerGame / 0.35) * 100), benchmark: 48 },
-    { name: "Qualidade xG", val: Math.min(100, (xgPerShot / 0.18) * 100), benchmark: 52 },
-    { name: "Letalidade", val: Math.min(100, Math.max(0, 50 + (xgDiff * 10))), benchmark: 50 },
-    { name: "Participação", val: Math.min(100, ((player.gols + player.assistencias) / 18.0) * 100), benchmark: 45 }
+    {
+      name: "Finalização",
+      val: Math.min(100, (goalsPerShot / capFin) * 100),
+      benchmark: Math.min(100, (_radarMean(posGoalsPerShot) / capFin) * 100)
+    },
+    {
+      name: "Volume xG",
+      val: Math.min(100, (player.xg_total / capVol) * 100),
+      benchmark: Math.min(100, (_radarMean(posXgTotal) / capVol) * 100)
+    },
+    {
+      name: "Criação (xA)",
+      val: Math.min(100, (assistsPerGame / capCri) * 100),
+      benchmark: Math.min(100, (_radarMean(posAssistsPerGame) / capCri) * 100)
+    },
+    {
+      name: "Qualidade xG",
+      val: Math.min(100, (xgPerShot / capQua) * 100),
+      benchmark: Math.min(100, (_radarMean(posXgPerShot) / capQua) * 100)
+    },
+    {
+      name: "Letalidade",
+      val: Math.min(100, Math.max(0, 50 + ((xgDiff - _radarMean(posXgDiff)) / capLet) * 50)),
+      benchmark: 50
+    },
+    {
+      name: "Participação",
+      val: Math.min(100, ((player.gols + player.assistencias) / capPar) * 100),
+      benchmark: Math.min(100, (_radarMean(posParticipation) / capPar) * 100)
+    }
   ];
 
   const totalAxes = axes.length;
@@ -767,6 +825,7 @@ function updateD3PlayerDossier(player, data) {
 /**
  * Gerador dinâmico de análise tática interpretativa para atletas
  * Baseado estritamente nas métricas oficiais do pipeline
+ * Identifica o eixo dominante do radar dinamicamente para coerência visual
  */
 function generateDynamicPlayerInsight(player) {
   const pos = player.posicao || "Jogador";
@@ -776,7 +835,20 @@ function generateDynamicPlayerInsight(player) {
   const xg = player.xg_total || 0;
   const chutes = player.chutes || 0;
   const jogos = player.jogos || 0;
+  const assistencias = player.assistencias || 0;
+  const xgPerShot = player.xg_por_chute || 0;
   const diffXg = gols - xg;
+
+  // Calcula scores normalizados para identificar eixo dominante (mesma lógica do radar)
+  const radarScores = [
+    { name: "finalização e conversão de chutes", score: chutes > 0 ? (gols / chutes) / 0.20 : 0 },
+    { name: "volume de xG gerado", score: xg / 10.0 },
+    { name: "criação de jogadas e assistências", score: jogos > 0 ? (assistencias / jogos) / 0.25 : 0 },
+    { name: "qualidade de xG por finalização", score: xgPerShot / 0.18 },
+    { name: "letalidade na superação do xG esperado", score: 0.5 + (diffXg * 0.15) },
+    { name: "participação ofensiva direta", score: (gols + assistencias) / 15.0 }
+  ];
+  const topAxis = radarScores.reduce((a, b) => a.score > b.score ? a : b);
 
   if (pos === "Goleiro") {
     return `${nome} atua como a garantia estrutural da meta do ${clube} na Série A. Titular em ${jogos} rodadas, sua contribuição tática se concentra na proteção sob as traves, comando de área e saídas defensivas, sem intervenção no volume de finalizações.`;
@@ -784,18 +856,18 @@ function generateDynamicPlayerInsight(player) {
     if (gols > 0) {
       return `Pilar de sustentação defensiva do ${clube}, ${nome} alia combatividade à eficácia em bolas paradas, somando ${gols} gols com xG acumulado de ${xg.toFixed(2)} (${diffXg >= 0 ? '+' : ''}${diffXg.toFixed(2)}). Seu padrão tático reflete arremates pontuais de cabeça e média distância com rigor posicional.`;
     } else {
-      return `Elemento de equilíbrio do ${clube}, ${nome} cumpre papel tático vital na contenção e cobertura em ${jogos} partidas. Seu radar tático prioriza interceptações e combate, atuando como primeiro elo na construção e transição sem foco em volume ofensivo.`;
+      return `Elemento de equilíbrio do ${clube}, ${nome} cumpre papel tático vital na contenção e cobertura em ${jogos} partidas. Seu perfil tático prioriza interceptações e combate, atuando como primeiro elo na construção e transição sem foco em volume ofensivo.`;
     }
   } else if (pos === "Meia") {
     if (diffXg >= 0) {
-      return `${nome} alia capacidade criativa e precisão no terço final pelo ${clube}, convertendo ${gols} gols a partir de ${xg.toFixed(2)} xG (${diffXg >= 0 ? '+' : ''}${diffXg.toFixed(2)}). Seu mapa de ações reflete finalizações na entrada da área e visão refinada na distribuição ofensiva.`;
+      return `${nome} alia capacidade criativa e precisão no terço final pelo ${clube}, convertendo ${gols} gols a partir de ${xg.toFixed(2)} xG (${diffXg >= 0 ? '+' : ''}${diffXg.toFixed(2)}). Seu perfil destaca ${topAxis.name}, com ações de perigo frequentes na entrada da área.`;
     } else {
-      return `Articulador central do ${clube}, ${nome} sustenta expressivo volume ofensivo com ${xg.toFixed(2)} xG acumulado e ${player.assistencias || 0} assistências em ${jogos} jogos. Seus arremates frequentes na meia-lua geram perigo contínuo e abrem espaços entre as linhas rivais.`;
+      return `Articulador central do ${clube}, ${nome} sustenta expressivo volume ofensivo com ${xg.toFixed(2)} xG acumulado e ${assistencias} assistências em ${jogos} jogos. Seus arremates frequentes na meia-lua geram perigo contínuo e abrem espaços entre as linhas rivais.`;
     }
   } else {
     // Atacante
     if (diffXg >= 1.0) {
-      return `Com ${gols} gols em ${jogos} confrontos, ${nome} demonstra letalidade superior no comando de ataque do ${clube}, superando com folga sua expectativa de ${xg.toFixed(2)} xG (+${diffXg.toFixed(2)}). Seu radar aponta pico em finalização, concentrando arremates no coração da grande área.`;
+      return `Com ${gols} gols em ${jogos} confrontos, ${nome} demonstra letalidade superior no comando de ataque do ${clube}, superando com folga sua expectativa de ${xg.toFixed(2)} xG (+${diffXg.toFixed(2)}). Seu perfil destaca ${topAxis.name}, concentrando arremates no coração da grande área.`;
     } else if (diffXg >= -0.5) {
       return `${nome} mantém produção consistente como referência do ${clube}, registrando ${gols} gols para um xG acumulado de ${xg.toFixed(2)} (${diffXg >= 0 ? '+' : ''}${diffXg.toFixed(2)}). Suas finalizações concentram-se na grande área, com ocupação assertiva dos espaços decisivos.`;
     } else {
