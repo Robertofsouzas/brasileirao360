@@ -1735,10 +1735,35 @@ body {
   transform: translateY(0);
 }
 
-.rfstechs-brand-img {
-  height: 18px;
-  width: auto;
+.rfstechs-brain-svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
   display: block;
+}
+
+.rfstechs-text-group {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  line-height: 1;
+}
+
+.rfstechs-pill-tag {
+  background: #5839eb;
+  color: #FFFFFF;
+  font-size: 0.74rem;
+  font-weight: 800;
+  padding: 1.5px 4.5px;
+  border-radius: 4px;
+  letter-spacing: 0.4px;
+}
+
+.rfstechs-suffix {
+  color: #a5b4fc;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: -0.2px;
 }
 
 .rfstechs-instagram-btn {
