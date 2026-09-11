@@ -63,14 +63,25 @@ function initKPIs(data) {
   let formattedDate = "31/08/2026 às 15:20";
   if (meta.gerado_em) {
     try {
-      const d = new Date(meta.gerado_em);
+      let dateStr = String(meta.gerado_em).trim();
+      // Se não possui identificador de fuso horário (nem 'Z', nem '+' e nem '-HH:MM' no final),
+      // e foi gerado em UTC pelo GitHub Actions, tratamos como UTC para converter para Brasília.
+      const hasTz = dateStr.includes("Z") || dateStr.includes("+") || /-\d{2}:?\d{2}$/.test(dateStr);
+      const parseableStr = hasTz ? dateStr : (dateStr + "Z");
+      const d = new Date(parseableStr);
+
       if (!isNaN(d.getTime())) {
-        const dia = String(d.getDate()).padStart(2, '0');
-        const mes = String(d.getMonth() + 1).padStart(2, '0');
-        const ano = d.getFullYear();
-        const hora = String(d.getHours()).padStart(2, '0');
-        const min = String(d.getMinutes()).padStart(2, '0');
-        formattedDate = `${dia}/${mes}/${ano} às ${hora}:${min}`;
+        const formatter = new Intl.DateTimeFormat('pt-BR', {
+          timeZone: 'America/Sao_Paulo',
+          day: '2-digit',
+          month: '2-digit',
+          year: 'numeric',
+          hour: '2-digit',
+          minute: '2-digit',
+          hour12: false
+        });
+        // Formato pt-BR retorna "DD/MM/AAAA HH:MM" ou "DD/MM/AAAA, HH:MM"
+        formattedDate = formatter.format(d).replace(',', ' às');
       }
     } catch(e) {}
   }

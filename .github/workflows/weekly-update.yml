@@ -28,6 +28,8 @@ jobs:
     timeout-minutes: 15
 
     env:
+      # Fuso horário oficial do Brasileirão (Horário de Brasília)
+      TZ: "America/Sao_Paulo"
       # Chaves de API injetadas via GitHub Secrets
       FOOTBALL_DATA_API_KEY: ${{ secrets.FOOTBALL_DATA_API_KEY }}
       API_FOOTBALL_KEY: ${{ secrets.API_FOOTBALL_KEY }}

@@ -11,7 +11,12 @@ import os
 import sys
 import random
 from pathlib import Path
-from datetime import datetime
+from datetime import datetime, timezone, timedelta
+try:
+    from zoneinfo import ZoneInfo
+    BR_TZ = ZoneInfo("America/Sao_Paulo")
+except Exception:
+    BR_TZ = timezone(timedelta(hours=-3))
 
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 sys.path.append(str(BASE_DIR))
@@ -302,7 +307,7 @@ def run_pipeline():
     # 5. Consolidação e Exportação
     gold_dataset = {
         "metadata": {
-            "gerado_em": datetime.now().isoformat(),
+            "gerado_em": datetime.now(BR_TZ).isoformat(),
             "temporada": 2026,
             "competicao": "Campeonato Brasileiro Série A",
             "rodada_atual": max(p["rodada"] for p in fato_partidas if p["status"] == "FINISHED"),
