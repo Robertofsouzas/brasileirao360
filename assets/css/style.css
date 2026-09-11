@@ -1705,12 +1705,14 @@ body {
   color: var(--text-muted);
 }
 
-.rfstechs-banner-btn {
+.rfstechs-banner-btn,
+.rfstechs-instagram-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 7px;
-  padding: 4px 12px;
+  width: 128px;
+  height: 32px;
+  padding: 0 12px;
   border-radius: 20px;
   background: rgba(255, 255, 255, 0.035);
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -1718,6 +1720,7 @@ body {
   cursor: pointer;
   transition: all 0.22s ease;
   backdrop-filter: blur(4px);
+  box-sizing: border-box;
 }
 
 .rfstechs-banner-btn:hover {
@@ -1727,33 +1730,27 @@ body {
   transform: translateY(-1px);
 }
 
-.rfstechs-banner-btn:active {
+.rfstechs-banner-btn:active,
+.rfstechs-instagram-btn:active {
   transform: translateY(0);
 }
 
 .rfstechs-brand-img {
-  height: 16px;
+  height: 18px;
   width: auto;
   display: block;
 }
 
 .rfstechs-instagram-btn {
-  display: inline-flex;
-  align-items: center;
   gap: 7px;
-  padding: 4px 12px;
-  border-radius: 20px;
-  background: rgba(255, 255, 255, 0.035);
-  border: 1px solid rgba(255, 255, 255, 0.1);
   color: var(--text-secondary);
-  font-size: 0.76rem;
+  font-size: 0.78rem;
   font-weight: 600;
-  text-decoration: none;
-  transition: all 0.22s ease;
-  backdrop-filter: blur(4px);
 }
 
 .rfstechs-instagram-btn .instagram-icon-svg {
+  width: 16px;
+  height: 16px;
   flex-shrink: 0;
   transition: transform 0.25s ease;
 }
