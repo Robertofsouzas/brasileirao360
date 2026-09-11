@@ -1676,35 +1676,109 @@ body {
   gap: 16px;
 }
 
-/* Badge RFSTechs Elegante */
-.rfstechs-wrapper {
+/* ==========================================================================
+   Bloco Oficial RFSTechs (Banner da Marca & Instagram)
+   ========================================================================== */
+.footer-brand-info .footer-title {
+  font-size: 0.95rem;
+  color: var(--text-primary);
+}
+
+.footer-brand-info .footer-subtitle {
+  font-size: 0.78rem;
+  margin-top: 4px;
+  color: var(--text-muted);
+}
+
+.rfstechs-creator-block {
   display: inline-flex;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-end;
   gap: 8px;
-  font-size: 0.825rem;
-  color: var(--text-secondary);
 }
 
-.rfstechs-badge {
+.rfstechs-lead-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--text-muted);
+}
+
+.rfstechs-banner-btn {
   display: inline-flex;
   align-items: center;
-  padding: 5px 14px;
-  border-radius: 8px;
-  background: linear-gradient(135deg, rgba(0, 229, 155, 0.12) 0%, rgba(0, 136, 255, 0.14) 100%);
-  border: 1px solid rgba(0, 229, 155, 0.4);
-  color: #FFFFFF;
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 0.82rem;
-  letter-spacing: 0.6px;
-  box-shadow: 0 0 14px rgba(0, 229, 155, 0.12), inset 0 1px 1px rgba(255, 255, 255, 0.2);
-  transition: all 0.25s ease;
+  justify-content: center;
+  padding: 6px 14px;
+  background: #FFFFFF;
+  border-radius: 10px;
+  border: 1px solid rgba(84, 56, 220, 0.35);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25), 0 0 16px rgba(84, 56, 220, 0.2);
+  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+  cursor: pointer;
 }
 
-.rfstechs-badge:hover {
-  border-color: var(--accent-green);
-  box-shadow: 0 0 20px rgba(0, 229, 155, 0.28), inset 0 1px 2px rgba(255, 255, 255, 0.3);
+.rfstechs-banner-btn:hover {
+  transform: translateY(-2px);
+  border-color: #5438dc;
+  box-shadow: 0 6px 20px rgba(84, 56, 220, 0.4), 0 0 24px rgba(84, 56, 220, 0.3);
+  filter: brightness(1.02);
+}
+
+.rfstechs-banner-btn:active {
+  transform: translateY(0);
+}
+
+.rfstechs-brand-img {
+  height: 28px;
+  width: auto;
+  display: block;
+}
+
+.rfstechs-instagram-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 4px 12px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--text-secondary);
+  font-size: 0.76rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.22s ease;
+  backdrop-filter: blur(4px);
+}
+
+.rfstechs-instagram-btn .instagram-icon-svg {
+  flex-shrink: 0;
+  transition: transform 0.25s ease;
+}
+
+.rfstechs-instagram-btn .instagram-handle {
+  letter-spacing: 0.3px;
+}
+
+.rfstechs-instagram-btn:hover {
+  background: rgba(225, 48, 108, 0.12);
+  border-color: rgba(225, 48, 108, 0.45);
+  color: #FFFFFF;
+  box-shadow: 0 2px 12px rgba(225, 48, 108, 0.25);
   transform: translateY(-1px);
+}
+
+.rfstechs-instagram-btn:hover .instagram-icon-svg {
+  transform: scale(1.15) rotate(4deg);
+}
+
+@media (max-width: 640px) {
+  .rfstechs-creator-block {
+    align-items: flex-start;
+    width: 100%;
+    margin-top: 6px;
+  }
 }
 
 /* Caixa de Explicação Acessível dos Modelos Estatísticos */
