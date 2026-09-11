@@ -15967,7 +15967,23 @@ window.BRASILEIRAO_DATA = {
       "resultado": null,
       "status": "SCHEDULED",
       "fonte": "football-data.org",
-      "api_fixture_id": 555000
+      "api_fixture_id": 555000,
+      "odds_mercado": {
+        "odd_mandante": 2.22,
+        "odd_empate": 3.25,
+        "odd_visitante": 3.4,
+        "prob_bruta_mandante": 0.4505,
+        "prob_bruta_empate": 0.3077,
+        "prob_bruta_visitante": 0.2941,
+        "overround_pct": 105.23,
+        "prob_mercado_mandante_pct": 42.8,
+        "prob_mercado_empate_pct": 29.2,
+        "prob_mercado_visitante_pct": 28.0,
+        "casa_apostas": "Betano",
+        "odds_captured_at": "2026-09-11T14:14:44.031978+00:00",
+        "mandante": "Atlético-MG",
+        "visitante": "Fluminense"
+      }
     },
     {
       "partida_id": 262,
@@ -15992,7 +16008,23 @@ window.BRASILEIRAO_DATA = {
       "resultado": null,
       "status": "SCHEDULED",
       "fonte": "football-data.org",
-      "api_fixture_id": 555006
+      "api_fixture_id": 555006,
+      "odds_mercado": {
+        "odd_mandante": 2.57,
+        "odd_empate": 3.25,
+        "odd_visitante": 2.82,
+        "prob_bruta_mandante": 0.3891,
+        "prob_bruta_empate": 0.3077,
+        "prob_bruta_visitante": 0.3546,
+        "overround_pct": 105.14,
+        "prob_mercado_mandante_pct": 37.0,
+        "prob_mercado_empate_pct": 29.3,
+        "prob_mercado_visitante_pct": 33.7,
+        "casa_apostas": "Betano",
+        "odds_captured_at": "2026-09-11T14:14:44.031978+00:00",
+        "mandante": "Grêmio",
+        "visitante": "Vasco da Gama"
+      }
     },
     {
       "partida_id": 263,
@@ -16017,7 +16049,23 @@ window.BRASILEIRAO_DATA = {
       "resultado": null,
       "status": "SCHEDULED",
       "fonte": "football-data.org",
-      "api_fixture_id": 555003
+      "api_fixture_id": 555003,
+      "odds_mercado": {
+        "odd_mandante": 3.25,
+        "odd_empate": 3.4,
+        "odd_visitante": 2.25,
+        "prob_bruta_mandante": 0.3077,
+        "prob_bruta_empate": 0.2941,
+        "prob_bruta_visitante": 0.4444,
+        "overround_pct": 104.63,
+        "prob_mercado_mandante_pct": 29.4,
+        "prob_mercado_empate_pct": 28.1,
+        "prob_mercado_visitante_pct": 42.5,
+        "casa_apostas": "Betano",
+        "odds_captured_at": "2026-09-11T14:14:44.031978+00:00",
+        "mandante": "Chapecoense",
+        "visitante": "Internacional"
+      }
     },
     {
       "partida_id": 264,
@@ -16042,7 +16090,23 @@ window.BRASILEIRAO_DATA = {
       "resultado": null,
       "status": "SCHEDULED",
       "fonte": "football-data.org",
-      "api_fixture_id": 555008
+      "api_fixture_id": 555008,
+      "odds_mercado": {
+        "odd_mandante": 1.65,
+        "odd_empate": 3.95,
+        "odd_visitante": 5.3,
+        "prob_bruta_mandante": 0.6061,
+        "prob_bruta_empate": 0.2532,
+        "prob_bruta_visitante": 0.1887,
+        "overround_pct": 104.79,
+        "prob_mercado_mandante_pct": 57.8,
+        "prob_mercado_empate_pct": 24.2,
+        "prob_mercado_visitante_pct": 18.0,
+        "casa_apostas": "Betano",
+        "odds_captured_at": "2026-09-11T14:14:44.031978+00:00",
+        "mandante": "Palmeiras",
+        "visitante": "São Paulo"
+      }
     },
     {
       "partida_id": 265,
@@ -16067,7 +16131,23 @@ window.BRASILEIRAO_DATA = {
       "resultado": null,
       "status": "SCHEDULED",
       "fonte": "football-data.org",
-      "api_fixture_id": 555002
+      "api_fixture_id": 555002,
+      "odds_mercado": {
+        "odd_mandante": 2.35,
+        "odd_empate": 3.45,
+        "odd_visitante": 3.0,
+        "prob_bruta_mandante": 0.4255,
+        "prob_bruta_empate": 0.2899,
+        "prob_bruta_visitante": 0.3333,
+        "overround_pct": 104.87,
+        "prob_mercado_mandante_pct": 40.6,
+        "prob_mercado_empate_pct": 27.6,
+        "prob_mercado_visitante_pct": 31.8,
+        "casa_apostas": "Betano",
+        "odds_captured_at": "2026-09-11T14:14:44.031978+00:00",
+        "mandante": "Botafogo",
+        "visitante": "Red Bull Bragantino"
+      }
     },
     {
       "partida_id": 266,
@@ -16092,7 +16172,23 @@ window.BRASILEIRAO_DATA = {
       "resultado": null,
       "status": "SCHEDULED",
       "fonte": "football-data.org",
-      "api_fixture_id": 555009
+      "api_fixture_id": 555009,
+      "odds_mercado": {
+        "odd_mandante": 2.95,
+        "odd_empate": 3.35,
+        "odd_visitante": 2.42,
+        "prob_bruta_mandante": 0.339,
+        "prob_bruta_empate": 0.2985,
+        "prob_bruta_visitante": 0.4132,
+        "overround_pct": 105.07,
+        "prob_mercado_mandante_pct": 32.3,
+        "prob_mercado_empate_pct": 28.4,
+        "prob_mercado_visitante_pct": 39.3,
+        "casa_apostas": "Betano",
+        "odds_captured_at": "2026-09-11T14:14:44.031978+00:00",
+        "mandante": "Santos",
+        "visitante": "Cruzeiro"
+      }
     },
     {
       "partida_id": 267,
@@ -16117,7 +16213,23 @@ window.BRASILEIRAO_DATA = {
       "resultado": null,
       "status": "SCHEDULED",
       "fonte": "football-data.org",
-      "api_fixture_id": 555007
+      "api_fixture_id": 555007,
+      "odds_mercado": {
+        "odd_mandante": 1.78,
+        "odd_empate": 3.6,
+        "odd_visitante": 4.9,
+        "prob_bruta_mandante": 0.5618,
+        "prob_bruta_empate": 0.2778,
+        "prob_bruta_visitante": 0.2041,
+        "overround_pct": 104.37,
+        "prob_mercado_mandante_pct": 53.8,
+        "prob_mercado_empate_pct": 26.6,
+        "prob_mercado_visitante_pct": 19.6,
+        "casa_apostas": "Betano",
+        "odds_captured_at": "2026-09-11T14:14:44.031978+00:00",
+        "mandante": "Mirassol",
+        "visitante": "Vitória"
+      }
     },
     {
       "partida_id": 268,
@@ -16142,7 +16254,23 @@ window.BRASILEIRAO_DATA = {
       "resultado": null,
       "status": "SCHEDULED",
       "fonte": "football-data.org",
-      "api_fixture_id": 555005
+      "api_fixture_id": 555005,
+      "odds_mercado": {
+        "odd_mandante": 1.44,
+        "odd_empate": 4.45,
+        "odd_visitante": 8.0,
+        "prob_bruta_mandante": 0.6944,
+        "prob_bruta_empate": 0.2247,
+        "prob_bruta_visitante": 0.125,
+        "overround_pct": 104.42,
+        "prob_mercado_mandante_pct": 66.5,
+        "prob_mercado_empate_pct": 21.5,
+        "prob_mercado_visitante_pct": 12.0,
+        "casa_apostas": "Betano",
+        "odds_captured_at": "2026-09-11T14:14:44.031978+00:00",
+        "mandante": "Flamengo",
+        "visitante": "Corinthians"
+      }
     },
     {
       "partida_id": 269,
@@ -16167,7 +16295,23 @@ window.BRASILEIRAO_DATA = {
       "resultado": null,
       "status": "SCHEDULED",
       "fonte": "football-data.org",
-      "api_fixture_id": 555001
+      "api_fixture_id": 555001,
+      "odds_mercado": {
+        "odd_mandante": 1.45,
+        "odd_empate": 4.55,
+        "odd_visitante": 7.3,
+        "prob_bruta_mandante": 0.6897,
+        "prob_bruta_empate": 0.2198,
+        "prob_bruta_visitante": 0.137,
+        "overround_pct": 104.64,
+        "prob_mercado_mandante_pct": 65.9,
+        "prob_mercado_empate_pct": 21.0,
+        "prob_mercado_visitante_pct": 13.1,
+        "casa_apostas": "Betano",
+        "odds_captured_at": "2026-09-11T14:14:44.031978+00:00",
+        "mandante": "Bahia",
+        "visitante": "Remo"
+      }
     },
     {
       "partida_id": 270,
@@ -16217,7 +16361,23 @@ window.BRASILEIRAO_DATA = {
       "resultado": null,
       "status": "SCHEDULED",
       "fonte": "football-data.org",
-      "api_fixture_id": 555011
+      "api_fixture_id": 555011,
+      "odds_mercado": {
+        "odd_mandante": 1.42,
+        "odd_empate": 4.6,
+        "odd_visitante": 7.9,
+        "prob_bruta_mandante": 0.7042,
+        "prob_bruta_empate": 0.2174,
+        "prob_bruta_visitante": 0.1266,
+        "overround_pct": 104.82,
+        "prob_mercado_mandante_pct": 67.2,
+        "prob_mercado_empate_pct": 20.7,
+        "prob_mercado_visitante_pct": 12.1,
+        "casa_apostas": "Betano",
+        "odds_captured_at": "2026-09-11T14:14:44.031978+00:00",
+        "mandante": "Atlético-MG",
+        "visitante": "Chapecoense"
+      }
     },
     {
       "partida_id": 272,
@@ -16242,7 +16402,23 @@ window.BRASILEIRAO_DATA = {
       "resultado": null,
       "status": "SCHEDULED",
       "fonte": "football-data.org",
-      "api_fixture_id": 555015
+      "api_fixture_id": 555015,
+      "odds_mercado": {
+        "odd_mandante": 2.32,
+        "odd_empate": 3.35,
+        "odd_visitante": 3.15,
+        "prob_bruta_mandante": 0.431,
+        "prob_bruta_empate": 0.2985,
+        "prob_bruta_visitante": 0.3175,
+        "overround_pct": 104.7,
+        "prob_mercado_mandante_pct": 41.2,
+        "prob_mercado_empate_pct": 28.5,
+        "prob_mercado_visitante_pct": 30.3,
+        "casa_apostas": "Betano",
+        "odds_captured_at": "2026-09-11T14:14:44.031978+00:00",
+        "mandante": "Mirassol",
+        "visitante": "Botafogo"
+      }
     },
     {
       "partida_id": 273,
@@ -16267,7 +16443,23 @@ window.BRASILEIRAO_DATA = {
       "resultado": null,
       "status": "SCHEDULED",
       "fonte": "football-data.org",
-      "api_fixture_id": 555016
+      "api_fixture_id": 555016,
+      "odds_mercado": {
+        "odd_mandante": 2.72,
+        "odd_empate": 3.3,
+        "odd_visitante": 2.67,
+        "prob_bruta_mandante": 0.3676,
+        "prob_bruta_empate": 0.303,
+        "prob_bruta_visitante": 0.3745,
+        "overround_pct": 104.52,
+        "prob_mercado_mandante_pct": 35.2,
+        "prob_mercado_empate_pct": 29.0,
+        "prob_mercado_visitante_pct": 35.8,
+        "casa_apostas": "Betano",
+        "odds_captured_at": "2026-09-11T14:14:44.031978+00:00",
+        "mandante": "Remo",
+        "visitante": "Santos"
+      }
     },
     {
       "partida_id": 274,
@@ -16292,7 +16484,23 @@ window.BRASILEIRAO_DATA = {
       "resultado": null,
       "status": "SCHEDULED",
       "fonte": "football-data.org",
-      "api_fixture_id": 555018
+      "api_fixture_id": 555018,
+      "odds_mercado": {
+        "odd_mandante": 1.85,
+        "odd_empate": 3.45,
+        "odd_visitante": 4.6,
+        "prob_bruta_mandante": 0.5405,
+        "prob_bruta_empate": 0.2899,
+        "prob_bruta_visitante": 0.2174,
+        "overround_pct": 104.78,
+        "prob_mercado_mandante_pct": 51.6,
+        "prob_mercado_empate_pct": 27.7,
+        "prob_mercado_visitante_pct": 20.7,
+        "casa_apostas": "Betano",
+        "odds_captured_at": "2026-09-11T14:14:44.031978+00:00",
+        "mandante": "Vasco da Gama",
+        "visitante": "Coritiba"
+      }
     },
     {
       "partida_id": 275,
@@ -16317,7 +16525,23 @@ window.BRASILEIRAO_DATA = {
       "resultado": null,
       "status": "SCHEDULED",
       "fonte": "football-data.org",
-      "api_fixture_id": 555017
+      "api_fixture_id": 555017,
+      "odds_mercado": {
+        "odd_mandante": 1.98,
+        "odd_empate": 3.4,
+        "odd_visitante": 4.0,
+        "prob_bruta_mandante": 0.5051,
+        "prob_bruta_empate": 0.2941,
+        "prob_bruta_visitante": 0.25,
+        "overround_pct": 104.92,
+        "prob_mercado_mandante_pct": 48.1,
+        "prob_mercado_empate_pct": 28.0,
+        "prob_mercado_visitante_pct": 23.9,
+        "casa_apostas": "Betano",
+        "odds_captured_at": "2026-09-11T14:14:44.031978+00:00",
+        "mandante": "São Paulo",
+        "visitante": "Internacional"
+      }
     },
     {
       "partida_id": 276,
@@ -16342,7 +16566,23 @@ window.BRASILEIRAO_DATA = {
       "resultado": null,
       "status": "SCHEDULED",
       "fonte": "football-data.org",
-      "api_fixture_id": 555014
+      "api_fixture_id": 555014,
+      "odds_mercado": {
+        "odd_mandante": 3.35,
+        "odd_empate": 3.35,
+        "odd_visitante": 2.22,
+        "prob_bruta_mandante": 0.2985,
+        "prob_bruta_empate": 0.2985,
+        "prob_bruta_visitante": 0.4505,
+        "overround_pct": 104.75,
+        "prob_mercado_mandante_pct": 28.5,
+        "prob_mercado_empate_pct": 28.5,
+        "prob_mercado_visitante_pct": 43.0,
+        "casa_apostas": "Betano",
+        "odds_captured_at": "2026-09-11T14:14:44.031978+00:00",
+        "mandante": "Grêmio",
+        "visitante": "Palmeiras"
+      }
     },
     {
       "partida_id": 277,
@@ -16367,7 +16607,23 @@ window.BRASILEIRAO_DATA = {
       "resultado": null,
       "status": "SCHEDULED",
       "fonte": "football-data.org",
-      "api_fixture_id": 555012
+      "api_fixture_id": 555012,
+      "odds_mercado": {
+        "odd_mandante": 2.4,
+        "odd_empate": 3.15,
+        "odd_visitante": 3.2,
+        "prob_bruta_mandante": 0.4167,
+        "prob_bruta_empate": 0.3175,
+        "prob_bruta_visitante": 0.3125,
+        "overround_pct": 104.66,
+        "prob_mercado_mandante_pct": 39.8,
+        "prob_mercado_empate_pct": 30.3,
+        "prob_mercado_visitante_pct": 29.9,
+        "casa_apostas": "Betano",
+        "odds_captured_at": "2026-09-11T14:14:44.031978+00:00",
+        "mandante": "Corinthians",
+        "visitante": "Fluminense"
+      }
     },
     {
       "partida_id": 278,
@@ -16392,7 +16648,23 @@ window.BRASILEIRAO_DATA = {
       "resultado": null,
       "status": "SCHEDULED",
       "fonte": "football-data.org",
-      "api_fixture_id": 555019
+      "api_fixture_id": 555019,
+      "odds_mercado": {
+        "odd_mandante": 2.77,
+        "odd_empate": 3.3,
+        "odd_visitante": 2.6,
+        "prob_bruta_mandante": 0.361,
+        "prob_bruta_empate": 0.303,
+        "prob_bruta_visitante": 0.3846,
+        "overround_pct": 104.87,
+        "prob_mercado_mandante_pct": 34.4,
+        "prob_mercado_empate_pct": 28.9,
+        "prob_mercado_visitante_pct": 36.7,
+        "casa_apostas": "Betano",
+        "odds_captured_at": "2026-09-11T14:14:44.031978+00:00",
+        "mandante": "Vitória",
+        "visitante": "Cruzeiro"
+      }
     },
     {
       "partida_id": 279,
@@ -16417,7 +16689,23 @@ window.BRASILEIRAO_DATA = {
       "resultado": null,
       "status": "SCHEDULED",
       "fonte": "football-data.org",
-      "api_fixture_id": 555013
+      "api_fixture_id": 555013,
+      "odds_mercado": {
+        "odd_mandante": 1.4,
+        "odd_empate": 4.7,
+        "odd_visitante": 8.25,
+        "prob_bruta_mandante": 0.7143,
+        "prob_bruta_empate": 0.2128,
+        "prob_bruta_visitante": 0.1212,
+        "overround_pct": 104.83,
+        "prob_mercado_mandante_pct": 68.1,
+        "prob_mercado_empate_pct": 20.3,
+        "prob_mercado_visitante_pct": 11.6,
+        "casa_apostas": "Betano",
+        "odds_captured_at": "2026-09-11T14:14:44.031978+00:00",
+        "mandante": "Flamengo",
+        "visitante": "Red Bull Bragantino"
+      }
     },
     {
       "partida_id": 280,
@@ -16442,7 +16730,23 @@ window.BRASILEIRAO_DATA = {
       "resultado": null,
       "status": "SCHEDULED",
       "fonte": "football-data.org",
-      "api_fixture_id": 555010
+      "api_fixture_id": 555010,
+      "odds_mercado": {
+        "odd_mandante": 2.02,
+        "odd_empate": 3.4,
+        "odd_visitante": 3.85,
+        "prob_bruta_mandante": 0.495,
+        "prob_bruta_empate": 0.2941,
+        "prob_bruta_visitante": 0.2597,
+        "overround_pct": 104.89,
+        "prob_mercado_mandante_pct": 47.2,
+        "prob_mercado_empate_pct": 28.0,
+        "prob_mercado_visitante_pct": 24.8,
+        "casa_apostas": "Betano",
+        "odds_captured_at": "2026-09-11T14:14:44.031978+00:00",
+        "mandante": "Athletico-PR",
+        "visitante": "Bahia"
+      }
     },
     {
       "partida_id": 281,
@@ -30467,5 +30771,310 @@ window.BRASILEIRAO_DATA = {
       "jogador_posicao": "Atacante"
     }
   ],
-  "odds_mercado_rodada": {}
+  "odds_mercado_rodada": {
+    "Atlético-MG__vs__Fluminense": {
+      "odd_mandante": 2.22,
+      "odd_empate": 3.25,
+      "odd_visitante": 3.4,
+      "prob_bruta_mandante": 0.4505,
+      "prob_bruta_empate": 0.3077,
+      "prob_bruta_visitante": 0.2941,
+      "overround_pct": 105.23,
+      "prob_mercado_mandante_pct": 42.8,
+      "prob_mercado_empate_pct": 29.2,
+      "prob_mercado_visitante_pct": 28.0,
+      "casa_apostas": "Betano",
+      "odds_captured_at": "2026-09-11T14:14:44.031978+00:00",
+      "mandante": "Atlético-MG",
+      "visitante": "Fluminense"
+    },
+    "Grêmio__vs__Vasco da Gama": {
+      "odd_mandante": 2.57,
+      "odd_empate": 3.25,
+      "odd_visitante": 2.82,
+      "prob_bruta_mandante": 0.3891,
+      "prob_bruta_empate": 0.3077,
+      "prob_bruta_visitante": 0.3546,
+      "overround_pct": 105.14,
+      "prob_mercado_mandante_pct": 37.0,
+      "prob_mercado_empate_pct": 29.3,
+      "prob_mercado_visitante_pct": 33.7,
+      "casa_apostas": "Betano",
+      "odds_captured_at": "2026-09-11T14:14:44.031978+00:00",
+      "mandante": "Grêmio",
+      "visitante": "Vasco da Gama"
+    },
+    "Chapecoense__vs__Internacional": {
+      "odd_mandante": 3.25,
+      "odd_empate": 3.4,
+      "odd_visitante": 2.25,
+      "prob_bruta_mandante": 0.3077,
+      "prob_bruta_empate": 0.2941,
+      "prob_bruta_visitante": 0.4444,
+      "overround_pct": 104.63,
+      "prob_mercado_mandante_pct": 29.4,
+      "prob_mercado_empate_pct": 28.1,
+      "prob_mercado_visitante_pct": 42.5,
+      "casa_apostas": "Betano",
+      "odds_captured_at": "2026-09-11T14:14:44.031978+00:00",
+      "mandante": "Chapecoense",
+      "visitante": "Internacional"
+    },
+    "Palmeiras__vs__São Paulo": {
+      "odd_mandante": 1.65,
+      "odd_empate": 3.95,
+      "odd_visitante": 5.3,
+      "prob_bruta_mandante": 0.6061,
+      "prob_bruta_empate": 0.2532,
+      "prob_bruta_visitante": 0.1887,
+      "overround_pct": 104.79,
+      "prob_mercado_mandante_pct": 57.8,
+      "prob_mercado_empate_pct": 24.2,
+      "prob_mercado_visitante_pct": 18.0,
+      "casa_apostas": "Betano",
+      "odds_captured_at": "2026-09-11T14:14:44.031978+00:00",
+      "mandante": "Palmeiras",
+      "visitante": "São Paulo"
+    },
+    "Botafogo__vs__Red Bull Bragantino": {
+      "odd_mandante": 2.35,
+      "odd_empate": 3.45,
+      "odd_visitante": 3.0,
+      "prob_bruta_mandante": 0.4255,
+      "prob_bruta_empate": 0.2899,
+      "prob_bruta_visitante": 0.3333,
+      "overround_pct": 104.87,
+      "prob_mercado_mandante_pct": 40.6,
+      "prob_mercado_empate_pct": 27.6,
+      "prob_mercado_visitante_pct": 31.8,
+      "casa_apostas": "Betano",
+      "odds_captured_at": "2026-09-11T14:14:44.031978+00:00",
+      "mandante": "Botafogo",
+      "visitante": "Red Bull Bragantino"
+    },
+    "Santos__vs__Cruzeiro": {
+      "odd_mandante": 2.95,
+      "odd_empate": 3.35,
+      "odd_visitante": 2.42,
+      "prob_bruta_mandante": 0.339,
+      "prob_bruta_empate": 0.2985,
+      "prob_bruta_visitante": 0.4132,
+      "overround_pct": 105.07,
+      "prob_mercado_mandante_pct": 32.3,
+      "prob_mercado_empate_pct": 28.4,
+      "prob_mercado_visitante_pct": 39.3,
+      "casa_apostas": "Betano",
+      "odds_captured_at": "2026-09-11T14:14:44.031978+00:00",
+      "mandante": "Santos",
+      "visitante": "Cruzeiro"
+    },
+    "Mirassol__vs__Vitória": {
+      "odd_mandante": 1.78,
+      "odd_empate": 3.6,
+      "odd_visitante": 4.9,
+      "prob_bruta_mandante": 0.5618,
+      "prob_bruta_empate": 0.2778,
+      "prob_bruta_visitante": 0.2041,
+      "overround_pct": 104.37,
+      "prob_mercado_mandante_pct": 53.8,
+      "prob_mercado_empate_pct": 26.6,
+      "prob_mercado_visitante_pct": 19.6,
+      "casa_apostas": "Betano",
+      "odds_captured_at": "2026-09-11T14:14:44.031978+00:00",
+      "mandante": "Mirassol",
+      "visitante": "Vitória"
+    },
+    "Flamengo__vs__Corinthians": {
+      "odd_mandante": 1.44,
+      "odd_empate": 4.45,
+      "odd_visitante": 8.0,
+      "prob_bruta_mandante": 0.6944,
+      "prob_bruta_empate": 0.2247,
+      "prob_bruta_visitante": 0.125,
+      "overround_pct": 104.42,
+      "prob_mercado_mandante_pct": 66.5,
+      "prob_mercado_empate_pct": 21.5,
+      "prob_mercado_visitante_pct": 12.0,
+      "casa_apostas": "Betano",
+      "odds_captured_at": "2026-09-11T14:14:44.031978+00:00",
+      "mandante": "Flamengo",
+      "visitante": "Corinthians"
+    },
+    "Bahia__vs__Remo": {
+      "odd_mandante": 1.45,
+      "odd_empate": 4.55,
+      "odd_visitante": 7.3,
+      "prob_bruta_mandante": 0.6897,
+      "prob_bruta_empate": 0.2198,
+      "prob_bruta_visitante": 0.137,
+      "overround_pct": 104.64,
+      "prob_mercado_mandante_pct": 65.9,
+      "prob_mercado_empate_pct": 21.0,
+      "prob_mercado_visitante_pct": 13.1,
+      "casa_apostas": "Betano",
+      "odds_captured_at": "2026-09-11T14:14:44.031978+00:00",
+      "mandante": "Bahia",
+      "visitante": "Remo"
+    },
+    "Atlético-MG__vs__Chapecoense": {
+      "odd_mandante": 1.42,
+      "odd_empate": 4.6,
+      "odd_visitante": 7.9,
+      "prob_bruta_mandante": 0.7042,
+      "prob_bruta_empate": 0.2174,
+      "prob_bruta_visitante": 0.1266,
+      "overround_pct": 104.82,
+      "prob_mercado_mandante_pct": 67.2,
+      "prob_mercado_empate_pct": 20.7,
+      "prob_mercado_visitante_pct": 12.1,
+      "casa_apostas": "Betano",
+      "odds_captured_at": "2026-09-11T14:14:44.031978+00:00",
+      "mandante": "Atlético-MG",
+      "visitante": "Chapecoense"
+    },
+    "Mirassol__vs__Botafogo": {
+      "odd_mandante": 2.32,
+      "odd_empate": 3.35,
+      "odd_visitante": 3.15,
+      "prob_bruta_mandante": 0.431,
+      "prob_bruta_empate": 0.2985,
+      "prob_bruta_visitante": 0.3175,
+      "overround_pct": 104.7,
+      "prob_mercado_mandante_pct": 41.2,
+      "prob_mercado_empate_pct": 28.5,
+      "prob_mercado_visitante_pct": 30.3,
+      "casa_apostas": "Betano",
+      "odds_captured_at": "2026-09-11T14:14:44.031978+00:00",
+      "mandante": "Mirassol",
+      "visitante": "Botafogo"
+    },
+    "Remo__vs__Santos": {
+      "odd_mandante": 2.72,
+      "odd_empate": 3.3,
+      "odd_visitante": 2.67,
+      "prob_bruta_mandante": 0.3676,
+      "prob_bruta_empate": 0.303,
+      "prob_bruta_visitante": 0.3745,
+      "overround_pct": 104.52,
+      "prob_mercado_mandante_pct": 35.2,
+      "prob_mercado_empate_pct": 29.0,
+      "prob_mercado_visitante_pct": 35.8,
+      "casa_apostas": "Betano",
+      "odds_captured_at": "2026-09-11T14:14:44.031978+00:00",
+      "mandante": "Remo",
+      "visitante": "Santos"
+    },
+    "Vasco da Gama__vs__Coritiba": {
+      "odd_mandante": 1.85,
+      "odd_empate": 3.45,
+      "odd_visitante": 4.6,
+      "prob_bruta_mandante": 0.5405,
+      "prob_bruta_empate": 0.2899,
+      "prob_bruta_visitante": 0.2174,
+      "overround_pct": 104.78,
+      "prob_mercado_mandante_pct": 51.6,
+      "prob_mercado_empate_pct": 27.7,
+      "prob_mercado_visitante_pct": 20.7,
+      "casa_apostas": "Betano",
+      "odds_captured_at": "2026-09-11T14:14:44.031978+00:00",
+      "mandante": "Vasco da Gama",
+      "visitante": "Coritiba"
+    },
+    "São Paulo__vs__Internacional": {
+      "odd_mandante": 1.98,
+      "odd_empate": 3.4,
+      "odd_visitante": 4.0,
+      "prob_bruta_mandante": 0.5051,
+      "prob_bruta_empate": 0.2941,
+      "prob_bruta_visitante": 0.25,
+      "overround_pct": 104.92,
+      "prob_mercado_mandante_pct": 48.1,
+      "prob_mercado_empate_pct": 28.0,
+      "prob_mercado_visitante_pct": 23.9,
+      "casa_apostas": "Betano",
+      "odds_captured_at": "2026-09-11T14:14:44.031978+00:00",
+      "mandante": "São Paulo",
+      "visitante": "Internacional"
+    },
+    "Grêmio__vs__Palmeiras": {
+      "odd_mandante": 3.35,
+      "odd_empate": 3.35,
+      "odd_visitante": 2.22,
+      "prob_bruta_mandante": 0.2985,
+      "prob_bruta_empate": 0.2985,
+      "prob_bruta_visitante": 0.4505,
+      "overround_pct": 104.75,
+      "prob_mercado_mandante_pct": 28.5,
+      "prob_mercado_empate_pct": 28.5,
+      "prob_mercado_visitante_pct": 43.0,
+      "casa_apostas": "Betano",
+      "odds_captured_at": "2026-09-11T14:14:44.031978+00:00",
+      "mandante": "Grêmio",
+      "visitante": "Palmeiras"
+    },
+    "Corinthians__vs__Fluminense": {
+      "odd_mandante": 2.4,
+      "odd_empate": 3.15,
+      "odd_visitante": 3.2,
+      "prob_bruta_mandante": 0.4167,
+      "prob_bruta_empate": 0.3175,
+      "prob_bruta_visitante": 0.3125,
+      "overround_pct": 104.66,
+      "prob_mercado_mandante_pct": 39.8,
+      "prob_mercado_empate_pct": 30.3,
+      "prob_mercado_visitante_pct": 29.9,
+      "casa_apostas": "Betano",
+      "odds_captured_at": "2026-09-11T14:14:44.031978+00:00",
+      "mandante": "Corinthians",
+      "visitante": "Fluminense"
+    },
+    "Vitória__vs__Cruzeiro": {
+      "odd_mandante": 2.77,
+      "odd_empate": 3.3,
+      "odd_visitante": 2.6,
+      "prob_bruta_mandante": 0.361,
+      "prob_bruta_empate": 0.303,
+      "prob_bruta_visitante": 0.3846,
+      "overround_pct": 104.87,
+      "prob_mercado_mandante_pct": 34.4,
+      "prob_mercado_empate_pct": 28.9,
+      "prob_mercado_visitante_pct": 36.7,
+      "casa_apostas": "Betano",
+      "odds_captured_at": "2026-09-11T14:14:44.031978+00:00",
+      "mandante": "Vitória",
+      "visitante": "Cruzeiro"
+    },
+    "Flamengo__vs__Red Bull Bragantino": {
+      "odd_mandante": 1.4,
+      "odd_empate": 4.7,
+      "odd_visitante": 8.25,
+      "prob_bruta_mandante": 0.7143,
+      "prob_bruta_empate": 0.2128,
+      "prob_bruta_visitante": 0.1212,
+      "overround_pct": 104.83,
+      "prob_mercado_mandante_pct": 68.1,
+      "prob_mercado_empate_pct": 20.3,
+      "prob_mercado_visitante_pct": 11.6,
+      "casa_apostas": "Betano",
+      "odds_captured_at": "2026-09-11T14:14:44.031978+00:00",
+      "mandante": "Flamengo",
+      "visitante": "Red Bull Bragantino"
+    },
+    "Athletico-PR__vs__Bahia": {
+      "odd_mandante": 2.02,
+      "odd_empate": 3.4,
+      "odd_visitante": 3.85,
+      "prob_bruta_mandante": 0.495,
+      "prob_bruta_empate": 0.2941,
+      "prob_bruta_visitante": 0.2597,
+      "overround_pct": 104.89,
+      "prob_mercado_mandante_pct": 47.2,
+      "prob_mercado_empate_pct": 28.0,
+      "prob_mercado_visitante_pct": 24.8,
+      "casa_apostas": "Betano",
+      "odds_captured_at": "2026-09-11T14:14:44.031978+00:00",
+      "mandante": "Athletico-PR",
+      "visitante": "Bahia"
+    }
+  }
 };

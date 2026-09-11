@@ -89,11 +89,15 @@ def calculate_normalized_market_probs(odd_home: float, odd_draw: float, odd_away
 def fetch_betano_odds():
     """Busca cotações pré-jogo mais recentes da API oficial da Betano (Série A)."""
     headers = {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Accept": "application/json, text/plain, */*",
+        "Accept-Language": "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7",
+        "Referer": "https://br.betano.com/sport/futebol/brasil/brasileirao-serie-a/10016/",
+        "Origin": "https://br.betano.com"
     }
     url = "https://br.betano.com/api/sport/futebol/brasil/brasileirao-serie-a/10016/"
     try:
-        resp = requests.get(url, headers=headers, timeout=12)
+        resp = requests.get(url, headers=headers, timeout=15)
         if resp.status_code != 200:
             print(f"Aviso Betano API: status {resp.status_code}")
             return {}
@@ -198,16 +202,22 @@ def run_odds_pipeline():
     with open(GOLD_PATH, "r", encoding="utf-8") as f:
         gold = json.load(f)
 
-    # 3. Adiciona a tabela consolidada de odds de mercado
-    gold["odds_mercado_rodada"] = odds_data
+    # 3. Adiciona / preserva a tabela consolidada de odds de mercado
+    existing_odds = gold.get("odds_mercado_rodada", {})
+    if odds_data:
+        existing_odds.update(odds_data)
+        gold["odds_mercado_rodada"] = existing_odds
+    else:
+        print("Aviso: Nenhuma nova odd capturada. Preservando odds existentes no Star Schema.")
 
     # 4. Vincula as odds diretamente nos registros de fato_partidas_todas
     partidas = gold.get("fato_partidas_todas", [])
     count_matched = 0
+    active_odds = gold.get("odds_mercado_rodada", {})
     for p in partidas:
         key = f"{p.get('mandante')}__vs__{p.get('visitante')}"
-        if key in odds_data:
-            p["odds_mercado"] = odds_data[key]
+        if key in active_odds:
+            p["odds_mercado"] = active_odds[key]
             count_matched += 1
 
     print(f"Partidas atualizadas com odds no Star Schema: {count_matched}")

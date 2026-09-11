@@ -1154,44 +1154,6 @@ function renderMarketBenchmark(match, pred, data) {
   const oddsMap = (data && data.odds_mercado_rodada) ? data.odds_mercado_rodada : {};
   let odds = match.odds_mercado || oddsMap[key];
 
-  // Se não encontrar odds cadastradas diretamente, estima a cotação a partir de Poisson com overround típico de 4.8%
-  if (!odds) {
-    const rawHome = (parseFloat(pred.probHomePct) / 100) || 0.45;
-    const rawDraw = (parseFloat(pred.probDrawPct) / 100) || 0.28;
-    const rawAway = (parseFloat(pred.probAwayPct) / 100) || 0.27;
-    const over = 1.048;
-    const oH = (1 / (rawHome * over)).toFixed(2);
-    const oD = (1 / (rawDraw * over)).toFixed(2);
-    const oA = (1 / (rawAway * over)).toFixed(2);
-    odds = {
-      casa_apostas: "Betano / Consenso",
-      odds_captured_at: new Date().toISOString(),
-      odd_mandante: parseFloat(oH),
-      odd_empate: parseFloat(oD),
-      odd_visitante: parseFloat(oA),
-      prob_mercado_mandante_pct: parseFloat(pred.probHomePct),
-      prob_mercado_empate_pct: parseFloat(pred.probDrawPct),
-      prob_mercado_visitante_pct: parseFloat(pred.probAwayPct),
-      overround_pct: 104.8
-    };
-  }
-
-  // Elementos do Header
-  const sourceElem = document.getElementById("bm-source-name");
-  if (sourceElem) sourceElem.textContent = odds.casa_apostas || "Betano";
-
-  const timeElem = document.getElementById("bm-capture-time");
-  if (timeElem) timeElem.textContent = "Cotação pré-jogo mais recente";
-
-  const rawHome = document.getElementById("bm-raw-odd-home");
-  if (rawHome) rawHome.textContent = odds.odd_mandante ? Number(odds.odd_mandante).toFixed(2) : "--";
-
-  const rawDraw = document.getElementById("bm-raw-odd-draw");
-  if (rawDraw) rawDraw.textContent = odds.odd_empate ? Number(odds.odd_empate).toFixed(2) : "--";
-
-  const rawAway = document.getElementById("bm-raw-odd-away");
-  if (rawAway) rawAway.textContent = odds.odd_visitante ? Number(odds.odd_visitante).toFixed(2) : "--";
-
   // Labels dos resultados
   const lblHome = document.getElementById("bm-label-home");
   if (lblHome) lblHome.textContent = `Vitória do ${match.mandante}`;
@@ -1199,36 +1161,67 @@ function renderMarketBenchmark(match, pred, data) {
   const lblAway = document.getElementById("bm-label-away");
   if (lblAway) lblAway.textContent = `Vitória do ${match.visitante}`;
 
-  // Valores Modelo vs Mercado
+  // Valores do Modelo (Poisson)
   const mHome = parseFloat(pred.probHomePct);
   const mDraw = parseFloat(pred.probDrawPct);
   const mAway = parseFloat(pred.probAwayPct);
 
-  const kHome = parseFloat(odds.prob_mercado_mandante_pct);
-  const kDraw = parseFloat(odds.prob_mercado_empate_pct);
-  const kAway = parseFloat(odds.prob_mercado_visitante_pct);
-
-  // Barras Modelo
   setBar("bm-bar-model-home", "bm-val-model-home", mHome);
   setBar("bm-bar-model-draw", "bm-val-model-draw", mDraw);
   setBar("bm-bar-model-away", "bm-val-model-away", mAway);
+
+  const sourceElem = document.getElementById("bm-source-name");
+  const timeElem = document.getElementById("bm-capture-time");
+  const rawHome = document.getElementById("bm-raw-odd-home");
+  const rawDraw = document.getElementById("bm-raw-odd-draw");
+  const rawAway = document.getElementById("bm-raw-odd-away");
+
+  // Se o confronto ainda não possui odds abertas no mercado, exibe status transparente de espera
+  if (!odds || !odds.odd_mandante) {
+    if (sourceElem) sourceElem.textContent = "MERCADO AGUARDANDO";
+    if (timeElem) timeElem.textContent = "Cotações ainda não abertas pelas casas de apostas";
+    if (rawHome) rawHome.textContent = "--";
+    if (rawDraw) rawDraw.textContent = "--";
+    if (rawAway) rawAway.textContent = "--";
+
+    setBar("bm-bar-market-home", "bm-val-market-home", 0, "--");
+    setBar("bm-bar-market-draw", "bm-val-market-draw", 0, "--");
+    setBar("bm-bar-market-away", "bm-val-market-away", 0, "--");
+
+    updateDiffBadge("bm-diff-home", null);
+    updateDiffBadge("bm-diff-draw", null);
+    updateDiffBadge("bm-diff-away", null);
+    return;
+  }
+
+  // Elementos do Header com Odds Reais
+  if (sourceElem) sourceElem.textContent = odds.casa_apostas || "Betano";
+  if (timeElem) timeElem.textContent = "Cotação pré-jogo mais recente";
+  if (rawHome) rawHome.textContent = Number(odds.odd_mandante).toFixed(2);
+  if (rawDraw) rawDraw.textContent = Number(odds.odd_empate).toFixed(2);
+  if (rawAway) rawAway.textContent = Number(odds.odd_visitante).toFixed(2);
+
+  // Valores de Mercado (Desmargem 100%)
+  const kHome = parseFloat(odds.prob_mercado_mandante_pct);
+  const kDraw = parseFloat(odds.prob_mercado_empate_pct);
+  const kAway = parseFloat(odds.prob_mercado_visitante_pct);
 
   // Barras Mercado
   setBar("bm-bar-market-home", "bm-val-market-home", kHome);
   setBar("bm-bar-market-draw", "bm-val-market-draw", kDraw);
   setBar("bm-bar-market-away", "bm-val-market-away", kAway);
 
-  // Badges de divergência (Meu Modelo vs Mercado)
+  // Badges de divergência (Meu Modelo vs Mercado Real)
   updateDiffBadge("bm-diff-home", mHome - kHome);
   updateDiffBadge("bm-diff-draw", mDraw - kDraw);
   updateDiffBadge("bm-diff-away", mAway - kAway);
 }
 
-function setBar(barId, valId, pct) {
+function setBar(barId, valId, pct, customText) {
   const bar = document.getElementById(barId);
   const val = document.getElementById(valId);
   if (bar) bar.style.width = `${Math.min(Math.max(pct, 0), 100)}%`;
-  if (val) val.textContent = `${pct.toFixed(1)}%`;
+  if (val) val.textContent = customText !== undefined ? customText : `${pct.toFixed(1)}%`;
 }
 
 function updateDiffBadge(badgeId, diff) {
@@ -1236,6 +1229,12 @@ function updateDiffBadge(badgeId, diff) {
   if (!badge) return;
 
   badge.className = "benchmark-diff-badge";
+  if (diff === null || isNaN(diff)) {
+    badge.classList.add("neutral");
+    badge.textContent = "Aguardando odds";
+    return;
+  }
+
   if (diff > 2.0) {
     badge.classList.add("pos");
     badge.textContent = `Modelo +${diff.toFixed(1)}%`;
