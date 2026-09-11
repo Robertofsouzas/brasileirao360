@@ -1745,24 +1745,32 @@ body {
 .rfstechs-text-group {
   display: inline-flex;
   align-items: center;
-  gap: 3px;
+  gap: 3.5px;
   line-height: 1;
 }
 
 .rfstechs-pill-tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   background: #5839eb;
   color: #FFFFFF;
-  font-size: 0.74rem;
+  font-size: 0.69rem;
   font-weight: 800;
-  padding: 1.5px 4.5px;
+  height: 17px;
+  padding: 0 5px;
   border-radius: 4px;
   letter-spacing: 0.4px;
+  line-height: 1;
+  text-align: center;
+  box-sizing: border-box;
 }
 
 .rfstechs-suffix {
   color: #a5b4fc;
   font-size: 0.78rem;
   font-weight: 700;
+  line-height: 1;
   letter-spacing: -0.2px;
 }
 
