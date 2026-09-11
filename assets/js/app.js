@@ -38,6 +38,10 @@ document.addEventListener("DOMContentLoaded", () => {
     initD3DrillDown(data);
   }
 
+  // 7. Inicializar Seção de Inteligência Estatística (📊 Análises)
+  if (typeof initAnalyticsSection === "function") {
+    initAnalyticsSection(data);
+  }
 
   // 8. Configurar Navegação e Interações de Clique
   setupNavigation();

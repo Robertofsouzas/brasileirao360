@@ -2251,3 +2251,769 @@ body {
     padding: 10px 14px;
   }
 }
+
+/* ==========================================================================
+   Nova Seção: 📊 ANÁLISES (Central de Inteligência do Campeonato)
+   ========================================================================== */
+#sec-analises {
+  padding-top: 40px;
+  padding-bottom: 60px;
+}
+
+.analytics-header-intro {
+  margin-bottom: 36px;
+}
+
+.analytics-badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 14px;
+  border-radius: 20px;
+  background: rgba(0, 229, 155, 0.1);
+  border: 1px solid rgba(0, 229, 155, 0.25);
+  color: var(--accent-green);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  margin-bottom: 12px;
+}
+
+.pulse-dot-green {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent-green);
+  box-shadow: 0 0 8px var(--accent-green);
+  animation: pulse-dot-anim 2s infinite ease-in-out;
+}
+
+@keyframes pulse-dot-anim {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.3); opacity: 0.6; }
+}
+
+.analytics-main-title {
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: #FFFFFF;
+  letter-spacing: -0.02em;
+  margin-bottom: 8px;
+}
+
+.analytics-main-subtitle {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  max-width: 720px;
+  line-height: 1.5;
+  margin-bottom: 14px;
+}
+
+.analytics-period-badge {
+  display: inline-block;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 5px 14px;
+  border-radius: 6px;
+}
+
+.analytics-period-badge strong {
+  color: var(--text-primary);
+}
+
+/* Bloco 1: Hero Card - A História da Rodada */
+.analytics-block-hero {
+  margin-bottom: 40px;
+}
+
+.analytics-hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #FFA800;
+  margin-bottom: 12px;
+}
+
+.analytics-hero-card {
+  background: linear-gradient(135deg, rgba(26, 35, 58, 0.85) 0%, rgba(15, 23, 42, 0.95) 100%);
+  border: 1px solid rgba(0, 229, 155, 0.28);
+  border-radius: 16px;
+  padding: 28px 32px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35), 0 0 20px rgba(0, 229, 155, 0.08);
+  backdrop-filter: blur(12px);
+  position: relative;
+  overflow: hidden;
+}
+
+.analytics-hero-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--accent-green), var(--accent-blue));
+}
+
+.analytics-hero-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  margin-bottom: 24px;
+}
+
+.analytics-hero-club {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.hero-club-crest {
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.4));
+}
+
+.hero-club-subtitle {
+  display: block;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--accent-green);
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.hero-headline {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  letter-spacing: -0.01em;
+}
+
+.hero-prob-box {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  background: rgba(0, 229, 155, 0.08);
+  border: 1px solid rgba(0, 229, 155, 0.3);
+  padding: 10px 20px;
+  border-radius: 12px;
+}
+
+.hero-prob-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  color: var(--text-muted);
+}
+
+.hero-prob-val {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--accent-green);
+  line-height: 1;
+  margin: 4px 0 2px 0;
+}
+
+.hero-prob-sub {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+/* Cadeia Lógica: DADO -> MUDANÇA -> EXPLICAÇÃO -> CONCLUSÃO */
+.analytics-logic-chain {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.logic-step {
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 10px;
+  padding: 16px 18px;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.25s ease;
+}
+
+.logic-step:hover {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.logic-step.highlight {
+  background: rgba(0, 229, 155, 0.04);
+  border-color: rgba(0, 229, 155, 0.3);
+}
+
+.logic-step-tag {
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.logic-step.highlight .logic-step-tag {
+  color: var(--accent-green);
+}
+
+.logic-step-number {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  margin-bottom: 6px;
+}
+
+.logic-step.highlight .logic-step-number {
+  color: var(--accent-green);
+}
+
+.logic-step-desc {
+  font-size: 0.8rem;
+  line-height: 1.45;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.analytics-insight-callout {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  background: rgba(0, 136, 255, 0.08);
+  border: 1px solid rgba(0, 136, 255, 0.25);
+  border-left: 4px solid var(--accent-blue);
+  border-radius: 8px;
+  padding: 14px 18px;
+}
+
+.callout-icon {
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+.callout-body {
+  font-size: 0.85rem;
+  line-height: 1.55;
+  color: var(--text-primary);
+}
+
+/* Blocos 2 e 3: Momentum Grid */
+.analytics-momentum-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+.analytics-block-momentum {
+  display: flex;
+  flex-direction: column;
+}
+
+.block-section-header {
+  margin-bottom: 16px;
+}
+
+.section-block-title {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  margin-bottom: 4px;
+}
+
+.section-block-subtitle {
+  font-size: 0.825rem;
+  color: var(--text-muted);
+  display: block;
+}
+
+.momentum-cards-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.momentum-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: all 0.25s ease;
+  position: relative;
+}
+
+.momentum-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+.momentum-card.pos-momentum:hover {
+  border-color: rgba(0, 229, 155, 0.4);
+}
+
+.momentum-card.neg-momentum:hover {
+  border-color: rgba(255, 77, 77, 0.4);
+}
+
+.momentum-rank {
+  position: absolute;
+  top: 16px;
+  right: 18px;
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: var(--accent-green);
+  background: rgba(0, 229, 155, 0.1);
+  padding: 2px 8px;
+  border-radius: 12px;
+}
+
+.momentum-rank.neg-rank {
+  color: #FF4D4D;
+  background: rgba(255, 77, 77, 0.1);
+}
+
+.momentum-main-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 48px;
+}
+
+.momentum-club-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.momentum-crest {
+  width: 38px;
+  height: 38px;
+  object-fit: contain;
+}
+
+.momentum-club-name {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin: 0 0 2px 0;
+}
+
+.momentum-sub-pts {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.momentum-badge-score {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.momentum-val {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--accent-green);
+}
+
+.neg-badge .momentum-val {
+  color: #FF4D4D;
+}
+
+.momentum-pct {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+.momentum-metrics-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 8px;
+  padding: 8px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.momentum-metric-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.metric-label {
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.metric-val {
+  font-size: 0.8rem;
+  color: var(--text-primary);
+}
+
+.metric-val small {
+  color: var(--text-muted);
+}
+
+.momentum-explanation {
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+/* Bloco 4: Quadrantes Resultado x Desempenho */
+.analytics-block-full {
+  margin-bottom: 40px;
+}
+
+.result-perf-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.perf-quadrant-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 14px;
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  transition: all 0.25s ease;
+}
+
+.perf-quadrant-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.perf-quadrant-card.q-positive { border-left: 4px solid var(--accent-green); }
+.perf-quadrant-card.q-warning { border-left: 4px solid #FFA800; }
+.perf-quadrant-card.q-defense { border-left: 4px solid var(--accent-blue); }
+.perf-quadrant-card.q-danger { border-left: 4px solid #FF4D4D; }
+
+.quadrant-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.quadrant-icon {
+  font-size: 1.6rem;
+  line-height: 1;
+}
+
+.quadrant-title {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  margin: 0 0 2px 0;
+}
+
+.quadrant-subtitle {
+  font-size: 0.76rem;
+  color: var(--text-muted);
+}
+
+.quadrant-concept {
+  font-size: 0.78rem;
+  line-height: 1.5;
+  color: var(--text-secondary);
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 6px;
+  padding: 8px 12px;
+  margin: 0;
+}
+
+.quadrant-clubs-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.quadrant-club-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.quadrant-club-item:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.q-club-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.q-club-crest {
+  width: 26px;
+  height: 26px;
+  object-fit: contain;
+}
+
+.q-club-name {
+  font-size: 0.85rem;
+  color: #FFFFFF;
+}
+
+.q-stats-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+}
+
+.q-diff-tag {
+  font-weight: 700;
+  font-size: 0.72rem;
+  padding: 2px 7px;
+  border-radius: 6px;
+}
+
+.q-diff-tag.pos {
+  background: rgba(0, 229, 155, 0.12);
+  color: var(--accent-green);
+}
+
+.q-diff-tag.neg {
+  background: rgba(255, 77, 77, 0.12);
+  color: #FF4D4D;
+}
+
+/* Bloco 5: Jogadores em Destaque */
+.players-columns-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.player-column {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.column-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.column-icon {
+  font-size: 1.2rem;
+}
+
+.column-header h4 {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  margin: 0;
+}
+
+.player-cards-subgrid {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.analytics-player-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  padding: 16px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: all 0.25s ease;
+}
+
+.analytics-player-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+}
+
+.p-card-top {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.p-card-photo {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.p-card-info {
+  flex: 1;
+}
+
+.p-card-club {
+  display: block;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+.p-card-name {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin: 2px 0 0 0;
+}
+
+.p-card-badge-val {
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 800;
+  padding: 3px 8px;
+  border-radius: 8px;
+}
+
+.p-card-badge-val.pos {
+  background: rgba(0, 229, 155, 0.12);
+  color: var(--accent-green);
+}
+
+.p-card-badge-val.neutral {
+  background: rgba(255, 168, 0, 0.12);
+  color: #FFA800;
+}
+
+.p-card-stats-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 6px;
+  padding: 8px 10px;
+  text-align: center;
+}
+
+.p-stat-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.p-stat-lbl {
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.p-stat-num {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #FFFFFF;
+}
+
+.p-card-desc {
+  font-size: 0.78rem;
+  line-height: 1.45;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+/* ==========================================================================
+   Responsividade: Seção 📊 Análises
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .analytics-logic-chain {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .analytics-momentum-container {
+    grid-template-columns: 1fr;
+  }
+
+  .result-perf-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .players-columns-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .analytics-main-title {
+    font-size: 1.6rem;
+  }
+
+  .analytics-hero-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .hero-prob-box {
+    align-self: flex-start;
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  .analytics-logic-chain {
+    grid-template-columns: 1fr;
+  }
+
+  .momentum-main-info {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    padding-right: 0;
+  }
+
+  .momentum-badge-score {
+    align-items: flex-start;
+  }
+
+  .p-card-stats-row {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+}
+
