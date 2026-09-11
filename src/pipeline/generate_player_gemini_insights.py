@@ -26,7 +26,22 @@ def build_fallback_insight(player):
     xg = player.get("xg_total", 0.0)
     chutes = player.get("chutes", 0)
     jogos = player.get("jogos", 0)
+    assistencias = player.get("assistencias", 0)
+    xg_por_chute = player.get("xg_por_chute", 0.0)
     diff_xg = gols - xg
+
+    # Identifica eixo dominante no radar para coerência com o visual
+    goals_per_shot = gols / chutes if chutes > 0 else 0
+    assists_per_game = assistencias / jogos if jogos > 0 else 0
+    radar_scores = {
+        "finalização e conversão de chutes": goals_per_shot / 0.20 if goals_per_shot > 0 else 0,
+        "volume de xG gerado": xg / 10.0,
+        "criação de jogadas e assistências": assists_per_game / 0.25,
+        "qualidade de xG por finalização": xg_por_chute / 0.18 if xg_por_chute > 0 else 0,
+        "letalidade na superação do xG": 0.5 + (diff_xg * 0.15),
+        "participação ofensiva direta": (gols + assistencias) / 15.0,
+    }
+    top_axis = max(radar_scores, key=radar_scores.get)
 
     if pos == "Goleiro":
         return (
@@ -52,12 +67,12 @@ def build_fallback_insight(player):
             return (
                 f"{nome} se destaca pelo equilíbrio entre criação e letalidade no {clube}, convertendo {gols} gols "
                 f"a partir de {xg:.2f} xG ({'+' if diff_xg >= 0 else ''}{diff_xg:.2f}). "
-                f"Seu radar evidencia alto índice em finalização e visão de jogo, com arremates perigosos na entrada da área."
+                f"Seu perfil evidencia destaque em {top_axis}, com arremates perigosos na entrada da área."
             )
         else:
             return (
                 f"Como principal cérebro tático do {clube}, {nome} sustenta grande geração ofensiva com {xg:.2f} de xG acumulado "
-                f"e {player.get('assistencias', 0)} assistências em {jogos} partidas. "
+                f"e {assistencias} assistências em {jogos} partidas. "
                 f"Seu mapa espacial revela finalizações frequentes na meia-lua e distribuição qualificada no terço final."
             )
     else:  # Atacante
@@ -65,7 +80,7 @@ def build_fallback_insight(player):
             return (
                 f"Com {gols} gols em {jogos} jogos, {nome} demonstra alta letalidade no comando de ataque do {clube}, "
                 f"superando com folga seu xG de {xg:.2f} (+{diff_xg:.2f}). "
-                f"Seu radar aponta topo em finalização, concentrando arremates no coração da grande área com taxa de conversão expressiva."
+                f"Seu perfil destaca {top_axis}, concentrando arremates no coração da grande área com taxa de conversão expressiva."
             )
         elif diff_xg >= -0.5:
             return (
@@ -88,11 +103,31 @@ def generate_player_insights_batch(players_batch):
     players_info = []
     for p in players_batch:
         diff_xg = p.get("gols", 0) - p.get("xg_total", 0.0)
+        gols = p.get("gols", 0)
+        chutes = p.get("chutes", 0)
+        assistencias = p.get("assistencias", 0)
+        jogos = p.get("jogos", 0)
+        xg_por_chute = p.get("xg_por_chute", 0.0)
+
+        # Calcula o eixo dominante do radar para coerência com o visual
+        goals_per_shot = gols / chutes if chutes > 0 else 0
+        assists_per_game = assistencias / jogos if jogos > 0 else 0
+        radar_scores = {
+            "finalização e conversão": goals_per_shot / 0.20 if goals_per_shot > 0 else 0,
+            "volume de xG": p.get("xg_total", 0.0) / 10.0,
+            "criação e assistências": assists_per_game / 0.25,
+            "qualidade de xG por chute": xg_por_chute / 0.18 if xg_por_chute > 0 else 0,
+            "letalidade (superação do xG)": 0.5 + (diff_xg * 0.15),
+            "participação ofensiva": (gols + assistencias) / 15.0,
+        }
+        top_axis = max(radar_scores, key=radar_scores.get)
+
         players_info.append(
             f"ID: {p['jogador_id']} | Nome: {p['nome']} | Posição: {p['posicao']} | Clube: {p['clube_nome']} | "
-            f"Jogos: {p.get('jogos', 0)} | Gols: {p.get('gols', 0)} | Assistências: {p.get('assistencias', 0)} | "
-            f"Chutes: {p.get('chutes', 0)} | xG Acumulado: {p.get('xg_total', 0.0):.2f} | "
-            f"Diferencial xG: {'+' if diff_xg >= 0 else ''}{diff_xg:.2f} | xG/chute: {p.get('xg_por_chute', 0.0):.3f}"
+            f"Jogos: {jogos} | Gols: {gols} | Assistências: {assistencias} | "
+            f"Chutes: {chutes} | xG Acumulado: {p.get('xg_total', 0.0):.2f} | "
+            f"Diferencial xG: {'+' if diff_xg >= 0 else ''}{diff_xg:.2f} | xG/chute: {xg_por_chute:.3f} | "
+            f"Eixo Dominante no Radar: {top_axis}"
         )
 
     summary_text = "\n".join(players_info)
@@ -111,6 +146,7 @@ REGRAS OBRIGATÓRIAS:
    - Para Defensores (Zagueiros, Laterais, Volantes): foco no equilíbrio defensivo, disciplina tática e participação pontual em lances de perigo/bola parada.
    - Para Goleiros: foco na segurança da meta, liderança da linha defensiva e reposição, deixando claro que sua função primária é proteger a área sem volume de finalizações.
 3. Não use jargões técnicos de programação ou banco de dados.
+4. Ao referenciar o radar tático, mencione o "Eixo Dominante no Radar" fornecido nos dados (ex: "Seu perfil destaca volume de xG"). NUNCA assuma que o eixo dominante é finalização — use o valor informado.
 
 Retorne EXCLUSIVAMENTE um objeto JSON onde a chave é o ID do atleta (em string) e o valor é o texto interpretativo gerado:
 {{
