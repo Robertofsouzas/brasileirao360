@@ -699,6 +699,7 @@ function initPoissonSimulator(data) {
     const card = document.createElement("div");
     card.className = `fixture-card ${idx === 0 ? 'active' : ''}`;
     card.id = `fixture-card-${m.partida_id || idx}`;
+    card.title = `Clique para simular e ver histórico, momento e projeção de ${m.mandante} x ${m.visitante}`;
 
     const homeMeta = data.dim_clubes.find(c => c.nome_popular === m.mandante) || {};
     const awayMeta = data.dim_clubes.find(c => c.nome_popular === m.visitante) || {};
