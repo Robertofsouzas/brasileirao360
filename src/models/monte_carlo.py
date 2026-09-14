@@ -194,6 +194,7 @@ class MonteCarloSimulator:
 
             results.append({
                 "clube": t,
+                "posicao_atual": self.standings[t].get("posicao", 0),
                 "pontos_atuais": self.standings[t]["pontos"],
                 "jogos_atuais": self.standings[t]["jogos"],
                 "pontos_projetados": avg_points,

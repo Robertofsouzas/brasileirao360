@@ -238,7 +238,7 @@ function renderBloco1HistoriaDaRodada(data, statsRecentes) {
             <img src="${lider.escudo_url}" alt="${lider.nome_popular}" class="hero-club-crest" onerror="this.src='https://crests.football-data.org/764.svg'">
             <div>
               <span class="hero-club-subtitle">Líder Isolado · Rodada ${data.metadata.rodada_atual}</span>
-              <h3 class="hero-headline">${lider.nome_popular} consolida liderança com 63.6% de probabilidade de título</h3>
+              <h3 class="hero-headline">${lider.nome_popular} consolida liderança com ${liderMc.prob_campeao_pct ? liderMc.prob_campeao_pct.toFixed(1) + '%' : 'alto favoritismo'} de título</h3>
             </div>
           </div>
           <div class="hero-prob-box">
