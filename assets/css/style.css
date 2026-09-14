@@ -3017,13 +3017,14 @@ body {
   }
 }
 
+
 /* ==========================================================================
-   DOSSIÊ DO CONFRONTO — Match Dossier Styles
+   DOSSIÊ DO CONFRONTO — Match Dossier Styles (7 Blocos Didáticos)
    ========================================================================== */
 
 .match-dossier-panel {
   opacity: 0;
-  transform: translateY(20px);
+  transform: translateY(16px);
   transition: opacity 0.35s ease, transform 0.35s ease;
 }
 .match-dossier-panel.open {
@@ -3031,761 +3032,722 @@ body {
   transform: translateY(0);
 }
 
-/* --- Cabeçalho do Dossiê --- */
-.dossier-header {
+/* --- Cabeçalho do Confronto --- */
+.dossier-matchup-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  padding: 20px 0;
-  margin-bottom: 28px;
-  border-bottom: 1px solid var(--border-subtle);
+  padding: 16px 20px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  margin-bottom: 20px;
 }
-.dossier-team-info {
+
+.dossier-team-showcase {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 14px;
   flex: 1;
 }
-.dossier-team-info.away {
-  flex-direction: row-reverse;
-  text-align: right;
+.dossier-team-showcase.away {
+  justify-content: flex-end;
 }
+
 .dossier-crest {
-  width: 52px;
-  height: 52px;
+  width: 50px;
+  height: 50px;
   object-fit: contain;
-  filter: drop-shadow(0 2px 10px rgba(0,0,0,0.5));
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.5));
 }
-.dossier-team-detail {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-.dossier-team-detail.away {
-  align-items: flex-end;
+
+.dossier-team-role {
+  display: block;
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  text-transform: uppercase;
 }
 .dossier-team-name {
   font-size: 1.15rem;
   font-weight: 800;
   color: var(--text-primary);
-  font-family: var(--font-heading);
-}
-.dossier-team-role {
-  font-size: 0.68rem;
-  font-weight: 700;
-  color: var(--text-muted);
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-.dossier-vs-center {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 4px;
-  flex-shrink: 0;
-}
-.dossier-vs-icon {
-  font-size: 1.8rem;
-}
-.dossier-vs-label {
-  font-size: 0.65rem;
-  font-weight: 800;
-  color: var(--accent-gold);
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-.dossier-match-date {
-  font-size: 0.72rem;
-  color: var(--text-muted);
-  font-weight: 600;
-}
-
-/* --- Blocos do Dossiê --- */
-.dossier-block {
-  margin-bottom: 32px;
-  padding-bottom: 24px;
-  border-bottom: 1px solid var(--border-subtle);
-}
-.dossier-block:last-child {
-  border-bottom: none;
-  margin-bottom: 0;
-  padding-bottom: 0;
-}
-.dossier-block-header {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 18px;
-}
-.dossier-block-icon {
-  font-size: 1.4rem;
-  flex-shrink: 0;
-}
-.dossier-block-title {
-  font-size: 1.1rem;
-  font-weight: 800;
-  color: var(--text-primary);
-  margin: 0;
-  font-family: var(--font-heading);
-}
-.dossier-block-subtitle {
-  font-size: 0.78rem;
-  color: var(--text-secondary);
   margin: 2px 0 0 0;
+  font-family: var(--font-heading);
 }
 
-/* --- Estado Vazio --- */
-.dossier-empty-state {
-  text-align: center;
-  padding: 32px 20px;
-  background: rgba(255, 255, 255, 0.03);
-  border-radius: 12px;
-  border: 1px dashed rgba(255, 255, 255, 0.1);
-}
-.dossier-empty-state .empty-icon {
-  font-size: 2rem;
-  display: block;
-  margin-bottom: 10px;
-}
-.dossier-empty-state p {
-  font-size: 0.9rem;
-  color: var(--text-secondary);
-  margin: 0 0 8px 0;
-  font-weight: 600;
-}
-.dossier-empty-state .empty-hint {
-  font-size: 0.75rem;
-  color: var(--text-muted);
-}
-
-/* --- H2H Summary Cards --- */
-.h2h-summary-cards {
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
-  gap: 12px;
-  margin-bottom: 18px;
-}
-.h2h-stat-card {
+.dossier-center-badge {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 4px;
-  padding: 16px 12px;
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid var(--border-subtle);
-  transition: transform 0.2s ease;
+  text-align: center;
 }
-.h2h-stat-card:hover {
-  transform: translateY(-2px);
+.dossier-vs-chip {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+  background: rgba(255, 184, 0, 0.15);
+  color: var(--accent-gold);
+  border: 1px solid rgba(255, 184, 0, 0.3);
 }
-.h2h-stat-card.win-a {
-  border-color: rgba(0, 229, 155, 0.3);
-  background: rgba(0, 229, 155, 0.06);
-}
-.h2h-stat-card.draw {
-  border-color: rgba(255, 184, 0, 0.3);
-  background: rgba(255, 184, 0, 0.06);
-}
-.h2h-stat-card.win-b {
-  border-color: rgba(0, 136, 255, 0.3);
-  background: rgba(0, 136, 255, 0.06);
-}
-.h2h-stat-count {
-  font-size: 2rem;
-  font-weight: 900;
-  font-family: var(--font-heading);
-  line-height: 1;
-}
-.h2h-stat-card.win-a .h2h-stat-count { color: var(--accent-green); }
-.h2h-stat-card.draw .h2h-stat-count { color: var(--accent-gold); }
-.h2h-stat-card.win-b .h2h-stat-count { color: var(--accent-cyan); }
-.h2h-stat-label {
-  font-size: 0.72rem;
-  font-weight: 700;
+.dossier-subtitle-note {
+  font-size: 0.725rem;
   color: var(--text-secondary);
-  text-transform: uppercase;
-  letter-spacing: 0.3px;
+  font-weight: 600;
 }
-.h2h-stat-team {
+.dossier-date-chip {
   font-size: 0.68rem;
   color: var(--text-muted);
-  font-weight: 600;
-  max-width: 100%;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
 }
 
-/* --- Barra de Domínio --- */
-.h2h-dominance-bar-wrapper {
-  margin-bottom: 18px;
-}
-.h2h-dominance-bar {
-  display: flex;
-  height: 10px;
-  border-radius: 6px;
-  overflow: hidden;
-  margin-bottom: 8px;
-}
-.h2h-bar-segment {
-  transition: width 0.5s ease;
-}
-.h2h-bar-segment.bar-win-a {
-  background: linear-gradient(135deg, #00E59B, #00C48C);
-}
-.h2h-bar-segment.bar-draw {
-  background: linear-gradient(135deg, #FFB800, #FF9500);
-}
-.h2h-bar-segment.bar-win-b {
-  background: linear-gradient(135deg, #0088FF, #0066CC);
-}
-.h2h-dominance-text {
-  font-size: 0.78rem;
-  color: var(--text-secondary);
-  margin: 0;
-  font-weight: 600;
-}
-
-/* --- Gols no Período --- */
-.h2h-goals-summary {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 16px;
-  padding: 16px;
-  background: rgba(255, 255, 255, 0.03);
-  border-radius: 10px;
-  border: 1px solid var(--border-subtle);
-  margin-bottom: 18px;
-}
-.h2h-goals-team {
-  font-size: 0.82rem;
-  font-weight: 700;
-  color: var(--text-secondary);
-  flex: 1;
-}
-.h2h-goals-team:last-child {
-  text-align: right;
-}
-.h2h-goals-score {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-.h2h-goals-num {
-  font-size: 1.6rem;
-  font-weight: 900;
-  color: var(--text-primary);
-  font-family: var(--font-heading);
-}
-.h2h-goals-vs {
-  font-size: 1rem;
-  color: var(--text-muted);
-  font-weight: 600;
-}
-
-/* --- Lista de Confrontos --- */
-.h2h-matches-list {
-  margin-top: 4px;
-}
-.h2h-matches-header {
-  font-size: 0.72rem;
-  font-weight: 700;
-  color: var(--text-muted);
-  text-transform: uppercase;
-  margin-bottom: 10px;
-  letter-spacing: 0.3px;
-}
-.h2h-match-row {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  padding: 10px 14px;
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.025);
-  border: 1px solid var(--border-subtle);
-  margin-bottom: 6px;
-  transition: background 0.2s ease;
-}
-.h2h-match-row:hover {
-  background: rgba(255, 255, 255, 0.05);
-}
-.h2h-match-row.win-a {
-  border-left: 3px solid var(--accent-green);
-}
-.h2h-match-row.win-b {
-  border-left: 3px solid var(--accent-cyan);
-}
-.h2h-match-row.draw {
-  border-left: 3px solid var(--accent-gold);
-}
-.h2h-match-date {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2px;
-  min-width: 70px;
-  flex-shrink: 0;
-}
-.h2h-match-round {
-  font-size: 0.68rem;
-  font-weight: 800;
-  color: var(--accent-gold);
-  text-transform: uppercase;
-}
-.h2h-match-date > span:last-child {
-  font-size: 0.72rem;
-  color: var(--text-muted);
-  font-weight: 600;
-}
-.h2h-match-teams {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  flex: 1;
-  justify-content: center;
-}
-.h2h-match-team {
-  font-size: 0.82rem;
-  font-weight: 600;
-  color: var(--text-secondary);
-  flex: 1;
-}
-.h2h-match-team:last-child {
-  text-align: right;
-}
-.h2h-match-team.is-team-a {
-  color: var(--text-primary);
-  font-weight: 700;
-}
-.h2h-match-score {
-  font-size: 0.88rem;
-  font-weight: 800;
-  color: var(--text-primary);
-  font-family: var(--font-mono);
-  white-space: nowrap;
-  flex-shrink: 0;
-}
-
-/* --- Botão "Ver todos" --- */
-.dossier-expand-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  width: 100%;
-  padding: 10px;
-  margin-top: 8px;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid var(--border-subtle);
-  border-radius: 8px;
-  color: var(--accent-gold);
-  font-size: 0.78rem;
-  font-weight: 700;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-.dossier-expand-btn:hover {
-  background: rgba(255, 184, 0, 0.1);
-  border-color: rgba(255, 184, 0, 0.3);
-}
-.expand-arrow {
-  font-size: 0.7rem;
-  transition: transform 0.2s ease;
-}
-
-/* --- Momento Atual: Contexto de Classificação --- */
-.momentum-standing-context {
+/* --- Barra de Filtro por Competição --- */
+.dossier-scope-bar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 14px;
-  padding: 16px;
-  background: rgba(255, 255, 255, 0.03);
-  border-radius: 12px;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 10px 16px;
+  background: rgba(0, 0, 0, 0.2);
   border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  margin-bottom: 24px;
+}
+.dossier-scope-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.dossier-scope-buttons {
+  display: flex;
+  gap: 8px;
+}
+.dossier-scope-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  border-radius: var(--radius-full);
+  padding: 5px 14px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.dossier-scope-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text-primary);
+}
+.dossier-scope-btn.active {
+  background: rgba(0, 180, 216, 0.18);
+  border-color: var(--accent-cyan);
+  color: var(--accent-cyan);
+  box-shadow: 0 0 10px rgba(0, 180, 216, 0.2);
+}
+
+/* --- Blocos Estruturais do Dossiê --- */
+.dossier-block {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 18px 20px;
   margin-bottom: 20px;
 }
-.momentum-standing-team {
+
+.dossier-block-header {
   display: flex;
   align-items: center;
   gap: 10px;
+  margin-bottom: 16px;
+}
+.dossier-block-icon {
+  font-size: 1.25rem;
+  line-height: 1;
+}
+.dossier-block-title {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+.dossier-block-subtitle {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin: 2px 0 0 0;
+}
+
+/* --- BLOCO 1: Grid H2H e Barra de Dominância --- */
+.dossier-h2h-grid {
+  display: grid;
+  grid-template-columns: 1fr 110px 1fr;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+.dossier-h2h-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 14px 12px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.dossier-h2h-card.home {
+  border-left: 3px solid var(--accent-green);
+}
+.dossier-h2h-card.away {
+  border-right: 3px solid var(--accent-purple);
+}
+.dossier-h2h-card.draw {
+  border-top: 3px solid var(--accent-gold);
+}
+
+.h2h-card-val {
+  font-size: 1.6rem;
+  font-weight: 900;
+  font-family: var(--font-mono);
+  color: var(--text-primary);
+  line-height: 1.1;
+}
+.h2h-card-label {
+  font-size: 0.65rem;
+  font-weight: 800;
+  color: var(--text-muted);
+  letter-spacing: 0.06em;
+  margin: 4px 0 2px 0;
+}
+.h2h-card-team {
+  font-size: 0.825rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+.h2h-card-sub {
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+.dossier-dominance-bar-wrapper {
+  margin: 12px 0 10px 0;
+}
+.dossier-dominance-bar {
+  display: flex;
+  height: 8px;
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.05);
+}
+.dom-seg-home {
+  background: linear-gradient(90deg, #00B074 0%, #00E59B 100%);
+  transition: width 0.4s ease;
+}
+.dom-seg-draw {
+  background: #FFB800;
+  transition: width 0.4s ease;
+}
+.dom-seg-away {
+  background: linear-gradient(90deg, #7928CA 0%, #B845ED 100%);
+  transition: width 0.4s ease;
+}
+
+.dossier-h2h-summary-note {
+  font-size: 0.775rem;
+  color: var(--text-secondary);
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px dashed var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 8px 12px;
+}
+
+/* --- BLOCO 2: Lista Visual de Últimos Confrontos --- */
+.dossier-matches-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.dossier-match-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  transition: background 0.2s ease, border-color 0.2s ease;
+  gap: 12px;
+}
+.dossier-match-row:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(0, 180, 216, 0.3);
+}
+
+.match-row-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 95px;
+}
+.match-row-date {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  font-family: var(--font-mono);
+}
+.match-row-comp {
+  font-size: 0.65rem;
+  color: var(--text-muted);
+}
+
+.match-row-scoreline {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
   flex: 1;
 }
-.momentum-standing-team.away {
-  flex-direction: row-reverse;
+.match-row-team {
+  font-size: 0.825rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  flex: 1;
 }
-.momentum-crest {
-  width: 36px;
-  height: 36px;
-  object-fit: contain;
-  filter: drop-shadow(0 1px 4px rgba(0,0,0,0.3));
+.match-row-team.home {
+  text-align: right;
 }
-.momentum-standing-info {
+.match-row-team.away {
+  text-align: left;
+}
+.match-row-team.current-mandante {
+  color: var(--text-primary);
+  font-weight: 700;
+}
+
+.match-row-score-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid var(--border-subtle);
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+  font-family: var(--font-mono);
+  font-weight: 800;
+  font-size: 0.9rem;
+}
+.match-row-score-chip .score-x {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+
+.match-row-outcome {
+  min-width: 95px;
+  text-align: right;
+}
+.outcome-chip {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: var(--radius-full);
+  text-transform: uppercase;
+}
+.outcome-chip.badge-win-home {
+  background: rgba(0, 229, 155, 0.15);
+  color: var(--accent-green);
+  border: 1px solid rgba(0, 229, 155, 0.3);
+}
+.outcome-chip.badge-win-away {
+  background: rgba(121, 40, 202, 0.2);
+  color: var(--accent-purple);
+  border: 1px solid rgba(121, 40, 202, 0.35);
+}
+.outcome-chip.badge-draw {
+  background: rgba(255, 184, 0, 0.15);
+  color: var(--accent-gold);
+  border: 1px solid rgba(255, 184, 0, 0.3);
+}
+
+.h2h-accordion-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-primary);
+  padding: 6px 16px;
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.h2h-accordion-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--accent-gold);
+}
+
+/* --- BLOCO 3: Médias Estatísticas --- */
+.dossier-stats-table-wrapper {
+  overflow-x: auto;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-subtle);
+  margin-bottom: 10px;
+}
+.dossier-stats-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.825rem;
+}
+.dossier-stats-table th {
+  background: rgba(0, 0, 0, 0.3);
+  padding: 8px 14px;
+  color: var(--text-muted);
+  font-size: 0.725rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: 1px solid var(--border-subtle);
+}
+.dossier-stats-table td {
+  padding: 10px 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  font-family: var(--font-mono);
+}
+.dossier-stats-table tr:last-child td {
+  border-bottom: none;
+}
+.dossier-stat-disclaimer {
+  font-size: 0.725rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+  padding: 6px 4px;
+}
+
+/* --- BLOCO 4: Momento Atual --- */
+.dossier-standing-summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.standing-pill {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
   display: flex;
   flex-direction: column;
   gap: 2px;
 }
-.momentum-standing-info.away {
-  align-items: flex-end;
+.standing-pill.home {
+  border-left: 3px solid var(--accent-green);
 }
-.momentum-team-name {
-  font-size: 0.9rem;
-  font-weight: 800;
-  color: var(--text-primary);
+.standing-pill.away {
+  border-right: 3px solid var(--accent-purple);
+  text-align: right;
 }
-.momentum-standing-detail {
-  font-size: 0.72rem;
-  font-weight: 600;
-  color: var(--text-muted);
-  font-family: var(--font-mono);
-}
-.momentum-vs-badge {
+.standing-pos {
   font-size: 0.75rem;
   font-weight: 800;
   color: var(--accent-gold);
-  background: rgba(255, 184, 0, 0.1);
-  padding: 4px 10px;
-  border-radius: 6px;
-  flex-shrink: 0;
 }
-
-/* --- Momento Atual: Comparação de Métricas --- */
-.momentum-compare-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-.momentum-metric-row {
-  display: grid;
-  grid-template-columns: 70px 1fr 70px;
-  gap: 10px;
-  align-items: center;
-}
-.momentum-value {
-  font-size: 0.85rem;
-  font-weight: 700;
-  font-family: var(--font-mono);
-  color: var(--text-secondary);
-}
-.momentum-value.home {
-  text-align: right;
-}
-.momentum-value.away {
-  text-align: left;
-}
-.momentum-value.advantage {
-  color: var(--accent-green);
-  font-weight: 800;
-}
-.momentum-bar-group {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 3px;
-}
-.momentum-metric-label {
-  font-size: 0.68rem;
-  font-weight: 700;
-  color: var(--text-muted);
-  text-transform: uppercase;
-  white-space: nowrap;
-  order: -1;
-}
-.momentum-bar-track {
-  width: 100%;
-  height: 6px;
-  border-radius: 3px;
-  background: rgba(255, 255, 255, 0.06);
-  overflow: hidden;
-}
-.momentum-bar-track.home-track {
-  direction: rtl;
-}
-.momentum-bar-fill {
-  height: 100%;
-  border-radius: 3px;
-  transition: width 0.5s ease;
-}
-.momentum-bar-fill.home-fill {
-  background: linear-gradient(90deg, rgba(0, 229, 155, 0.4), var(--accent-green));
-}
-.momentum-bar-fill.away-fill {
-  background: linear-gradient(90deg, var(--accent-cyan), rgba(0, 136, 255, 0.4));
-}
-
-/* --- Previsão: Grid de Probabilidades --- */
-.dossier-pred-grid {
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
-  gap: 14px;
-  margin-bottom: 20px;
-}
-.dossier-pred-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-  padding: 20px 14px;
-  border-radius: 14px;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid var(--border-subtle);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-.dossier-pred-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
-}
-.dossier-pred-card.home-pred {
-  border-color: rgba(0, 229, 155, 0.25);
-}
-.dossier-pred-card.draw-pred {
-  border-color: rgba(255, 184, 0, 0.25);
-}
-.dossier-pred-card.away-pred {
-  border-color: rgba(0, 136, 255, 0.25);
-}
-.dossier-pred-crest {
-  width: 42px;
-  height: 42px;
-  object-fit: contain;
-  filter: drop-shadow(0 2px 8px rgba(0,0,0,0.4));
-}
-.dossier-pred-emoji {
-  font-size: 2rem;
-}
-.dossier-pred-pct {
-  font-size: 1.7rem;
-  font-weight: 900;
-  font-family: var(--font-heading);
-  line-height: 1;
-}
-.dossier-pred-card.home-pred .dossier-pred-pct { color: var(--accent-green); }
-.dossier-pred-card.draw-pred .dossier-pred-pct { color: var(--accent-gold); }
-.dossier-pred-card.away-pred .dossier-pred-pct { color: var(--accent-cyan); }
-.dossier-pred-label {
-  font-size: 0.78rem;
-  font-weight: 700;
-  color: var(--text-secondary);
-  text-align: center;
-}
-.dossier-pred-lambda {
-  font-size: 0.68rem;
-  color: var(--text-muted);
-  font-family: var(--font-mono);
-  font-weight: 600;
-}
-
-/* --- Top Placares --- */
-.dossier-top-scores {
-  text-align: center;
-}
-.dossier-scores-title {
-  font-size: 0.75rem;
-  font-weight: 700;
-  color: var(--text-muted);
-  text-transform: uppercase;
-  display: block;
-  margin-bottom: 10px;
-}
-.dossier-scores-grid {
-  display: flex;
-  justify-content: center;
-  gap: 8px;
-  flex-wrap: wrap;
-}
-.dossier-score-chip {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 4px;
-  padding: 10px 16px;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid var(--border-subtle);
-  border-radius: 10px;
-  min-width: 70px;
-}
-.dossier-score-text {
+.standing-team {
   font-size: 0.95rem;
   font-weight: 800;
   color: var(--text-primary);
-  font-family: var(--font-mono);
 }
-.dossier-score-prob {
-  font-size: 0.68rem;
+.standing-pts {
+  font-size: 0.725rem;
+  color: var(--text-muted);
+}
+.standing-vs {
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: var(--text-muted);
+}
+
+.dossier-tactical-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.dossier-metric-row {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.metric-row-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.75rem;
   font-weight: 700;
+}
+.val-home {
   color: var(--accent-green);
   font-family: var(--font-mono);
+  min-width: 45px;
+}
+.metric-title {
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+.val-away {
+  color: var(--accent-purple);
+  font-family: var(--font-mono);
+  min-width: 45px;
+  text-align: right;
+}
+.metric-bars-track {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px;
+  height: 5px;
+}
+.track-home {
+  display: flex;
+  justify-content: flex-end;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 4px 0 0 4px;
+}
+.track-away {
+  display: flex;
+  justify-content: flex-start;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 0 4px 4px 0;
+}
+.bar-fill.home {
+  background: var(--accent-green);
+  height: 100%;
+  border-radius: 4px 0 0 4px;
+  transition: width 0.3s ease;
+}
+.bar-fill.away {
+  background: var(--accent-purple);
+  height: 100%;
+  border-radius: 0 4px 4px 0;
+  transition: width 0.3s ease;
 }
 
-/* --- Interpretação --- */
-.dossier-interpret-box {
-  padding: 18px 20px;
-  background: linear-gradient(135deg, rgba(255, 184, 0, 0.06) 0%, rgba(0, 229, 155, 0.04) 100%);
-  border-radius: 12px;
-  border: 1px solid rgba(255, 184, 0, 0.15);
+/* --- BLOCO 5: Histórico x Momento Atual --- */
+.dossier-insight-card {
+  display: flex;
+  gap: 12px;
+  background: rgba(0, 180, 216, 0.05);
+  border: 1px solid rgba(0, 180, 216, 0.25);
+  border-radius: var(--radius-sm);
+  padding: 14px 16px;
+}
+.insight-icon {
+  font-size: 1.25rem;
+  line-height: 1.2;
+}
+.insight-text p {
+  font-size: 0.825rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* --- BLOCO 6: Previsão do Modelo --- */
+.dossier-pred-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 12px;
   margin-bottom: 16px;
 }
-.dossier-interpret-text {
-  font-size: 0.88rem;
-  color: var(--text-secondary);
-  line-height: 1.65;
-  margin: 0;
-  font-weight: 500;
-}
-
-/* --- Disclaimer --- */
-.dossier-disclaimer {
+.dossier-pred-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 14px 12px;
+  text-align: center;
   display: flex;
-  gap: 10px;
-  padding: 14px 16px;
-  background: rgba(0, 136, 255, 0.06);
-  border-radius: 10px;
-  border: 1px solid rgba(0, 136, 255, 0.15);
+  flex-direction: column;
+  transition: transform 0.2s ease, border-color 0.2s ease;
 }
-.dossier-disclaimer .disclaimer-icon {
-  font-size: 1.1rem;
-  flex-shrink: 0;
-  margin-top: 1px;
+.dossier-pred-card.fav-highlight {
+  border-color: rgba(255, 184, 0, 0.5);
+  background: rgba(255, 184, 0, 0.04);
+  box-shadow: 0 0 14px rgba(255, 184, 0, 0.1);
 }
-.dossier-disclaimer strong {
-  font-size: 0.78rem;
-  color: var(--accent-cyan);
+.pred-label {
+  font-size: 0.65rem;
   font-weight: 700;
-  display: block;
-  margin-bottom: 4px;
-}
-.dossier-disclaimer p {
-  font-size: 0.72rem;
   color: var(--text-muted);
+  text-transform: uppercase;
+}
+.pred-val {
+  font-size: 1.6rem;
+  font-weight: 900;
+  font-family: var(--font-mono);
+  margin: 4px 0 2px 0;
+}
+.pred-team {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+.pred-lambda {
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+.dossier-top-scores-box {
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+}
+.top-scores-title {
+  display: block;
+  font-size: 0.725rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.scores-chips-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.score-chip-item {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-full);
+  padding: 4px 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+}
+.score-chip-item.top-1 {
+  background: rgba(0, 229, 155, 0.12);
+  border-color: rgba(0, 229, 155, 0.4);
+  color: var(--accent-green);
+  font-weight: 800;
+}
+.chip-score {
+  font-weight: 800;
+}
+.chip-prob {
+  font-size: 0.68rem;
+  opacity: 0.75;
+}
+
+/* --- BLOCO 7: Resumo Inteligente --- */
+.dossier-smart-summary-block {
+  border-color: rgba(255, 184, 0, 0.4);
+  background: linear-gradient(180deg, rgba(255, 184, 0, 0.06) 0%, rgba(17, 22, 34, 0.98) 100%);
+}
+.smart-summary-card {
+  padding: 12px 14px;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 184, 0, 0.2);
+  border-radius: var(--radius-sm);
+}
+.summary-paragraph {
+  font-size: 0.85rem;
+  color: var(--text-primary);
+  line-height: 1.6;
   margin: 0;
-  line-height: 1.5;
 }
 
-/* --- Responsividade Dossiê --- */
+/* --- Aviso Metodológico e Empty State --- */
+.dossier-disclaimer-box {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 12px 16px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  color: var(--text-muted);
+  font-size: 0.725rem;
+  line-height: 1.45;
+}
+.dossier-disclaimer-box p {
+  margin: 0;
+}
+
+.dossier-empty-state {
+  text-align: center;
+  padding: 24px 16px;
+  color: var(--text-secondary);
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: var(--radius-sm);
+}
+.dossier-empty-state p {
+  font-size: 0.875rem;
+  margin: 8px 0 4px 0;
+  font-weight: 600;
+}
+.dossier-empty-state small {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+/* --- Responsividade Mobile --- */
 @media (max-width: 768px) {
-  .dossier-header {
+  .dossier-matchup-header {
     flex-direction: column;
+    text-align: center;
     gap: 12px;
-    text-align: center;
   }
-  .dossier-team-info,
-  .dossier-team-info.away {
-    flex-direction: column;
-    text-align: center;
+  .dossier-team-showcase {
+    justify-content: center !important;
   }
-  .dossier-team-detail,
-  .dossier-team-detail.away {
-    align-items: center;
-  }
-  .dossier-crest {
-    width: 44px;
-    height: 44px;
+  .dossier-team-showcase.away .dossier-team-info {
+    text-align: left !important;
   }
 
-  .h2h-summary-cards {
-    grid-template-columns: 1fr 1fr 1fr;
+  .dossier-h2h-grid {
+    grid-template-columns: 1fr;
     gap: 8px;
   }
-  .h2h-stat-count {
-    font-size: 1.5rem;
-  }
-  .h2h-stat-team {
-    font-size: 0.62rem;
-  }
-
-  .h2h-match-row {
-    flex-direction: column;
-    gap: 6px;
-    padding: 10px;
-  }
-  .h2h-match-date {
-    flex-direction: row;
-    gap: 6px;
-    min-width: auto;
-  }
-  .h2h-match-teams {
-    width: 100%;
-  }
-  .h2h-match-team {
-    font-size: 0.75rem;
-  }
-
-  .momentum-standing-context {
-    flex-direction: column;
-    gap: 10px;
-  }
-  .momentum-standing-team,
-  .momentum-standing-team.away {
-    flex-direction: row;
-    width: 100%;
-    justify-content: center;
-  }
-  .momentum-standing-info,
-  .momentum-standing-info.away {
-    align-items: flex-start;
-  }
-
-  .momentum-metric-row {
-    grid-template-columns: 55px 1fr 55px;
-    gap: 6px;
-  }
-  .momentum-value {
-    font-size: 0.78rem;
-  }
-  .momentum-metric-label {
-    font-size: 0.6rem;
-  }
-
   .dossier-pred-grid {
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: 8px;
   }
-  .dossier-pred-pct {
-    font-size: 1.3rem;
+  .dossier-match-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
   }
-  .dossier-pred-card {
-    padding: 14px 8px;
+  .match-row-scoreline {
+    justify-content: space-between;
   }
-  .dossier-pred-crest {
-    width: 32px;
-    height: 32px;
+  .match-row-outcome {
+    text-align: center;
   }
-  .dossier-pred-label {
-    font-size: 0.68rem;
+  .dossier-scope-bar {
+    flex-direction: column;
+    align-items: stretch;
   }
-  .dossier-pred-lambda {
-    font-size: 0.6rem;
+  .dossier-scope-buttons {
+    flex-direction: column;
   }
-
-  .dossier-score-chip {
-    padding: 8px 12px;
-    min-width: 58px;
+  .dossier-standing-summary {
+    flex-direction: column;
   }
-  .dossier-score-text {
-    font-size: 0.82rem;
-  }
-
-  .dossier-interpret-text {
-    font-size: 0.82rem;
+  .standing-pill.away {
+    text-align: left;
   }
 }
-
-@media (max-width: 480px) {
-  .dossier-team-name {
-    font-size: 0.95rem;
-  }
-  .h2h-summary-cards {
-    gap: 6px;
-  }
-  .h2h-stat-card {
-    padding: 12px 8px;
-  }
-  .h2h-goals-num {
-    font-size: 1.3rem;
-  }
-}
-
-

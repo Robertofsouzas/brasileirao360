@@ -689,7 +689,7 @@ CLUBES_METADATA = {
         "cor_secundaria": "#000000",
         "escudo_url": "assets/img/vitoria.svg",
         "football_data_id": 1784,
-        "api_football_id": 139,
+        "api_football_id": 136,
         "jogadores": [
             {
                 "id": 1801, "nome": "Alerrandro", "posicao": "Atacante", "numero": 9, "nacionalidade": "Brasil",
@@ -755,7 +755,7 @@ CLUBES_METADATA = {
         "cor_secundaria": "#FFCC00",
         "escudo_url": "https://media.api-sports.io/football/teams/1193.png",
         "football_data_id": 4030,
-        "api_football_id": 142,
+        "api_football_id": 1193,
         "jogadores": [
             {
                 "id": 2001, "nome": "Isidro Pitta", "posicao": "Atacante", "numero": 9, "nacionalidade": "Paraguai",
@@ -821,7 +821,7 @@ CLUBES_METADATA = {
         "cor_secundaria": "#006437",
         "escudo_url": "https://crests.football-data.org/4364.png",
         "football_data_id": 4364,
-        "api_football_id": 7753,
+        "api_football_id": 7848,
         "jogadores": [
             {
                 "id": 2201, "nome": "Davó", "posicao": "Atacante", "numero": 9, "nacionalidade": "Brasil",
@@ -854,7 +854,7 @@ CLUBES_METADATA = {
         "cor_secundaria": "#FFFFFF",
         "escudo_url": "https://crests.football-data.org/4241.png",
         "football_data_id": 4241,
-        "api_football_id": 156,
+        "api_football_id": 147,
         "jogadores": [
             {
                 "id": 2301, "nome": "Robson", "posicao": "Atacante", "numero": 9, "nacionalidade": "Brasil",
@@ -887,7 +887,7 @@ CLUBES_METADATA = {
         "cor_secundaria": "#FFFFFF",
         "escudo_url": "https://crests.football-data.org/4287.png",
         "football_data_id": 4287,
-        "api_football_id": 7774,
+        "api_football_id": 1198,
         "jogadores": [
             {
                 "id": 2401, "nome": "Ytalo", "posicao": "Atacante", "numero": 9, "nacionalidade": "Brasil",
@@ -920,7 +920,7 @@ CLUBES_METADATA = {
         "cor_secundaria": "#FFFFFF",
         "escudo_url": "https://crests.football-data.org/1772.png",
         "football_data_id": 1772,
-        "api_football_id": 136,
+        "api_football_id": 132,
         "jogadores": [
             {
                 "id": 2501, "nome": "Marcinho", "posicao": "Atacante", "numero": 11, "nacionalidade": "Brasil",

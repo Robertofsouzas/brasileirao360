@@ -305,6 +305,14 @@ def run_pipeline():
             fato_eventos.append(s)
 
     # 5. Consolidação e Exportação
+    h2h_gold_file = GOLD_DIR / "gold_historico_confrontos.json"
+    if h2h_gold_file.exists():
+        with open(h2h_gold_file, "r", encoding="utf-8") as f:
+            historico_confrontos = json.load(f)
+    else:
+        from src.pipeline.process_h2h import run_h2h_processing
+        historico_confrontos = run_h2h_processing()
+
     gold_dataset = {
         "metadata": {
             "gerado_em": datetime.now(BR_TZ).isoformat(),
@@ -321,7 +329,8 @@ def run_pipeline():
         "projecoes_monte_carlo": projecoes_mc,
         "fato_partidas_todas": fato_partidas,
         "fato_eventos_shots": fato_eventos,
-        "odds_mercado_rodada": prev_odds_rodada
+        "odds_mercado_rodada": prev_odds_rodada,
+        "historico_confrontos": historico_confrontos
     }
 
     out_file = GOLD_DIR / "dataset_gold.json"

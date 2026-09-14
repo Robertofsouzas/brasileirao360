@@ -19,7 +19,7 @@
   <meta name="twitter:image" content="https://brasileirao360.vercel.app/assets/img/hero_tactical_banner.jpg">
   
   <!-- CSS Stylesheet -->
-  <link rel="stylesheet" href="assets/css/style.css?v=3.9">
+  <link rel="stylesheet" href="assets/css/style.css?v=4.0">
   <link rel="icon" href="https://crests.football-data.org/764.svg" type="image/svg+xml">
 
   <!-- D3.js v7 CDN (Visualizações Estatísticas Avançadas) -->
@@ -531,6 +531,21 @@
             </div>
             <div class="fixtures-scroll-container" id="next-round-fixtures-list">
               <!-- Renderizado via JS com os 10 confrontos reais da rodada -->
+            </div>
+          </div>
+
+          <!-- Seletor Rápido de Qualquer Confronto (Personalizado) -->
+          <div class="custom-match-selector-bar" style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; background: rgba(255, 255, 255, 0.02); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); padding: 8px 14px; margin-bottom: 16px;">
+            <div style="display: flex; align-items: center; gap: 8px; font-size: 0.75rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">
+              <span>⚡ Simular Qualquer Confronto:</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+              <select id="custom-sim-home" class="filter-select" style="padding: 4px 10px; font-size: 0.8rem; background: var(--bg-surface-elevated); color: var(--text-primary); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); cursor: pointer;"></select>
+              <span style="font-size: 0.75rem; font-weight: 800; color: var(--accent-gold);">×</span>
+              <select id="custom-sim-away" class="filter-select" style="padding: 4px 10px; font-size: 0.8rem; background: var(--bg-surface-elevated); color: var(--text-primary); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); cursor: pointer;"></select>
+              <button type="button" id="btn-custom-sim" class="btn btn-sm" style="padding: 5px 14px; font-size: 0.75rem; font-weight: 700; background: var(--accent-green); color: #000; border: none; border-radius: var(--radius-sm); cursor: pointer; transition: all 0.2s ease;">
+                Analisar Duelo
+              </button>
             </div>
           </div>
 
@@ -1081,10 +1096,10 @@
     })();
   </script>
 
-  <script src="assets/js/data.js?v=3.6"></script>
+  <script src="assets/js/data.js?v=4.0"></script>
   <script src="assets/js/d3_charts.js?v=3.6"></script>
   <script src="assets/js/analytics_section.js?v=1.0"></script>
-  <script src="assets/js/match_history.js?v=1.0"></script>
-  <script src="assets/js/app.js?v=3.7"></script>
+  <script src="assets/js/match_history.js?v=2.0"></script>
+  <script src="assets/js/app.js?v=4.0"></script>
 </body>
 </html>

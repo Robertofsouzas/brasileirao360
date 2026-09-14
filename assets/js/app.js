@@ -734,10 +734,44 @@ function initPoissonSimulator(data) {
   // Inicializa o Toggle entre Shot Map e Benchmark de Mercado
   setupSimulatorToggle(data);
 
+  // Inicializa o Seletor Personalizado de Confrontos
+  setupCustomMatchSelector(data);
+
   // Seleciona a primeira partida por padrão
   if (nextRoundMatches.length > 0) {
     selectMatchForSimulation(nextRoundMatches[0], data);
   }
+}
+
+function setupCustomMatchSelector(data) {
+  const selHome = document.getElementById("custom-sim-home");
+  const selAway = document.getElementById("custom-sim-away");
+  const btn = document.getElementById("btn-custom-sim");
+  if (!selHome || !selAway || !btn) return;
+
+  const clubes = (data.dim_clubes || []).map(c => c.nome_popular).sort((a, b) => a.localeCompare(b));
+  selHome.innerHTML = clubes.map(c => `<option value="${c}">${c}</option>`).join("");
+  selAway.innerHTML = clubes.map(c => `<option value="${c}">${c}</option>`).join("");
+
+  // Padrão amigável: Atlético-MG x Chapecoense se existirem
+  if (clubes.includes("Atlético-MG")) selHome.value = "Atlético-MG";
+  if (clubes.includes("Chapecoense")) selAway.value = "Chapecoense";
+  else if (clubes.length > 1) selAway.value = clubes[1];
+
+  btn.addEventListener("click", () => {
+    const h = selHome.value;
+    const a = selAway.value;
+    if (h === a) {
+      alert("Por favor, selecione dois clubes diferentes para o confronto!");
+      return;
+    }
+    document.querySelectorAll(".fixture-card").forEach(c => c.classList.remove("active"));
+    selectMatchForSimulation({
+      mandante: h,
+      visitante: a,
+      data_formatada: "Confronto Selecionado"
+    }, data);
+  });
 }
 
 function selectMatchForSimulation(match, data) {
