@@ -790,6 +790,11 @@ function selectMatchForSimulation(match, data) {
 
   // Atualiza Benchmark de Odds de Mercado
   renderMarketBenchmark(match, pred, data);
+
+  // Abre/Atualiza o Dossiê do Confronto (Histórico + Momento + Previsão)
+  if (typeof openMatchDossier === "function") {
+    openMatchDossier(match, data);
+  }
 }
 
 function computePoisson(homeTeam, awayTeam, data) {

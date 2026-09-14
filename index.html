@@ -745,6 +745,28 @@
         </div>
 
       </div>
+
+      <!-- Dossiê do Confronto (Histórico + Momento + Previsão + Interpretação) -->
+      <div id="match-dossier-panel" class="card match-dossier-panel" style="display: none; margin-top: 24px; border: 1px solid rgba(255, 184, 0, 0.35); background: linear-gradient(180deg, rgba(17, 22, 34, 0.96) 0%, rgba(10, 14, 23, 0.98) 100%);">
+        <div style="display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--border-subtle); padding-bottom: 16px; margin-bottom: 20px;">
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <span style="font-size: 1.3rem;">⚔️</span>
+            <div>
+              <div style="display: flex; align-items: center; gap: 8px;">
+                <span class="badge" style="background: rgba(255,184,0,0.15); color: var(--accent-gold); font-size: 0.7rem; font-weight: 800;">DOSSIÊ DO CONFRONTO</span>
+              </div>
+              <p style="font-size: 0.825rem; color: var(--text-secondary); margin: 4px 0 0 0;">Passado · Presente · Previsão</p>
+            </div>
+          </div>
+          <button type="button" onclick="window.closeMatchDossier(event)" style="background: rgba(255,255,255,0.08); border: 1px solid var(--border-subtle); color: var(--text-primary); border-radius: 8px; padding: 6px 14px; cursor: pointer; font-size: 0.8rem; display: flex; align-items: center; gap: 6px; transition: all 0.2s ease; z-index: 10;">
+            <span>Fechar</span> ✕
+          </button>
+        </div>
+        <div id="match-dossier-content">
+          <!-- Injetado dinamicamente por assets/js/match_history.js -->
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -1055,10 +1077,10 @@
     })();
   </script>
 
-  <!-- Scripts -->
   <script src="assets/js/data.js?v=3.6"></script>
   <script src="assets/js/d3_charts.js?v=3.6"></script>
   <script src="assets/js/analytics_section.js?v=1.0"></script>
+  <script src="assets/js/match_history.js?v=1.0"></script>
   <script src="assets/js/app.js?v=3.7"></script>
 </body>
 </html>
