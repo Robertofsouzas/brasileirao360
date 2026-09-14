@@ -19,7 +19,7 @@
   <meta name="twitter:image" content="https://brasileirao360.vercel.app/assets/img/hero_tactical_banner.jpg">
   
   <!-- CSS Stylesheet -->
-  <link rel="stylesheet" href="assets/css/style.css?v=4.0">
+  <link rel="stylesheet" href="assets/css/style.css?v=4.1">
   <link rel="icon" href="https://crests.football-data.org/764.svg" type="image/svg+xml">
 
   <!-- D3.js v7 CDN (Visualizações Estatísticas Avançadas) -->
@@ -551,7 +551,7 @@
 
           <div class="simulator-box">
             <!-- Banner do Confronto Selecionado -->
-            <div class="match-showcase-banner" id="match-showcase-banner">
+            <div class="match-showcase-banner" id="match-showcase-banner" role="button" tabindex="0" title="Clique para abrir e direcionar para o Dossiê do Confronto">
               <div class="showcase-team home">
                 <img id="sim-home-crest" src="" alt="" class="showcase-crest">
                 <div class="showcase-team-name" id="sim-home-name">Palmeiras</div>
@@ -560,6 +560,7 @@
               <div class="showcase-vs-box">
                 <span class="showcase-vs-badge">VS</span>
                 <span class="showcase-match-date" id="sim-match-date">30/08/2026</span>
+                <span class="showcase-hint-pill" id="sim-open-dossier-pill">⚔️ Ver Dossiê ▼</span>
               </div>
               <div class="showcase-team away">
                 <img id="sim-away-crest" src="" alt="" class="showcase-crest">
@@ -610,6 +611,12 @@
                 <!-- Renderizado via JS -->
               </div>
             </div>
+
+            <!-- Botão Direcionador para o Dossiê -->
+            <button type="button" class="btn-dossier-shortcut" id="btn-open-dossier-shortcut" title="Clique para abrir e direcionar para o Dossiê do Confronto">
+              <span>⚔️ Abrir Dossiê Completo do Confronto (Histórico · Momento · Previsão)</span>
+              <span class="shortcut-arrow">▼</span>
+            </button>
           </div>
         </div>
 
@@ -1099,7 +1106,7 @@
   <script src="assets/js/data.js?v=4.1"></script>
   <script src="assets/js/d3_charts.js?v=3.6"></script>
   <script src="assets/js/analytics_section.js?v=1.1"></script>
-  <script src="assets/js/match_history.js?v=2.0"></script>
-  <script src="assets/js/app.js?v=4.1"></script>
+  <script src="assets/js/match_history.js?v=2.1"></script>
+  <script src="assets/js/app.js?v=4.2"></script>
 </body>
 </html>

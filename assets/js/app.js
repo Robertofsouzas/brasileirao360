@@ -722,7 +722,7 @@ function initPoissonSimulator(data) {
     card.addEventListener("click", () => {
       document.querySelectorAll(".fixture-card").forEach(c => c.classList.remove("active"));
       card.classList.add("active");
-      selectMatchForSimulation(m, data);
+      selectMatchForSimulation(m, data, true);
     });
 
     container.appendChild(card);
@@ -737,9 +737,37 @@ function initPoissonSimulator(data) {
   // Inicializa o Seletor Personalizado de Confrontos
   setupCustomMatchSelector(data);
 
-  // Seleciona a primeira partida por padrão
+  // Clique no Banner de Confronto dos Clubes direciona para o Dossiê (mesmo padrão de Times & Jogadores e Projeções)
+  const showcaseBanner = document.getElementById("match-showcase-banner");
+  if (showcaseBanner) {
+    showcaseBanner.addEventListener("click", () => {
+      if (currentSelectedMatch && typeof openMatchDossier === "function") {
+        openMatchDossier(currentSelectedMatch, data, true);
+      }
+    });
+    showcaseBanner.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        if (currentSelectedMatch && typeof openMatchDossier === "function") {
+          openMatchDossier(currentSelectedMatch, data, true);
+        }
+      }
+    });
+  }
+
+  // Botão atalho/direcionador explícito para o Dossiê
+  const btnShortcut = document.getElementById("btn-open-dossier-shortcut");
+  if (btnShortcut) {
+    btnShortcut.addEventListener("click", () => {
+      if (currentSelectedMatch && typeof openMatchDossier === "function") {
+        openMatchDossier(currentSelectedMatch, data, true);
+      }
+    });
+  }
+
+  // Seleciona a primeira partida por padrão (sem scroll automático no carregamento inicial)
   if (nextRoundMatches.length > 0) {
-    selectMatchForSimulation(nextRoundMatches[0], data);
+    selectMatchForSimulation(nextRoundMatches[0], data, false);
   }
 }
 
@@ -770,11 +798,11 @@ function setupCustomMatchSelector(data) {
       mandante: h,
       visitante: a,
       data_formatada: "Confronto Selecionado"
-    }, data);
+    }, data, true);
   });
 }
 
-function selectMatchForSimulation(match, data) {
+function selectMatchForSimulation(match, data, shouldScroll = false) {
   currentSelectedMatch = match;
 
   const homeMeta = data.dim_clubes.find(c => c.nome_popular === match.mandante) || {};
@@ -826,9 +854,9 @@ function selectMatchForSimulation(match, data) {
   // Atualiza Benchmark de Odds de Mercado
   renderMarketBenchmark(match, pred, data);
 
-  // Abre/Atualiza o Dossiê do Confronto (Histórico + Momento + Previsão)
+  // Abre/Atualiza o Dossiê do Confronto (Histórico + Momento + Previsão) e direciona quando acionado por clique
   if (typeof openMatchDossier === "function") {
-    openMatchDossier(match, data);
+    openMatchDossier(match, data, shouldScroll);
   }
 }
 

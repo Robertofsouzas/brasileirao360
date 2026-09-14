@@ -1110,6 +1110,73 @@ body {
   border-radius: var(--radius-md);
   padding: 16px 20px;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.match-showcase-banner:hover {
+  border-color: rgba(255, 184, 0, 0.5);
+  box-shadow: 0 6px 24px rgba(255, 184, 0, 0.15), 0 0 16px rgba(0, 229, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+.showcase-hint-pill {
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--accent-gold);
+  background: rgba(255, 184, 0, 0.12);
+  border: 1px solid rgba(255, 184, 0, 0.3);
+  padding: 2px 8px;
+  border-radius: 12px;
+  margin-top: 4px;
+  letter-spacing: 0.3px;
+  transition: all 0.2s ease;
+  display: inline-block;
+}
+
+.match-showcase-banner:hover .showcase-hint-pill {
+  background: var(--accent-gold);
+  color: #000;
+  box-shadow: 0 0 10px rgba(255, 184, 0, 0.4);
+}
+
+/* Botão Direcionador para o Dossiê */
+.btn-dossier-shortcut {
+  width: 100%;
+  margin-top: 14px;
+  padding: 11px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(135deg, rgba(255, 184, 0, 0.08), rgba(0, 229, 255, 0.05));
+  border: 1px solid rgba(255, 184, 0, 0.35);
+  border-radius: var(--radius-sm);
+  color: var(--accent-gold);
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.btn-dossier-shortcut:hover {
+  background: linear-gradient(135deg, rgba(255, 184, 0, 0.2), rgba(0, 229, 255, 0.12));
+  border-color: var(--accent-gold);
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 18px rgba(255, 184, 0, 0.22);
+}
+
+.btn-dossier-shortcut .shortcut-arrow {
+  font-size: 0.85rem;
+  color: var(--accent-gold);
+  transition: transform 0.2s ease;
+}
+
+.btn-dossier-shortcut:hover .shortcut-arrow {
+  transform: translateY(2px);
+  color: #fff;
 }
 
 .showcase-team {
@@ -3023,13 +3090,24 @@ body {
    ========================================================================== */
 
 .match-dossier-panel {
+  scroll-margin-top: 90px;
   opacity: 0;
   transform: translateY(16px);
-  transition: opacity 0.35s ease, transform 0.35s ease;
+  transition: opacity 0.35s ease, transform 0.35s ease, border-color 0.3s ease;
 }
 .match-dossier-panel.open {
   opacity: 1;
   transform: translateY(0);
+}
+
+@keyframes dossierGlowHighlight {
+  0% { box-shadow: 0 0 0 rgba(255, 184, 0, 0); }
+  35% { box-shadow: 0 0 32px rgba(255, 184, 0, 0.45); border-color: var(--accent-gold) !important; }
+  100% { box-shadow: 0 0 0 rgba(255, 184, 0, 0); }
+}
+
+.match-dossier-panel.dossier-pulse {
+  animation: dossierGlowHighlight 1.4s ease-out;
 }
 
 /* --- Cabeçalho do Confronto --- */

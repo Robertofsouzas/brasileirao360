@@ -895,9 +895,9 @@ window.setH2HScope = function(scope) {
 };
 
 /**
- * Abre o dossiê para a partida selecionada.
+ * Abre o dossiê para a partida selecionada e direciona (scroll suave) quando acionado por clique.
  */
-function openMatchDossier(match, data) {
+function openMatchDossier(match, data, shouldScroll = false) {
   const panel = document.getElementById("match-dossier-panel");
   if (!panel) return;
 
@@ -907,6 +907,15 @@ function openMatchDossier(match, data) {
   panel.style.display = "block";
   requestAnimationFrame(() => {
     panel.classList.add("open");
+    if (shouldScroll) {
+      setTimeout(() => {
+        panel.scrollIntoView({ behavior: "smooth", block: "start" });
+        panel.classList.remove("dossier-pulse");
+        void panel.offsetWidth;
+        panel.classList.add("dossier-pulse");
+        setTimeout(() => panel.classList.remove("dossier-pulse"), 1400);
+      }, 100);
+    }
   });
 }
 
